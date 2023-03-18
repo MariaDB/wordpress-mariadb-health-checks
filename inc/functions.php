@@ -60,3 +60,11 @@ function mdbhc_enable_errors() {
 
 }
 
+function printr($obj, $title = '') {
+
+  echo '<pre>';
+  echo '<h3>' . $title . '</h3>';
+  print_r($obj);
+  echo '</pre>';
+
+}
