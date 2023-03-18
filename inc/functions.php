@@ -8,37 +8,47 @@ defined('WPINC') || die;
 
 /**
  * Get template content
- * 
- * @param  string   $template_path Template path
- * @param  array    $args          Template arguments
- * @param  boolean  $echo          Print template content
+ *
+ * @param string $template_path Template path
+ * @param array $args Template arguments
+ * @param boolean $echo Print template content
  * @return string
  */
-function mdbhc_template($template_path, $args = array(), $echo = false) {
+function mdbhc_template($template_path, $args = array(), $echo = false)
+{
 
-  $template_path = $template_path . '.php';
+    $template_path = $template_path . '.php';
 
-  ob_start();
+    ob_start();
 
-  mdbhc_inc($template_path, $args);
+    mdbhc_inc($template_path, $args);
 
-  if ( !$echo ) return ob_get_clean();
+    if (!$echo) return ob_get_clean();
 
-  return ob_get_clean();
+    return ob_get_clean();
 
 }
 
 /**
  * Print template content
- * 
- * @param  string   $template_path Template path
- * @param  array    $args          Template arguments
- * @param  boolean  $echo          Print template content
+ *
+ * @param string $template_path Template path
+ * @param array $args Template arguments
+ * @param boolean $echo Print template content
  * @return string
  */
-function mdbhc__template($template_path, $args = array()) {
+function mdbhc__template($template_path, $args = array())
+{
 
-  echo mdbhc_template($template_path, $args, true);
+    echo mdbhc_template($template_path, $args, true);
 
 }
 
+
+/**
+ * Create the function to output the content of our Dashboard Widget.
+ */
+function mariadb_health_check_widget_render()
+{
+    echo file_get_contents(WP_PLUGIN_DIR . '/mariadb-health-checks/templates/admin/widget.php');
+}
