@@ -24,7 +24,7 @@ class AdminScreen
         wp_enqueue_style('mdbhc--styles', mdbhc_url('css/styles.css'));
 
         wp_enqueue_script('mdbhc--scripts', mdbhc_url('js/scripts.js'), array(), false, true);
-        wp_enqueue_script('mdbhc--alpinejs', '//unpkg.com/alpinejs', array(), null, true);
+        wp_enqueue_script('mdbhc--alpinejs', mdbhc_url('js/alpine.3.12.0.min.js'), array(), null, true);
 
     }
 
