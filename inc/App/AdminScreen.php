@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @package MariaDB_Health_Checks
  * @version 1.0.0
@@ -15,7 +16,6 @@ class AdminScreen
         add_action('admin_enqueue_scripts', array($this, 'admin_enqueues'));
         add_action('admin_menu', array($this, 'admin_menu'));
         add_action('wp_dashboard_setup', array($this, 'admin_mdbhc_add_dashboard_widgets'));
-
     }
 
     public function admin_enqueues()
@@ -23,9 +23,9 @@ class AdminScreen
 
         wp_enqueue_style('mdbhc--styles', mdbhc_url('css/styles.css'));
 
+        wp_enqueue_script('mdbhc--chartjs', '//cdn.jsdelivr.net/npm/chart.js', array(), null, true);
         wp_enqueue_script('mdbhc--scripts', mdbhc_url('js/scripts.js'), array(), false, true);
         wp_enqueue_script('mdbhc--alpinejs', mdbhc_url('js/alpine.3.12.0.min.js'), array(), null, true);
-
     }
 
     public function admin_menu()
@@ -39,14 +39,12 @@ class AdminScreen
             'mdbhc',
             array($this, 'admin_screen_template')
         );
-
     }
 
     public function admin_screen_template()
     {
 
         mdbhc__template('templates/admin/main');
-
     }
 
     /**
@@ -71,6 +69,4 @@ class AdminScreen
             'high');
         */
     }
-
 }
-
