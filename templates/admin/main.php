@@ -1,6 +1,6 @@
 <!-- <pre> -->
 <?php
-
+//require_once 'inc/App/Histograms.php'
 // echo get_num_queries();
 
 // echo '<br>';
@@ -48,7 +48,17 @@
 		esc_html_e('ALARMS Blah blah blah', 'mdbhc');
 		echo '</p>';
 	}
-	if ('warnings' === $active_tab) {
+    if ('warnings' === $active_tab) {
+        $histograms = new MDBHC\Histograms();
+	$res = $histograms->check();
+	if ($res == -1) {
+	    echo 'Error checking Histograms, you may not have the correct permissions';
+	} else if ($res == 1) {
+            echo 'Histograms have been run!';
+        } else {
+            echo 'Histograms have not been run!';
+	}
+	echo 'Last histogram run: ' . $histograms->last();
 		echo '<p>';
 		esc_html_e('WARNINGS Blah blah blah', 'mdbhc');
 		echo '</p>';
