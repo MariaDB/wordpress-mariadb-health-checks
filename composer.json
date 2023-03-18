@@ -1,0 +1,15 @@
+{
+  "name": "ahmadkarim/mariadb-health-checks",
+  "authors": [
+    {
+      "name": "Ahmad Karim",
+      "email": "ahmad.karim@redis.com"
+    }
+  ],
+  "autoload": {
+    "psr-4": {
+      "MDBHC\\": "inc/App"
+    }
+  },
+  "require": {}
+}
