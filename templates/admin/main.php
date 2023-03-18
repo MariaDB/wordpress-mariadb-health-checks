@@ -1,5 +1,3 @@
-<h2>MariaDB Health Checks</h2>
-
 <!-- <pre> -->
 <?php
 
