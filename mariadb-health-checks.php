@@ -21,5 +21,13 @@ define( 'MDBHC_DIR', plugin_dir_path( __FILE__ ) );
 
 require_once 'inc/bootstrap.php';
 
+register_activation_hook( __FILE__, 'mdbhc_activation' );
+
+function mdbhc_activation() {
+
+  (new \MDBHC\PluginActivation())::index();
+
+}
+
 new \MDBHC\AdminScreen();
 
