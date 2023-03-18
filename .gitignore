@@ -1,0 +1,4 @@
+# Exclude files/folders
+RESOURCES/
+.sass-cache
+.DS_Store
