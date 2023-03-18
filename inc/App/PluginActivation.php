@@ -83,7 +83,9 @@ class PluginActivation {
 
     $record = $wpdb->get_var( "SELECT COUNT(*) from $table_name where id = 1" );
 
-    if ( !is_null($record) ) return;
+    // print_r($record);exit;
+
+    if ( $record ) return;
 
     $charset_collate = $wpdb->get_charset_collate();
 
