@@ -65,5 +65,6 @@ mdbhc_inc(array(
   'vendor/autoload.php',
   'inc/constants.php',
   'inc/functions.php',
+  'inc/hooks.php',
 ));
 
