@@ -22,10 +22,11 @@
 <?php
 	$executionTime = new MDBHC\ExecutionTime();
 	$executionTimeAjax = new MDBHC\AdminScreen();
-  echo '<table class="wp-list-table widefat"><tr><th>Date / Time</th><th>Average Exection Time (μS)</th><th>Average Queries</th></tr>';
+  echo '<table class="wp-list-table widefat striped table-view-list"><thead><tr><th>Date / Time</th><th>Average Exection Time (μS)</th><th>Average Queries</th></tr></thead>';
+	echo '<tbody id="the-list">';
   $execTime = $executionTime->get_raw();
   foreach ($execTime as $value) {
-		echo '<tr><td>' . date("Y-m-d H:00", strtotime('-' . $value['hours-ago'] . ' hour')) . '</td><td>' . round($value['avg-seconds'] * 1000000) . '</td><td>' . round($value['queries-num']) . '</td></tr>';
+		echo '<tr class="inactive"><td>' . date("Y-m-d H:00", strtotime('-' . $value['hours-ago'] . ' hour')) . '</td><td>' . round($value['avg-seconds'] * 1000000) . '</td><td>' . round($value['queries-num']) . '</td></tr>';
   }
-	echo '</table>';
+	echo '</tbody></table>';
 ?>
