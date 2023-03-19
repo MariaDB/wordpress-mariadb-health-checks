@@ -15,7 +15,7 @@ if ( $dbInformation['isMariaDB'] ) {
 		); ?>
 	</p>
 <?php if ( $dbInformation['isEndOfLive'] ) { ?>
-		<p><?php _e( 'Your version is end of live. Please update your MariaDB database to a newer version.', 'mdbhc' ); ?></p>
+		<p><?php _e( 'Your version is past end of life. Please update your MariaDB database to a newer version.', 'mdbhc' ); ?></p>
 		<p><?php printf(
 					__( 'See <a href="%1$s" target="_blank">MariaDB version list</a> to get more details about the different versions.', 'mdbhc' ),
 					$mariaDBUrl,

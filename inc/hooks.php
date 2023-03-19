@@ -57,6 +57,11 @@ function histograms_test() {
 	if($histograms->check() == 0) {
 		$result['status'] = 'recommended';
 		$result['description'] = 'MariaDB Histograms have not been run!';
+		return $result;
+	} else {
+		$result['status'] = 'recommended';
+		$result['description'] = 'You do not have permissions to check MariaDB Histograms. Add grants to the mysql.*_stats tables to add support here.';
+		return $result;
 	}
 
 	if($histograms->isReRunNeeded()) {
