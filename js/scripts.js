@@ -36,14 +36,14 @@ jQuery(document).ready(function ($) {
 						y: {
 							beginAtZero: true,
 						},
-						x: {
-							ticks: {
-								callback: function (val, index) {
-									//return index % 2 === 0 ? this.getLabelForValue(val) : "";
-									return this.getLabelForValue(val);
-								},
-							},
-						},
+						// x: {
+						// 	ticks: {
+						// 		callback: function (val, index) {
+						// 			//return index % 2 === 0 ? this.getLabelForValue(val) : "";
+						// 			return this.getLabelForValue(val);
+						// 		},
+						// 	},
+						// },
 					},
 				},
 			});
