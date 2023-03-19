@@ -49,7 +49,8 @@ function mdbhc__template($template_path, $args = array())
  */
 function mariadb_health_check_widget_render()
 {
-	echo file_get_contents(WP_PLUGIN_DIR . '/mariadb-health-checks/templates/admin/widget.php');
+	mdbhc__template( 'templates/admin/widget' );
+
 }
 
 function mdbhc_enable_errors()
