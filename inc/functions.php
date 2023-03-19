@@ -110,8 +110,8 @@ function getAllDbInformation() {
 	$debug = false;
 	global $wpdb;
 	$GeneralData = new MDBHC\GeneralData();
-	$gd   = $GeneralData->get();
-	$data = [
+	$gd          = $GeneralData->get();
+	$data        = [
 		'fullVersion' => getFullDatabaseVersion(),
 		'eol'         => '',
 		'isEndOfLive' => false,
@@ -130,10 +130,10 @@ function getAllDbInformation() {
 	$data['dbVersionShort'] .= $versionSplit2[1] ?: '0';
 
 	/* Test DB Versions */
-	if($debug){
-		$data['dbVersion'] = '10.0.11';
+	if ( $debug ) {
+		$data['dbVersion']      = '10.0.11';
 		$data['dbVersionShort'] = '10.0';
-		$data['fullVersion'] = '10.0.11-MariaDB-1:10.3.37+maria~ubu2004-log';
+		$data['fullVersion']    = '10.0.11-MariaDB-1:10.3.37+maria~ubu2004-log';
 	}
 
 	if ( $data['isMariaDB'] ) {
