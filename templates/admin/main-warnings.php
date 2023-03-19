@@ -58,7 +58,7 @@ print_r($executionTime->get());
 <div id="metabox" class="postbox" style="max-width: 400px">
 	<div class="inside">
 		<div class="main">
-		<h2 class="hndle ui-sortable-handle"><span>MariaDB Histograms</span></h2>
+		<h2><span>MariaDB Histograms</span></h2>
 <?php
 	if ($hasHistograms == 0) {
 		echo '<p>';
