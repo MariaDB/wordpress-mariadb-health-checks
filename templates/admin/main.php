@@ -1,6 +1,10 @@
 <h2>MariaDB Health Checks</h2>
 <!-- <pre> -->
 <?php
+echo '<p>DB Execution Time Graph</p>';
+$executionTime = new MDBHC\ExecutionTime();
+
+print_r($executionTime->get());
 //require_once 'inc/App/Histograms.php'
 // echo get_num_queries();
 
