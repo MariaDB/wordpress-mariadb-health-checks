@@ -9,7 +9,11 @@
 	</h2>
 	<?php
 	if ('general' === $active_tab) {
-		mdbhc__template( 'templates/admin/main-general' );
+		echo '<p>';
+		esc_html_e('Blah blah blah', 'mdbhc');
+		echo '</p>';
+		echo '<div><canvas id="mdbhc-chart"></canvas></div>';
+		mdbhc__template('templates/admin/main-general');
 	}
 	if ( 'data' === $active_tab ) {
 		mdbhc__template( 'templates/admin/main-data' );
