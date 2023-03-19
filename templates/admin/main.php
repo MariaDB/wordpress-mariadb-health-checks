@@ -26,7 +26,11 @@ $executionTimeAjax = new MDBHC\AdminScreen();
         mdbhc__template('templates/admin/main-alarms');
 	}
 	if ('warnings' === $active_tab) {
+<<<<<<< HEAD
 		mdbhc__template('templates/admin/main-warnings');
+=======
+        mdbhc__template('templates/admin/main-warnings');
+>>>>>>> origin/main
 	}
 	if ('events' === $active_tab) {
         mdbhc__template('templates/admin/main-events');
