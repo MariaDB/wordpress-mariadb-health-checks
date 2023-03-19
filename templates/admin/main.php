@@ -1,7 +1,10 @@
 <h2><?php _e( 'MariaDB Health Checks', 'mdbhc' ); ?></h2>
-<div>
-	<canvas id="mdbhc-chart"></canvas>
-</div>
+<!-- <pre> -->
+<?php
+echo '<p>DB Execution Time Graph</p>';
+$executionTime = new MDBHC\ExecutionTime();
+$executionTimeAjax = new MDBHC\AdminScreen();
+?>
 <div class="wrap">
 	<?php settings_errors(); ?>
 	<?php $active_tab = isset($_GET['tab']) ? strval($_GET['tab']) : 'general'; ?>
@@ -13,6 +16,10 @@
 	</h2>
 	<?php
 	if ('general' === $active_tab) {
+		echo '<p>';
+		esc_html_e('Blah blah blah', 'mdbhc');
+		echo '</p>';
+		echo '<div><canvas id="mdbhc-chart"></canvas></div>';
         mdbhc__template('templates/admin/main-general');
 	}
 	if ('alarms' === $active_tab) {
