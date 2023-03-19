@@ -3,7 +3,6 @@
 <?php
 echo '<p>DB Execution Time Graph</p>';
 
-mdbhc__template('templates/admin/notices');
 $executionTime = new MDBHC\ExecutionTime();
 $executionTimeAjax = new MDBHC\AdminScreen();
 ?>
@@ -17,6 +16,8 @@ $executionTimeAjax = new MDBHC\AdminScreen();
 		<a href="?page=mdbhc&tab=events" class="nav-tab <?php echo 'events' === $active_tab ? 'nav-tab-active' : ''; ?>"><?php esc_html_e('Events', 'mdbhc'); ?></a>
 	</h2>
 	<?php
+	mdbhc__template('templates/admin/notices');
+
 	if ('general' === $active_tab) {
 		echo '<p>';
 		esc_html_e('Blah blah blah', 'mdbhc');
