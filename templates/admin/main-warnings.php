@@ -39,10 +39,13 @@ print_r($executionTime->get());
 		echo '<p>';
 		esc_html_e('Error checking Histograms, you may not have the correct permissions');
 		echo '</p>';
+	} else if ($res == 1 && $histograms->isReRunNeeded()) {
+		echo '<p>';
+		esc_html_e('Last histogram run: ' . $histograms->last());
+		esc_html_e('Rerun is needed.');
+		echo '</p>';
 	} else if ($res == 1) {
 		echo '<p>';
-		esc_html_e('Histograms have been run!');
-		echo '</p><p>';
 		esc_html_e('Last histogram run: ' . $histograms->last());
 		echo '</p>';
 	} else {

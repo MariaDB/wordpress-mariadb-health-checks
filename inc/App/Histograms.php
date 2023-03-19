@@ -2,6 +2,8 @@
 
 namespace MDBHC;
 
+use \DateTime;
+
 class Histograms {
 
 	function __construct() {
@@ -26,6 +28,19 @@ class Histograms {
 	$query = "select UPDATE_TIME from information_schema.tables where table_schema='mysql' and table_name='table_stats';";
 	$result = $wpdb->get_var($query);
 	return $result;
+	}
+
+	public function isReRunNeeded() {
+		$lastRun = new DateTime($this->last());
+		$now = new DateTime();
+
+		$interval = $lastRun->diff($now);
+
+		if(90 < (int) $interval->format('%a')){
+			return true;
+		}
+
+		return false;
 	}
 
 	public function run() {
