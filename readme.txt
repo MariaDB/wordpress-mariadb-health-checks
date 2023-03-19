@@ -7,13 +7,14 @@ Requires PHP: 7.2
 Stable tag: 1.0.0
 License: GPLv2
 
-MariaDB Health Checks is a WordPress plugin that helps improve information about MariaDB on your server.
+MariaDB Health Checks helps you debug your MariaDB database with advanced information from your database.
 
 == Description ==
 
-MariaDB Health Checks is a WordPress plugin that helps improve information about MariaDB on your server.
+MariaDB Health Checks helps you debug your MariaDB database with advanced information from your database.
 
-You will receive notifications related to the version of MariaDB that is installed, runtimes, histograms and warnings.
+- Shows relevant information about the Database, Logs, Locale, Connnections, Character Set and Collation, and Options.
+- Shows a Histogram (7 days by  default) and its data.
 
 == Installation ==
 
@@ -30,3 +31,5 @@ Extract the contents of the ZIP and upload the contents to the `/wp-content/plug
 = 1.0.0 =
 
 * First Release
+* Shows relevant information about the Database.
+* Shows a Histogram and its data.
