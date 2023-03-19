@@ -28,7 +28,6 @@ if ($hasHistograms != 0) {
 
 ?>
 <h3><?php _e( 'MariaDB Warnings', 'mdbhc' ); ?></h3>
-<p>Blah blah blah</p>
 <?php
 
 echo '<p>DB Execution Time Graph</p>';
@@ -55,7 +54,12 @@ print_r($executionTime->get());
 // printr( get_class_methods($wpdb->queries[0]['trace']) , '$wpdb->queries');
 
 // printr($query_times_all, '$query_times_all');
-
+?>
+<div id="metabox" class="postbox" style="max-width: 400px">
+	<div class="inside">
+		<div class="main">
+		<h2 class="hndle ui-sortable-handle"><span>MariaDB Histograms</span></h2>
+<?php
 	if ($hasHistograms == 0) {
 		echo '<p>';
 		esc_html_e('Unfortunately your MariaDB version is too old to support optimizer histograms.');
@@ -82,7 +86,7 @@ print_r($executionTime->get());
 			echo '</p>';
 		}
 	}
-	echo '<p>';
-	esc_html_e('WARNINGS Blah blah blah', 'mdbhc');
-	echo '</p>';
 ?>
+		</div>
+	</div>
+</div>
