@@ -4,38 +4,25 @@ namespace MDBHC;
 
 class ExecutionTime
 {
-
-	private $timeStart;
+	public const TABLE_NAME = 'mariadb_execution_time';
 
 	function __construct()
 	{
 	}
 
-	public function start()
-	{
-		$this->timeStart = microtime(true);
-	}
-
-	public function stop()
-	{
-		$timeIntervall = $this->timeStart - microtime(true);
-		$this->insert($timeIntervall);
-	}
-
-	private function insert($timeIntervall)
+	public static function save_average_query_execution_time()
 	{
 		global $wpdb;
 
+		$average = $wpdb->total_query_time / $wpdb->num_queries;
+
 		$wpdb->insert(
-			'mariadb_execution_time',
+			$wpdb->prefix . self::TABLE_NAME,
 			[
-				'seconds' => $timeIntervall,
-			],
-			[
-				'%f',
+				'seconds' => $average,
+				'queries_num' => $wpdb->num_queries
 			]
 		);
-
 	}
 
 	public function get()
