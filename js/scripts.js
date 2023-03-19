@@ -10,7 +10,6 @@ jQuery(document).ready(function ($) {
 			let data = [];
 
 			response.forEach((res) => {
-				console.log(res);
 				data.push(res["microseconds"]);
 				labels.push(res["date"]);
 			});
