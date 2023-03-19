@@ -53,12 +53,13 @@ function histograms_test() {
 	);
 
 	$histograms = new MDBHC\Histograms();
+	$histogramsCheck = $histograms->check();
 
-	if($histograms->check() == 0) {
+	if($histogramsCheck == 0) {
 		$result['status'] = 'recommended';
 		$result['description'] = 'MariaDB Histograms have not been run!';
 		return $result;
-	} else {
+	} else if ($histogramsCheck == -1) {
 		$result['status'] = 'recommended';
 		$result['description'] = 'You do not have permissions to check MariaDB Histograms. Add grants to the mysql.*_stats tables to add support here.';
 		return $result;
