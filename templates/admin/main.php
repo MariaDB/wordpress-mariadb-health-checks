@@ -45,7 +45,6 @@ $executionTimeAjax = new MDBHC\AdminScreen();
 		esc_html_e('Blah blah blah', 'mdbhc');
 		echo '</p>';
 		echo '<div><canvas id="mdbhc-chart"></canvas></div>';
-		echo '<button class="clickme">Click me</button>';
 	}
 	if ('alarms' === $active_tab) {
 		echo '<p>';
