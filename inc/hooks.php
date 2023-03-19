@@ -6,30 +6,42 @@
 
 defined('WPINC') || die;
 
+global $wpdb;
+
+class MDB_DB extends wpdb {
+	public $total_query_time = 0.0;
+
+	public function loadFromParentObj( $parentObj )
+	{
+		$objValues = get_object_vars($parentObj); // return array of object values
+		foreach($objValues AS $key=>$value)
+		{
+			$this->$key = $value;
+		}
+	}
+	public function query( $query ) {
+		$this->timer_start();
+		$result = parent::query( $query );
+		$this->total_query_time += $this->timer_stop();
+		return $result;
+	}
+}
+
+$tmp = new MDB_DB( DB_USER, DB_PASSWORD, DB_NAME, DB_HOST );
+$tmp->loadFromParentObj( $wpdb );
+$wpdb = $tmp;
+
 function mdbhc_save_average_query_execution_time() {
 
-  if ( !defined('SAVEQUERIES') ) return;
+	global $wpdb;
 
-  global $wpdb;
+	$average = $wpdb->total_query_time / $wpdb->num_queries;
 
-  $queries = $wpdb->queries;
-  $query_times = array();
+	$table_name = $wpdb->prefix . 'mariadb_execution_time';
 
-  foreach ( $queries as $key => $value ) {
-
-    $query_time = $value[1];
-
-    $query_times[] = $query_time;
-
-  }
-
-  $average = array_sum($query_times) / count($query_times);
-
-  $table_name = $wpdb->prefix . 'mariadb_execution_time';
-
-  $wpdb->insert($table_name, array(
-    'seconds' => $average,
-    'queries_num' => $wpdb->num_queries,
+	$wpdb->insert($table_name, array(
+		'seconds' => $average,
+		'queries_num' => $wpdb->num_queries,
   ));
 
 }
