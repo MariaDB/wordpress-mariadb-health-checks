@@ -42,12 +42,12 @@ function mdbhc_save_average_query_execution_time()
 function histograms_test() {
 	$result = array(
 		'status'      => 'good',
-		'label'       => 'Histogram Test',
+		'label'       => 'MariaDB Histogram Test',
 		'badge'       => array(
 			'label' =>  __( 'Performance' ),
 			'color' => 'blue',
 		),
-		'description' => 'Histograms are up to date',
+		'description' => 'MariaDB Histograms are up to date',
 		'actions'     => '',
 		'test'        => 'histograms_test',
 	);
@@ -56,7 +56,7 @@ function histograms_test() {
 
 	if($histograms->check() == 0) {
 		$result['status'] = 'recommended';
-		$result['description'] = 'Histograms have not been run!';
+		$result['description'] = 'MariaDB Histograms have not been run!';
 	}
 
 	if($histograms->isReRunNeeded()) {
@@ -68,23 +68,23 @@ function histograms_test() {
 }
 
 function maria_db_version_test() {
+	$dbInformation = getAllDbInformation();
+	$supported_text = 'The version of your MariaDB is fully supported until ' . $dbInformation['eol'];
 	$result = array(
 		'status'      => 'good',
-		'label'       => 'Maria DB Version Test',
+		'label'       => 'MariaDB Version Test',
 		'badge'       => array(
 			'label' =>  __( 'Performance' ),
 			'color' => 'blue',
 		),
-		'description' => 'The version of your MariaDB is fully supported until now.',
+		'description' => $supported_text,
 		'actions'     => '',
 		'test'        => 'maria_db_version_test',
 	);
 
-	$dbInformation = getAllDbInformation();
-
 	if($dbInformation['isEndOfLive']) {
 		$result['status'] = 'critical';
-		$result['description'] = 'Your version is end of live. Please update your MariaDB database to a newer version.';
+		$result['description'] = 'Your version is past end of life. Please update your MariaDB database to a newer version.';
 	}
 
 	return $result;
