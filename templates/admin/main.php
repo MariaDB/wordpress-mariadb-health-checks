@@ -22,10 +22,6 @@ $executionTimeAjax = new MDBHC\AdminScreen();
 	mdbhc__template('templates/admin/notices');
 
 	if ('general' === $active_tab) {
-		echo '<p>';
-		esc_html_e('Blah blah blah', 'mdbhc');
-		echo '</p>';
-		*/
 		echo '<div><canvas id="mdbhc-chart"></canvas></div>';
 		mdbhc__template( 'templates/admin/main-general' );
 	}
