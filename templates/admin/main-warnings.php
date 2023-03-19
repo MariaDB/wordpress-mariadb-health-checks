@@ -2,7 +2,7 @@
 function showMessage() {
 if (window.confirm('Histograms assist the MariaDB optimizer in making better decisions on how to execute a query to rerieve data. For WordPress this can mean up to a 30x performance improvement. Click "OK" to find out more.'))
 {
-	window.location.href='https://mariadb.org/mariadb-30x-faster/';
+	window.open('https://mariadb.org/mariadb-30x-faster/', '_blank');
 };
 }
 </script>
@@ -51,10 +51,14 @@ print_r($executionTime->get());
 			echo '<p>';
 			esc_html_e('Error checking Histograms, you may not have the correct permissions');
 			echo '</p>';
+		} else if ($res == 1 && $histograms->isReRunNeeded()) {
+			echo '<p>';
+			esc_html_e('Last histogram run: ' . $histograms->last());
+			echo '</p><p>';
+			esc_html_e('Rerun is needed.');
+			echo '</p>';
 		} else if ($res == 1) {
 			echo '<p>';
-			esc_html_e('Histograms have been run!');
-			echo '</p><p>';
 			esc_html_e('Last histogram run: ' . $histograms->last());
 			echo '</p>';
 		} else {
@@ -62,9 +66,9 @@ print_r($executionTime->get());
 			esc_html_e('Histograms have not been run!');
 			echo '<p>';
 		}
-		echo ' <a onClick="showMessage()">Read more about MariaDB Histograms</a>.</p>';
+		echo ' <a href="" onClick="showMessage()">Read more about MariaDB Histograms</a>.</p>';
 		if ($res != -1) {
-		echo '<p>';
+			echo '<p>';
 			echo '<a href="?page=mdbhc&tab=warnings&runhistograms" class="button button-primary">Run histograms</a>';
 			echo '</p>';
 		}

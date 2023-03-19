@@ -2,8 +2,9 @@
 
 namespace MDBHC;
 
-class Histograms
-{
+use \DateTime;
+
+class Histograms {
 
 	function __construct()
 	{
@@ -18,11 +19,13 @@ class Histograms
 
 	public function check() {
 		global $wpdb;
-		$query = "select count(*) from mysql.table_stats where db_name = '" . DB_NAME . "' and table_name LIKE '" . $wpdb->prefix . "%';";
+		$query = "show create table mysql.table_stats;";
 		$ret = $wpdb->getOriginal()->get_var($query);
-		if ($wpdb->last_error) {
+		if (!$ret) {
 			return -1;
 		}
+		$query = "select count(*) from mysql.table_stats where db_name = '" . DB_NAME . "' and table_name LIKE '" . $wpdb->prefix . "%';";
+		$ret = $wpdb->getOriginal()->get_var($query);
 
 		if ($ret > 0) {
 			return 1;
@@ -38,9 +41,21 @@ class Histograms
 		return $result;
 	}
 
-	public function run()
-	{
-		global $wpdb;
+	public function isReRunNeeded() {
+		$lastRun = new DateTime($this->last());
+		$now = new DateTime();
+
+		$interval = $lastRun->diff($now);
+
+		if(90 < (int) $interval->format('%a')){
+			return true;
+		}
+
+		return false;
+	}
+
+	public function run() {
+	global $wpdb;
 		// TODO: check that we have permissions for mysql privileges tables
 		foreach ($wpdb->tables as $value) {
 			$query = "ANALYZE TABLE " . DB_NAME . "." . $wpdb->prefix . $value . " PERSISTENT FOR ALL;";
