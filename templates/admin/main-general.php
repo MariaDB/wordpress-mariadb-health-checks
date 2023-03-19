@@ -329,8 +329,8 @@ if ('logs' === $active_stab) {
 		$mdbhc_gd_logs = false;
 	?>
 		<tr>
-			<td><?php
-				/* translators: *** Please, some context here *** */
+			<td><a href="https://mariadb.com/kb/en/server-system-variables/#log_error" target="_blank" title="<?php _e( wp_kses( 'Specifies the name of the error log. MariaDB always writes its error log, but the destination is configurable.', 'strip' ), 'mdbhc' ); ?>"><small><span class="dashicons dashicons-info"></span></small></a> <?php
+				/* translators: Specifies the name of the error log. */
 				_e( 'Error', 'mdbhc' );
 			?></td>
 			<td><?php echo $mdbhc_gd['log_error']; ?></td>
@@ -341,8 +341,8 @@ if ('logs' === $active_stab) {
 		$mdbhc_gd_logs = false;
 	?>
 		<tr>
-			<td><?php
-				/* translators: *** Please, some context here *** */
+			<td><a href="https://mariadb.com/kb/en/server-system-variables/#slow_query_log" target="_blank" title="<?php _e( wp_kses( 'If set to 0, the default unless the --slow-query-log option is used, the slow query log is disabled, while if set to 1 (both global and session variables), the slow query log is enabled. From MariaDB 10.11.0, an alias for log_slow_query.', 'strip' ), 'mdbhc' ); ?>"><small><span class="dashicons dashicons-info"></span></small></a> <?php
+				/* translators: If set to 0, the default unless the --slow-query-log option is used, the slow query log is disabled, while if set to 1 (both global and session variables), the slow query log is enabled. */
 				_e( 'Slow queries', 'mdbhc' );
 			?></td>
 			<td><?php echo $mdbhc_gd['slow_query_log']; ?></td>
@@ -353,8 +353,8 @@ if ('logs' === $active_stab) {
 		$mdbhc_gd_logs = false;
 	?>
 		<tr>
-			<td><?php
-				/* translators: *** Please, some context here *** */
+			<td><a href="https://mariadb.com/kb/en/server-system-variables/#slow_query_log_file" target="_blank" title="<?php _e( wp_kses( 'Name of the slow query log file. From MariaDB 10.11, an alias for log_slow_query_file.', 'strip' ), 'mdbhc' ); ?>"><small><span class="dashicons dashicons-info"></span></small></a> <?php
+				/* translators: Name of the slow query log file. */
 				_e( 'Slow queries file', 'mdbhc' );
 			?></td>
 			<td><?php echo $mdbhc_gd['slow_query_log_file']; ?></td>
@@ -379,8 +379,7 @@ if ('locale' === $active_stab) {
 		$mdbhc_gd_datetime = false;
 	?>
 		<tr>
-			<td><?php
-				/* translators: *** Please, some context here *** */
+			<td><a href="https://mariadb.com/kb/en/server-system-variables/#date_format" target="_blank" title="<?php _e( wp_kses( 'Unused.', 'strip' ), 'mdbhc' ); ?>"><small><span class="dashicons dashicons-info"></span></small></a> <?php
 				_e( 'Date format', 'mdbhc' );
 			?></td>
 			<td><?php echo $mdbhc_gd['date_format']; ?></td>
@@ -391,8 +390,7 @@ if ('locale' === $active_stab) {
 		$mdbhc_gd_datetime = false;
 	?>
 		<tr>
-			<td><?php
-				/* translators: *** Please, some context here *** */
+			<td><a href="https://mariadb.com/kb/en/server-system-variables/#time_format" target="_blank" title="<?php _e( wp_kses( 'Unused.', 'strip' ), 'mdbhc' ); ?>"><small><span class="dashicons dashicons-info"></span></small></a> <?php
 				_e( 'Time format', 'mdbhc' );
 			?></td>
 			<td><?php echo $mdbhc_gd['time_format']; ?></td>
@@ -403,8 +401,7 @@ if ('locale' === $active_stab) {
 		$mdbhc_gd_datetime = false;
 	?>
 		<tr>
-			<td><?php
-				/* translators: *** Please, some context here *** */
+			<td><a href="https://mariadb.com/kb/en/server-system-variables/#datetime_format" target="_blank" title="<?php _e( wp_kses( 'Unused.', 'strip' ), 'mdbhc' ); ?>"><small><span class="dashicons dashicons-info"></span></small></a> <?php
 				_e( 'Date/Time format', 'mdbhc' );
 			?></td>
 			<td><?php echo $mdbhc_gd['datetime_format']; ?></td>
@@ -415,8 +412,8 @@ if ('locale' === $active_stab) {
 		$mdbhc_gd_datetime = false;
 	?>
 		<tr>
-			<td><?php
-				/* translators: *** Please, some context here *** */
+			<td><a href="https://mariadb.com/kb/en/server-system-variables/#timestamp" target="_blank" title="<?php _e( wp_kses( 'Sets the time for the client. This will affect the result returned by the NOW() function, not the SYSDATE() function, unless the server is started with the --sysdate-is-now option, in which case SYSDATE becomes an alias of NOW, and will also be affected. Also used to get the original timestamp when restoring rows from the binary log.', 'strip' ), 'mdbhc' ); ?>"><small><span class="dashicons dashicons-info"></span></small></a> <?php
+				/* translators: Sets the time for the client. */
 				_e( 'Timestamp', 'mdbhc' );
 			?></td>
 			<td><?php echo $mdbhc_gd['timestamp']; ?></td>
@@ -427,8 +424,8 @@ if ('locale' === $active_stab) {
 		$mdbhc_gd_datetime = false;
 	?>
 		<tr>
-			<td><?php
-				/* translators: *** Please, some context here *** */
+			<td><a href="https://mariadb.com/kb/en/server-system-variables/#time_zone" target="_blank" title="<?php _e( wp_kses( 'The global value determines the default time zone for sessions that connect. The session value determines the session\'s active time zone. When it is set to SYSTEM, the session\'s time zone is determined by the system_time_zone system variable. ', 'strip' ), 'mdbhc' ); ?>"><small><span class="dashicons dashicons-info"></span></small></a> <?php
+				/* translators: The global value determines the default time zone for sessions that connect. */
 				_e( 'TimeZone', 'mdbhc' );
 			?></td>
 			<td><?php echo $mdbhc_gd['time_zone']; ?></td>
@@ -439,8 +436,8 @@ if ('locale' === $active_stab) {
 		$mdbhc_gd_datetime = false;
 	?>
 		<tr>
-			<td><?php
-				/* translators: *** Please, some context here *** */
+			<td><a href="https://mariadb.com/kb/en/server-system-variables/#lc_messages" target="_blank" title="<?php _e( wp_kses( 'This system variable can be specified as a locale name. The language of the associated locale will be used for error messages. See Server Locales for a list of supported locales and their associated languages.', 'strip' ), 'mdbhc' ); ?>"><small><span class="dashicons dashicons-info"></span></small></a> <?php
+				/* translators: This system variable can be specified as a locale name. */
 				_e( 'Locale messages', 'mdbhc' );
 			?></td>
 			<td><?php echo $mdbhc_gd['lc_messages']; ?></td>
@@ -451,8 +448,8 @@ if ('locale' === $active_stab) {
 		$mdbhc_gd_datetime = false;
 	?>
 		<tr>
-			<td><?php
-				/* translators: *** Please, some context here *** */
+			<td><a href="https://mariadb.com/kb/en/server-system-variables/#lc_time_names" target="_blank" title="<?php _e( wp_kses( 'The locale that determines the language used for the date and time functions DAYNAME(), MONTHNAME() and DATE_FORMAT(). Locale names are language and region subtags, for example \'en_ZA\' (English - South Africa) or \'es_US: Spanish - United States\'. The default is always \'en-US\' regardless of the system\'s locale setting.', 'strip' ), 'mdbhc' ); ?>"><small><span class="dashicons dashicons-info"></span></small></a> <?php
+				/* translators: The locale that determines the language used for the date and time functions. */
 				_e( 'Locale time names', 'mdbhc' );
 			?></td>
 			<td><?php echo $mdbhc_gd['lc_time_names']; ?></td>
@@ -477,8 +474,8 @@ if ('conn' === $active_stab) {
 		$mdbhc_gd_conn = false;
 	?>
 		<tr>
-			<td><?php
-				/* translators: *** Please, some context here *** */
+			<td><a href="https://mariadb.com/kb/en/server-system-variables/#max_connections" target="_blank" title="<?php _e( wp_kses( 'The maximum number of simultaneous client connections.', 'strip' ), 'mdbhc' ); ?>"><small><span class="dashicons dashicons-info"></span></small></a> <?php
+				/* translators: The maximum number of simultaneous client connections. */
 				_e( 'Max Connections', 'mdbhc' );
 			?></td>
 			<td><?php echo $mdbhc_gd['max_connections']; ?></td>
@@ -489,8 +486,8 @@ if ('conn' === $active_stab) {
 		$mdbhc_gd_conn = false;
 	?>
 		<tr>
-			<td><?php
-				/* translators: *** Please, some context here *** */
+			<td><a href="https://mariadb.com/kb/en/server-system-variables/#max_user_connections" target="_blank" title="<?php _e( wp_kses( 'Maximum simultaneous connections permitted for each user account. When set to 0, there is no per user limit. Setting it to -1 stops users without the SUPER privilege or, from MariaDB 10.5.2, the CONNECTION ADMIN privilege, from connecting to the server. The session variable is always read-only and only privileged users can modify user limits.', 'strip' ), 'mdbhc' ); ?>"><small><span class="dashicons dashicons-info"></span></small></a> <?php
+				/* translators: Maximum simultaneous connections permitted for each user account. */
 				_e( 'Max Users Connections', 'mdbhc' );
 			?></td>
 			<td><?php echo $mdbhc_gd['max_user_connections']; ?></td>
@@ -501,8 +498,8 @@ if ('conn' === $active_stab) {
 		$mdbhc_gd_conn = false;
 	?>
 		<tr>
-			<td><?php
-				/* translators: *** Please, some context here *** */
+			<td><a href="https://mariadb.com/kb/en/server-system-variables/#max_connect_errors" target="_blank" title="<?php _e( wp_kses( 'Limit to the number of successive failed connects from a host before the host is blocked from making further connections. The count for a host is reset to zero if they successfully connect.', 'strip' ), 'mdbhc' ); ?>"><small><span class="dashicons dashicons-info"></span></small></a> <?php
+				/* translators: Limit to the number of successive failed connects from a host before the host is blocked from making further connections. */
 				_e( 'Max Connect errors', 'mdbhc' );
 			?></td>
 			<td><?php echo $mdbhc_gd['max_connect_errors']; ?></td>
@@ -513,8 +510,8 @@ if ('conn' === $active_stab) {
 		$mdbhc_gd_conn = false;
 	?>
 		<tr>
-			<td><?php
-				/* translators: *** Please, some context here *** */
+			<td><a href="https://mariadb.com/kb/en/server-system-variables/#max_error_count" target="_blank" title="<?php _e( wp_kses( 'Specifies the maximum number of messages stored for display by SHOW ERRORS and SHOW WARNINGS statements.', 'strip' ), 'mdbhc' ); ?>"><small><span class="dashicons dashicons-info"></span></small></a> <?php
+				/* translators: Specifies the maximum number of messages stored for display by SHOW ERRORS and SHOW WARNINGS statements. */
 				_e( 'Max error count', 'mdbhc' );
 			?></td>
 			<td><?php echo $mdbhc_gd['max_error_count']; ?></td>
@@ -539,8 +536,8 @@ if ('histogram' === $active_stab) {
 		$mdbhc_gd_histogram = false;
 	?>
 		<tr>
-			<td><?php
-				/* translators: *** Please, some context here *** */
+			<td><a href="https://mariadb.com/kb/en/server-system-variables/#histogram_size" target="_blank" title="<?php _e( wp_kses( 'Number of bytes used for a histogram, or, from MariaDB 10.7 when histogram_type is set to JSON_HB, number of buckets. If set to 0, no histograms are created by ANALYZE. ', 'strip' ), 'mdbhc' ); ?>"><small><span class="dashicons dashicons-info"></span></small></a> <?php
+				/* translators: Number of bytes used for a histogram. */
 				_e( 'Size', 'mdbhc' );
 			?></td>
 			<td><?php echo $mdbhc_gd['histogram_size']; ?></td>
@@ -551,8 +548,8 @@ if ('histogram' === $active_stab) {
 		$mdbhc_gd_histogram = false;
 	?>
 		<tr>
-			<td><?php
-				/* translators: *** Please, some context here *** */
+			<td><a href="https://mariadb.com/kb/en/server-system-variables/#histogram_type" target="_blank" title="<?php _e( wp_kses( 'Specifies the type of histograms created by ANALYZE. ', 'strip' ), 'mdbhc' ); ?>"><small><span class="dashicons dashicons-info"></span></small></a> <?php
+				/* translators: Specifies the type of histograms created by ANALYZE.  */
 				_e( 'Type', 'mdbhc' );
 			?></td>
 			<td><?php echo $mdbhc_gd['histogram_type']; ?></td>
@@ -577,8 +574,8 @@ if( isset( $mdbhc_gd['character_set_client'] ) ) {
 	$mdbhc_gd_characterset = false;
 ?>
 	<tr>
-		<td><?php
-				/* translators: *** Please, some context here *** */
+		<td><a href="https://mariadb.com/kb/en/server-system-variables/#character_set_client" target="_blank" title="<?php _e( wp_kses( 'Determines the character set for queries arriving from the client. It can be set per session by the client, although the server can be configured to ignore client requests with the --skip-character-set-client-handshake option. If the client does not request a character set, or requests a character set that the server does not support, the global value will be used.', 'strip' ), 'mdbhc' ); ?>"><small><span class="dashicons dashicons-info"></span></small></a> <?php
+				/* translators: Determines the character set for queries arriving from the client. */
 				_e( 'Client', 'mdbhc' );
 			?></td>
 			<td><?php echo $mdbhc_gd['character_set_client']; ?></td>
@@ -589,8 +586,8 @@ if( isset( $mdbhc_gd['character_set_client'] ) ) {
 		$mdbhc_gd_characterset = false;
 	?>
 		<tr>
-			<td><?php
-				/* translators: *** Please, some context here *** */
+			<td><a href="https://mariadb.com/kb/en/server-system-variables/#character_set_connection" target="_blank" title="<?php _e( wp_kses( 'Character set used for number to string conversion, as well as for literals that don\'t have a character set introducer.', 'strip' ), 'mdbhc' ); ?>"><small><span class="dashicons dashicons-info"></span></small></a> <?php
+				/* translators: Character set used for number to string conversion, as well as for literals that don't have a character set introducer. */
 				_e( 'Connection', 'mdbhc' );
 			?></td>
 			<td><?php echo $mdbhc_gd['character_set_connection']; ?></td>
@@ -601,8 +598,8 @@ if( isset( $mdbhc_gd['character_set_client'] ) ) {
 		$mdbhc_gd_characterset = false;
 	?>
 		<tr>
-			<td><?php
-				/* translators: *** Please, some context here *** */
+			<td><a href="https://mariadb.com/kb/en/server-system-variables/#character_set_database" target="_blank" title="<?php _e( wp_kses( 'Character set used by the default database, and set by the server whenever the default database is changed. If there\'s no default database, character_set_database contains the same value as character_set_server.', 'strip' ), 'mdbhc' ); ?>"><small><span class="dashicons dashicons-info"></span></small></a> <?php
+				/* translators: Character set used by the default database, and set by the server whenever the default database is changed. */
 				_e( 'Database', 'mdbhc' );
 			?></td>
 			<td><?php echo $mdbhc_gd['character_set_database']; ?></td>
@@ -613,8 +610,8 @@ if( isset( $mdbhc_gd['character_set_client'] ) ) {
 		$mdbhc_gd_characterset = false;
 	?>
 		<tr>
-			<td><?php
-				/* translators: *** Please, some context here *** */
+			<td><a href="https://mariadb.com/kb/en/server-system-variables/#character_set_filesystem" target="_blank" title="<?php _e( wp_kses( 'The character set for the filesystem. Used for converting file names specified as a string literal from character_set_client to character_set_filesystem before opening the file.', 'strip' ), 'mdbhc' ); ?>"><small><span class="dashicons dashicons-info"></span></small></a> <?php
+				/* translators: The character set for the filesystem. */
 				_e( 'Filesystem', 'mdbhc' );
 			?></td>
 			<td><?php echo $mdbhc_gd['character_set_filesystem']; ?></td>
@@ -625,7 +622,7 @@ if( isset( $mdbhc_gd['character_set_client'] ) ) {
 		$mdbhc_gd_characterset = false;
 	?>
 		<tr>
-			<td><?php
+			<td><a href="xxxxxx" target="_blank" title="<?php _e( wp_kses( 'xxxxxx', 'strip' ), 'mdbhc' ); ?>"><small><span class="dashicons dashicons-info"></span></small></a> <?php
 				/* translators: *** Please, some context here *** */
 				_e( 'Reults', 'mdbhc' );
 			?></td>
@@ -637,7 +634,7 @@ if( isset( $mdbhc_gd['character_set_client'] ) ) {
 		$mdbhc_gd_characterset = false;
 	?>
 		<tr>
-			<td><?php
+			<td><a href="xxxxxx" target="_blank" title="<?php _e( wp_kses( 'xxxxxx', 'strip' ), 'mdbhc' ); ?>"><small><span class="dashicons dashicons-info"></span></small></a> <?php
 				/* translators: *** Please, some context here *** */
 				_e( 'Server', 'mdbhc' );
 			?></td>
@@ -649,7 +646,7 @@ if( isset( $mdbhc_gd['character_set_client'] ) ) {
 		$mdbhc_gd_characterset = false;
 	?>
 		<tr>
-			<td><?php
+			<td><a href="xxxxxx" target="_blank" title="<?php _e( wp_kses( 'xxxxxx', 'strip' ), 'mdbhc' ); ?>"><small><span class="dashicons dashicons-info"></span></small></a> <?php
 				/* translators: *** Please, some context here *** */
 				_e( 'System', 'mdbhc' );
 			?></td>
@@ -675,7 +672,7 @@ if ('collation' === $active_stab) {
 		$mdbhc_gd_collation = false;
 	?>
 		<tr>
-			<td><?php
+			<td><a href="xxxxxx" target="_blank" title="<?php _e( wp_kses( 'xxxxxx', 'strip' ), 'mdbhc' ); ?>"><small><span class="dashicons dashicons-info"></span></small></a> <?php
 				/* translators: *** Please, some context here *** */
 				_e( 'Connection', 'mdbhc' );
 			?></td>
