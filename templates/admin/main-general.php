@@ -23,7 +23,7 @@ $active_stab = isset($_GET['stab']) ? strval($_GET['stab']) : 'general';
 	</div>
 <?php } else { ?>
 	<div class="notice notice-success">
-		<p>The version of your MariaDB is fully supported until now.</p>
+		<p>The version of your MariaDB is fully supported until <?php echo $dbInformation['eol']; ?>.</p>
 		<p>See <a href="<?php echo $mariaDBUrl; ?>" target="_blank"><?php echo $mariaDBUrl; ?></a> to get more details
 			about the different versions.</p>
 	</div>
