@@ -13,19 +13,19 @@ class Histograms {
 	public function hasHistograms() {
 		global $wpdb;
 		$query = "select cast(version() as int) > 11 or ( cast(version() as int) >= 10 and REGEXP_REPLACE(version(), '^[[:digit:]]+\.([[:digit:]]+)(.*)', '\\\\1') >= 4) as version_check;";
-		$ret = $wpdb->getOriginal()->get_var($query);
+		$ret = $wpdb->get_var($query);
 		return $ret;
 	}
 
 	public function check() {
 		global $wpdb;
 		$query = "show create table mysql.table_stats;";
-		$ret = $wpdb->getOriginal()->get_var($query);
+		$ret = $wpdb->get_var($query);
 		if (!$ret) {
 			return -1;
 		}
 		$query = "select count(*) from mysql.table_stats where db_name = '" . DB_NAME . "' and table_name LIKE '" . $wpdb->prefix . "%';";
-		$ret = $wpdb->getOriginal()->get_var($query);
+		$ret = $wpdb->get_var($query);
 
 		if ($ret > 0) {
 			return 1;
@@ -37,7 +37,7 @@ class Histograms {
 	{
 		global $wpdb;
 		$query = "select UPDATE_TIME from information_schema.tables where table_schema='mysql' and table_name='table_stats';";
-		$result = $wpdb->getOriginal()->get_var($query);
+		$result = $wpdb->get_var($query);
 		return $result;
 	}
 
@@ -60,7 +60,7 @@ class Histograms {
 		foreach ($wpdb->tables as $value) {
 			$query = "ANALYZE TABLE " . DB_NAME . "." . $wpdb->prefix . $value . " PERSISTENT FOR ALL;";
 			// TODO: check errors
-			$wpdb->getOriginal()->query($query);
+			$wpdb->query($query);
 		}
 	}
 }
