@@ -19,11 +19,13 @@ class Histograms {
 
 	public function check() {
 		global $wpdb;
-		$query = "select count(*) from mysql.table_stats where db_name = '" . DB_NAME . "' and table_name LIKE '" . $wpdb->prefix . "%';";
+		$query = "show create table mysql.table_stats;";
 		$ret = $wpdb->getOriginal()->get_var($query);
-		if ($wpdb->last_error) {
+		if (!$ret) {
 			return -1;
 		}
+		$query = "select count(*) from mysql.table_stats where db_name = '" . DB_NAME . "' and table_name LIKE '" . $wpdb->prefix . "%';";
+		$ret = $wpdb->getOriginal()->get_var($query);
 
 		if ($ret > 0) {
 			return 1;
