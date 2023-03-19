@@ -3,43 +3,26 @@
 namespace MDBHC;
 
 class ExecutionTime {
-
-	private $timeStart;
+	public const TABLE_NAME = 'mariadb_execution_time';
 
 	function __construct() {
 	}
 
-	public function start() {
-		$this->timeStart = microtime( true );
-	}
-
-	public function stop() {
-		$timeIntervall = $this->timeStart - microtime( true );
-		$this->insert( $timeIntervall );
-	}
-
-	private function insert( $timeIntervall ) {
+	public static function save_average_query_execution_time() {
 		global $wpdb;
 
+		$average = $wpdb->total_query_time / $wpdb->num_queries;
+
 		$wpdb->insert(
-			'mariadb_execution_time',
+			$wpdb->prefix . self::TABLE_NAME,
 			[
-				'seconds' => $timeIntervall,
-			],
-			[
-				'%f',
+				'seconds'     => $average,
+				'queries_num' => $wpdb->num_queries
 			]
 		);
-
 	}
 
-	/**
-	 * get all the logged execution times from database
-	 * contains the first day, the average timing in microseconds and the average number of queries
-	 * @return array
-	 */
 	public function get() {
-
 		global $wpdb;
 		$query     = "select timestampdiff(HOUR, ts, now()) as 'hours-ago', avg(seconds) as 'avg-seconds', avg(queries_num) as 'queries-num' from " . $wpdb->prefix . "mariadb_execution_time where date(ts) >= now() - interval 7 day group by timestampdiff(HOUR, ts, now()) order by ts;";
 		$resultsDb = $wpdb->get_results( $query, ARRAY_A );
@@ -54,7 +37,6 @@ class ExecutionTime {
 				$dates[ $date ]        = $date;
 				$results[ $k ]['date'] = $date;
 			}
-
 			$results[ $k ]['microseconds'] = $r['avg-seconds'] * 1000000;
 			$results[ $k ]['queries-num']  = $r['queries-num'];
 		}
@@ -63,3 +45,5 @@ class ExecutionTime {
 	}
 
 }
+
+

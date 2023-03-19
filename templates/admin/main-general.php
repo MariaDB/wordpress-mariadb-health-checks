@@ -6,29 +6,44 @@ $mariaDBUrlDownload = 'https://mariadb.org/download/';
 $mdbhc_GeneralData = new MDBHC\GeneralData();
 $mdbhc_gd = $mdbhc_GeneralData->get();
 $active_stab = isset($_GET['stab']) ? strval($_GET['stab']) : 'general';
+$ismariadb = null;
+if ( $dbInformation['isMariaDB'] ) {
+	$ismariadb = '(MariaDB)';
+}
 ?>
-	<div class="notice notice-info"><p>You are currently using version <?php echo $dbInformation['dbVersion']; ?> of
-			your
-			database<?php if ( $dbInformation['isMariaDB'] ) {
-				echo ' (MariaDB)';
-			} ?> server.</p>
+	<div class="notice notice-info"><p><?php printf(
+	/* translators: %1$s: The database version you want. */
+	__( 'You are currently using version %1$s of your database %2$s server.', 'mdbhc' ),
+	$dbInformation['dbVersion'],
+	$ismariadb
+); ?>
+</p>
 	</div>
 <?php if ( $dbInformation['isEndOfLive'] ) { ?>
 	<div class="notice notice-error">
-		<p>Your version is end of live. Please update your MariaDB database to a newer version.</p>
-		<p>See <a href="<?php echo $mariaDBUrl; ?>" target="_blank"><?php echo $mariaDBUrl; ?></a> to get more details
-			about the different versions.</p>
-		<p>Find a newer version here <a href="<?php echo $mariaDBUrlDownload; ?>"
-										target="_blank"><?php echo $mariaDBUrlDownload; ?>.</a></p>
+		<p><?php _e( 'Your version is end of live. Please update your MariaDB database to a newer version.', 'mdbhc' ); ?></p>
+		<p><?php printf(
+			__( 'See <a href="%1$s" target="_blank">MariaDB version list</a> to get more details about the different versions.', 'mdbhc' ),
+			$mariaDBUrl,
+		); ?></p>
+		<p><?php printf(
+			__( 'Please, <a href="%1$s" target="_blank">download an updated version of MariaDB</a>.', 'mdbhc' ),
+			$mariaDBUrlDownload,
+		); ?></p>
 	</div>
 <?php } else { ?>
 	<div class="notice notice-success">
-		<p>The version of your MariaDB is fully supported until <?php echo $dbInformation['eol']; ?>.</p>
-		<p>See <a href="<?php echo $mariaDBUrl; ?>" target="_blank"><?php echo $mariaDBUrl; ?></a> to get more details
-			about the different versions.</p>
+
+		<p><?php printf(
+			__( 'The version of your MariaDB is fully supported until %1$s.', 'mdbhc' ),
+			$dbInformation['eol'],
+		); ?></p>
+		<p><?php printf(
+			__( 'See <a href="%1$s" target="_blank">MariaDB version list</a> to get more details about the different versions.', 'mdbhc' ),
+			$mariaDBUrl,
+		); ?></p>
 	</div>
 <?php } ?>
-
 <h4 class="nav-tab-wrapper">
 	<a href="?page=mdbhc&tab=general&stab=general" class="nav-tab <?php echo 'general' === $active_stab ? 'nav-tab-active' : ''; ?>"><?php esc_html_e('General information', 'mdbhc'); ?></a>
 	<a href="?page=mdbhc&tab=general&stab=logs" class="nav-tab <?php echo 'logs' === $active_stab ? 'nav-tab-active' : ''; ?>"><?php esc_html_e('Logs', 'mdbhc'); ?></a>
