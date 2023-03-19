@@ -622,8 +622,8 @@ if( isset( $mdbhc_gd['character_set_client'] ) ) {
 		$mdbhc_gd_characterset = false;
 	?>
 		<tr>
-			<td><a href="xxxxxx" target="_blank" title="<?php _e( wp_kses( 'xxxxxx', 'strip' ), 'mdbhc' ); ?>"><small><span class="dashicons dashicons-info"></span></small></a> <?php
-				/* translators: *** Please, some context here *** */
+			<td><a href="https://mariadb.com/kb/en/server-system-variables/#character_set_results" target="_blank" title="<?php _e( wp_kses( 'Character set used for results and error messages returned to the client.', 'strip' ), 'mdbhc' ); ?>"><small><span class="dashicons dashicons-info"></span></small></a> <?php
+				/* translators: Character set used for results and error messages returned to the client. */
 				_e( 'Reults', 'mdbhc' );
 			?></td>
 			<td><?php echo $mdbhc_gd['character_set_results']; ?></td>
@@ -634,8 +634,8 @@ if( isset( $mdbhc_gd['character_set_client'] ) ) {
 		$mdbhc_gd_characterset = false;
 	?>
 		<tr>
-			<td><a href="xxxxxx" target="_blank" title="<?php _e( wp_kses( 'xxxxxx', 'strip' ), 'mdbhc' ); ?>"><small><span class="dashicons dashicons-info"></span></small></a> <?php
-				/* translators: *** Please, some context here *** */
+			<td><a href="https://mariadb.com/kb/en/server-system-variables/#character_set_system" target="_blank" title="<?php _e( wp_kses( 'Character set used by the server to store identifiers, always set to utf8, or its synonym utf8mb3 starting with MariaDB 10.6.', 'strip' ), 'mdbhc' ); ?>"><small><span class="dashicons dashicons-info"></span></small></a> <?php
+				/* translators: Character set used by the server to store identifiers */
 				_e( 'Server', 'mdbhc' );
 			?></td>
 			<td><?php echo $mdbhc_gd['character_set_server']; ?></td>
@@ -646,8 +646,8 @@ if( isset( $mdbhc_gd['character_set_client'] ) ) {
 		$mdbhc_gd_characterset = false;
 	?>
 		<tr>
-			<td><a href="xxxxxx" target="_blank" title="<?php _e( wp_kses( 'xxxxxx', 'strip' ), 'mdbhc' ); ?>"><small><span class="dashicons dashicons-info"></span></small></a> <?php
-				/* translators: *** Please, some context here *** */
+			<td><a href="https://mariadb.com/kb/en/server-system-variables/#character_set_system" target="_blank" title="<?php _e( wp_kses( 'Character set used by the server to store identifiers, always set to utf8, or its synonym utf8mb3 starting with MariaDB 10.6.', 'strip' ), 'mdbhc' ); ?>"><small><span class="dashicons dashicons-info"></span></small></a> <?php
+				/* translators: Character set used by the server to store identifiers */
 				_e( 'System', 'mdbhc' );
 			?></td>
 			<td><?php echo $mdbhc_gd['character_set_system']; ?></td>
@@ -672,8 +672,8 @@ if ('collation' === $active_stab) {
 		$mdbhc_gd_collation = false;
 	?>
 		<tr>
-			<td><a href="xxxxxx" target="_blank" title="<?php _e( wp_kses( 'xxxxxx', 'strip' ), 'mdbhc' ); ?>"><small><span class="dashicons dashicons-info"></span></small></a> <?php
-				/* translators: *** Please, some context here *** */
+			<td><a href="https://mariadb.com/kb/en/server-system-variables/#collation_connection" target="_blank" title="<?php _e( wp_kses( 'Collation used for the connection character set.', 'strip' ), 'mdbhc' ); ?>"><small><span class="dashicons dashicons-info"></span></small></a> <?php
+				/* translators: Collation used for the connection character set. */
 				_e( 'Connection', 'mdbhc' );
 			?></td>
 			<td><?php echo $mdbhc_gd['collation_connection']; ?></td>
@@ -684,8 +684,8 @@ if ('collation' === $active_stab) {
 		$mdbhc_gd_collation = false;
 	?>
 		<tr>
-			<td><?php
-				/* translators: *** Please, some context here *** */
+			<td><a href="https://mariadb.com/kb/en/server-system-variables/#collation_database" target="_blank" title="<?php _e( wp_kses( 'Collation used for the default database. Set by the server if the default database changes, if there is no default database the value from the collation_server variable is used.', 'strip' ), 'mdbhc' ); ?>"><small><span class="dashicons dashicons-info"></span></small></a> <?php
+				/* translators: Collation used for the default database. */
 				_e( 'Database', 'mdbhc' );
 			?></td>
 			<td><?php echo $mdbhc_gd['collation_database']; ?></td>
@@ -696,8 +696,8 @@ if ('collation' === $active_stab) {
 		$mdbhc_gd_collation = false;
 	?>
 		<tr>
-			<td><?php
-				/* translators: *** Please, some context here *** */
+			<td><a href="https://mariadb.com/kb/en/server-system-variables/#collation_server" target="_blank" title="<?php _e( wp_kses( 'Default collation used by the server. This is set to the default collation for a given character set automatically when character_set_server is changed, but it can also be set manually.', 'strip' ), 'mdbhc' ); ?>"><small><span class="dashicons dashicons-info"></span></small></a> <?php
+				/* translators: Default collation used by the server. */
 				_e( 'Server', 'mdbhc' );
 			?></td>
 			<td><?php echo $mdbhc_gd['collation_server']; ?></td>
@@ -722,8 +722,8 @@ if ('has' === $active_stab) {
 		$mdbhc_gd_has = false;
 	?>
 		<tr>
-			<td><?php
-				/* translators: *** Please, some context here *** */
+			<td><a href="https://mariadb.com/kb/en/server-system-variables/#have_compress" target="_blank" title="<?php _e( wp_kses( 'If the zlib compression library is accessible to the server, this will be set to YES, otherwise it will be NO.', 'strip' ), 'mdbhc' ); ?>"><small><span class="dashicons dashicons-info"></span></small></a> <?php
+				/* translators: If the zlib compression library is accessible to the server. */
 				_e( 'Compress', 'mdbhc' );
 			?></td>
 			<td><?php echo $mdbhc_gd['have_compress']; ?></td>
@@ -734,8 +734,8 @@ if ('has' === $active_stab) {
 		$mdbhc_gd_has = false;
 	?>
 		<tr>
-			<td><?php
-				/* translators: *** Please, some context here *** */
+			<td><a href="https://mariadb.com/kb/en/server-system-variables/#have_crypt" target="_blank" title="<?php _e( wp_kses( 'If the crypt() system call is available this variable will be set to YES, otherwise it will be set to NO.', 'strip' ), 'mdbhc' ); ?>"><small><span class="dashicons dashicons-info"></span></small></a> <?php
+				/* translators: If the crypt() system call is available */
 				_e( 'Crypt', 'mdbhc' );
 			?></td>
 			<td><?php echo $mdbhc_gd['have_crypt']; ?></td>
@@ -746,8 +746,8 @@ if ('has' === $active_stab) {
 		$mdbhc_gd_has = false;
 	?>
 		<tr>
-			<td><?php
-				/* translators: *** Please, some context here *** */
+			<td><a href="https://mariadb.com/kb/en/server-system-variables/#have_dynamic_loading" target="_blank" title="<?php _e( wp_kses( 'If the server supports dynamic loading of plugins, will be set to YES, otherwise will be set to NO.', 'strip' ), 'mdbhc' ); ?>"><small><span class="dashicons dashicons-info"></span></small></a> <?php
+				/* translators: If the server supports dynamic loading of plugins */
 				_e( 'Dynamic Loading', 'mdbhc' );
 			?></td>
 			<td><?php echo $mdbhc_gd['have_dynamic_loading']; ?></td>
@@ -758,8 +758,8 @@ if ('has' === $active_stab) {
 		$mdbhc_gd_has = false;
 	?>
 		<tr>
-			<td><?php
-				/* translators: *** Please, some context here *** */
+			<td><a href="https://mariadb.com/kb/en/server-system-variables/#have_geometry" target="_blank" title="<?php _e( wp_kses( 'If the server supports spatial data types, will be set to YES, otherwise will be set to NO. ', 'strip' ), 'mdbhc' ); ?>"><small><span class="dashicons dashicons-info"></span></small></a> <?php
+				/* translators: If the server supports spatial data types */
 				_e( 'Geometry', 'mdbhc' );
 			?></td>
 			<td><?php echo $mdbhc_gd['have_geometry']; ?></td>
@@ -770,8 +770,8 @@ if ('has' === $active_stab) {
 		$mdbhc_gd_has = false;
 	?>
 		<tr>
-			<td><?php
-				/* translators: *** Please, some context here *** */
+			<td><a href="https://mariadb.com/kb/en/ssltls-system-variables/#have_openssl" target="_blank" title="<?php _e( wp_kses( 'This variable shows whether the server is linked with OpenSSL rather than MariaDB\'s bundled TLS library, which might be wolfSSL or yaSSL.', 'strip' ), 'mdbhc' ); ?>"><small><span class="dashicons dashicons-info"></span></small></a> <?php
+				/* translators: This variable shows whether the server is linked with OpenSSL */
 				_e( 'OpenSSL', 'mdbhc' );
 			?></td>
 			<td><?php echo $mdbhc_gd['have_openssl']; ?></td>
@@ -782,8 +782,8 @@ if ('has' === $active_stab) {
 		$mdbhc_gd_has = false;
 	?>
 		<tr>
-			<td><?php
-				/* translators: *** Please, some context here *** */
+			<td><a href="https://mariadb.com/kb/en/server-system-variables/#have_profiling" target="_blank" title="<?php _e( wp_kses( 'If statement profiling is available, will be set to YES, otherwise will be set to NO.', 'strip' ), 'mdbhc' ); ?>"><small><span class="dashicons dashicons-info"></span></small></a> <?php
+				/* translators: If statement profiling is available. */
 				_e( 'Profiling', 'mdbhc' );
 			?></td>
 			<td><?php echo $mdbhc_gd['have_profiling']; ?></td>
@@ -794,7 +794,7 @@ if ('has' === $active_stab) {
 		$mdbhc_gd_has = false;
 	?>
 		<tr>
-			<td><?php
+			<td><a href="https://mariadb.com/kb/en/server-system-variables/#have_query_cache" target="_blank" title="<?php _e( wp_kses( 'If the server supports the query cache, will be set to YES, otherwise will be set to NO.', 'strip' ), 'mdbhc' ); ?>"><small><span class="dashicons dashicons-info"></span></small></a> <?php
 				/* translators: *** Please, some context here *** */
 				_e( 'Query Cache', 'mdbhc' );
 			?></td>
@@ -806,9 +806,9 @@ if ('has' === $active_stab) {
 		$mdbhc_gd_has = false;
 	?>
 		<tr>
-			<td><?php
-				/* translators: *** Please, some context here *** */
-				_e( 'RTree keys', 'mdbhc' );
+			<td><a href="https://mariadb.com/kb/en/server-system-variables/#have_rtree_keys" target="_blank" title="<?php _e( wp_kses( 'If RTREE indexes (used for spatial indexes) are available, will be set to YES, otherwise will be set to NO.', 'strip' ), 'mdbhc' ); ?>"><small><span class="dashicons dashicons-info"></span></small></a> <?php
+				/* translators: If RTREE indexes (used for spatial indexes) are available. */
+				_e( 'RTREE indexes', 'mdbhc' );
 			?></td>
 			<td><?php echo $mdbhc_gd['have_rtree_keys']; ?></td>
 		</tr>
@@ -818,8 +818,8 @@ if ('has' === $active_stab) {
 		$mdbhc_gd_has = false;
 	?>
 		<tr>
-			<td><?php
-				/* translators: *** Please, some context here *** */
+			<td><a href="https://mariadb.com/kb/en/ssltls-system-variables/#have_ssl" target="_blank" title="<?php _e( wp_kses( 'This variable shows whether the server supports using TLS to secure connections.', 'strip' ), 'mdbhc' ); ?>"><small><span class="dashicons dashicons-info"></span></small></a> <?php
+				/* translators: This variable shows whether the server supports using TLS to secure connections. */
 				_e( 'SSL', 'mdbhc' );
 			?></td>
 			<td><?php echo $mdbhc_gd['have_ssl']; ?></td>
@@ -830,8 +830,8 @@ if ('has' === $active_stab) {
 		$mdbhc_gd_has = false;
 	?>
 		<tr>
-			<td><?php
-				/* translators: *** Please, some context here *** */
+			<td><a href="https://mariadb.com/kb/en/server-system-variables/#have_symlink" target="_blank" title="<?php _e( wp_kses( 'This system variable can be used to determine whether the server supports symbolic links (note that it has no meaning on Windows).', 'strip' ), 'mdbhc' ); ?>"><small><span class="dashicons dashicons-info"></span></small></a> <?php
+				/* translators: This system variable can be used to determine whether the server supports symbolic links. */
 				_e( 'Symlink', 'mdbhc' );
 			?></td>
 			<td><?php echo $mdbhc_gd['have_symlink']; ?></td>
@@ -856,8 +856,8 @@ if ('innodb' === $active_stab) {
 		$mdbhc_gd_innodb = false;
 	?>
 		<tr>
-			<td><?php
-				/* translators: *** Please, some context here *** */
+			<td><a href="https://mariadb.com/kb/en/innodb-system-variables/#innodb_version" target="_blank" title="<?php _e( wp_kses( 'InnoDB version number. From MariaDB 10.3.7, as the InnoDB implementation in MariaDB has diverged from MySQL, the MariaDB version is instead reported.', 'strip' ), 'mdbhc' ); ?>"><small><span class="dashicons dashicons-info"></span></small></a> <?php
+				/* translators: InnoDB version number. */
 				_e( 'Version', 'mdbhc' );
 			?></td>
 			<td><?php echo $mdbhc_gd['innodb_version']; ?></td>
