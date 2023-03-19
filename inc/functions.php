@@ -17,15 +17,15 @@ defined('WPINC') || die;
 function mdbhc_template($template_path, $args = array(), $echo = false)
 {
 
-    $template_path = $template_path . '.php';
+	$template_path = $template_path . '.php';
 
-    ob_start();
+	ob_start();
 
-    mdbhc_inc($template_path, $args);
+	mdbhc_inc($template_path, $args);
 
-    if (!$echo) return ob_get_clean();
+	if (!$echo) return ob_get_clean();
 
-    return ob_get_clean();
+	return ob_get_clean();
 
 }
 
@@ -40,7 +40,7 @@ function mdbhc_template($template_path, $args = array(), $echo = false)
 function mdbhc__template($template_path, $args = array())
 {
 
-    echo mdbhc_template($template_path, $args, true);
+	echo mdbhc_template($template_path, $args, true);
 
 }
 
@@ -49,22 +49,25 @@ function mdbhc__template($template_path, $args = array())
  */
 function mariadb_health_check_widget_render()
 {
-    echo file_get_contents(WP_PLUGIN_DIR . '/mariadb-health-checks/templates/admin/widget.php');
-}
-
-function mdbhc_enable_errors() {
-
-  @ini_set('display_errors', 1);
-  @ini_set('display_startup_errors', 1);
-  @error_reporting(E_ALL);
+	mdbhc__template( 'templates/admin/widget' );
 
 }
 
-function printr($obj, $title = '') {
+function mdbhc_enable_errors()
+{
 
-  echo '<pre>';
-  echo '<h3>' . $title . '</h3>';
-  print_r($obj);
-  echo '</pre>';
+	@ini_set('display_errors', 1);
+	@ini_set('display_startup_errors', 1);
+	@error_reporting(E_ALL);
+
+}
+
+function printr($obj, $title = '')
+{
+
+	echo '<pre>';
+	echo '<h3>' . $title . '</h3>';
+	print_r($obj);
+	echo '</pre>';
 
 }

@@ -1,36 +1,11 @@
-<h2>MariaDB Health Checks</h2>
+<h2><?php _e( 'MariaDB Health Checks', 'mdbhc' ); ?></h2>
 <!-- <pre> -->
 <?php
 echo '<p>DB Execution Time Graph</p>';
 $executionTime = new MDBHC\ExecutionTime();
 $executionTimeAjax = new MDBHC\AdminScreen();
-//print_r($executionTimeAjax->ajax());
-//print_r($executionTime->get());
-//require_once 'inc/App/Histograms.php'
-// echo get_num_queries();
-
-// echo '<br>';
-// echo '<br>';
-
-// echo timer_stop(1);
-
-
-// global $wpdb;
-// global $query_times_all;
-
-// printr($wpdb->num_queries, '$wpdb->num_queries');
-// printr( $wpdb->queries , '$wpdb->queries');
-// $trace = $wpdb->queries[0]['trace'];
-// printr($trace, '$trace');
-// $trace = $wpdb->queries[0]['trace']->getTrace();
-// printr( get_class_methods($wpdb->queries[0]['trace']) , '$wpdb->queries');
-
-// printr($query_times_all, '$query_times_all');
-
 ?>
-
 <div class="wrap">
-
 	<?php settings_errors(); ?>
 	<?php $active_tab = isset($_GET['tab']) ? strval($_GET['tab']) : 'general'; ?>
 	<h2 class="nav-tab-wrapper">
@@ -45,11 +20,10 @@ $executionTimeAjax = new MDBHC\AdminScreen();
 		esc_html_e('Blah blah blah', 'mdbhc');
 		echo '</p>';
 		echo '<div><canvas id="mdbhc-chart"></canvas></div>';
+        mdbhc__template('templates/admin/main-general');
 	}
 	if ('alarms' === $active_tab) {
-		echo '<p>';
-		esc_html_e('ALARMS Blah blah blah', 'mdbhc');
-		echo '</p>';
+        mdbhc__template('templates/admin/main-alarms');
 	}
 	if ('warnings' === $active_tab) {
 		$histograms = new MDBHC\Histograms();
@@ -82,11 +56,10 @@ $executionTimeAjax = new MDBHC\AdminScreen();
 		echo '<p>';
 		esc_html_e('WARNINGS Blah blah blah', 'mdbhc');
 		echo '</p>';
+        mdbhc__template('templates/admin/main-warnings');
 	}
 	if ('events' === $active_tab) {
-		echo '<p>';
-		esc_html_e('EVENTS Blah blah blah', 'mdbhc');
-		echo '</p>';
+        mdbhc__template('templates/admin/main-events');
 	}
 	?>
 </div>
