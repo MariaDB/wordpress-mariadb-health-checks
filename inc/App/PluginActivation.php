@@ -6,101 +6,107 @@
 
 namespace MDBHC;
 
-class PluginActivation {
+class PluginActivation
+{
 
-  public function __construct() {
+	public function __construct()
+	{
 
-    mdbhc_enable_errors();
+		mdbhc_enable_errors();
 
-  }
+	}
 
-  public static function index() {
+	public static function index()
+	{
 
-    self::create_versions_table();
-    self::create_execution_table();
+		self::create_versions_table();
+		self::create_execution_table();
 
-  }
+	}
 
-  private static function create_execution_table() {
+	private static function create_execution_table()
+	{
 
-    $table_contents_file = mdbhc_dir('static/table-mariadb_execution_time-structure.sql');
+		$table_contents_file = mdbhc_dir('static/table-mariadb_execution_time-structure.sql');
 
-    if ( !file_exists($table_contents_file) ) return;
+		if (!file_exists($table_contents_file)) return;
 
-    global $wpdb;
+		global $wpdb;
 
-    $charset_collate = $wpdb->get_charset_collate();
+		$charset_collate = $wpdb->get_charset_collate();
 
-    $vars = array(
-      '%%VAR_PREFIX%%'    => $wpdb->prefix,
-      '%%VAR_CHARACTER%%' => $charset_collate,
-    );
+		$vars = array(
+			'%%VAR_PREFIX%%' => $wpdb->prefix,
+			'%%VAR_CHARACTER%%' => $charset_collate,
+		);
 
-    $sql = file_get_contents($table_contents_file);
-    $sql = str_replace(array_keys($vars), array_values($vars), $sql);
+		$sql = file_get_contents($table_contents_file);
+		$sql = str_replace(array_keys($vars), array_values($vars), $sql);
 
-    require_once(ABSPATH . 'wp-admin/includes/upgrade.php');
+		require_once(ABSPATH . 'wp-admin/includes/upgrade.php');
 
-    dbDelta($sql);
-  
-  }
+		dbDelta($sql);
 
-  private static function create_versions_table() {
+	}
 
-    $table_contents_file = mdbhc_dir('static/table-mariadb_versions-structure.sql');
+	private static function create_versions_table()
+	{
 
-    if ( !file_exists($table_contents_file) ) return;
+		$table_contents_file = mdbhc_dir('static/table-mariadb_versions-structure.sql');
 
-    global $wpdb;
+		if (!file_exists($table_contents_file)) return;
 
-    $charset_collate = $wpdb->get_charset_collate();
+		global $wpdb;
 
-    $vars = array(
-      '%%VAR_PREFIX%%'    => $wpdb->prefix,
-      '%%VAR_CHARACTER%%' => $charset_collate,
-    );
+		$charset_collate = $wpdb->get_charset_collate();
 
-    $sql = file_get_contents($table_contents_file);
-    $sql = str_replace(array_keys($vars), array_values($vars), $sql);
+		$vars = array(
+			'%%VAR_PREFIX%%' => $wpdb->prefix,
+			'%%VAR_CHARACTER%%' => $charset_collate,
+		);
 
-    require_once(ABSPATH . 'wp-admin/includes/upgrade.php');
+		$sql = file_get_contents($table_contents_file);
+		$sql = str_replace(array_keys($vars), array_values($vars), $sql);
 
-    dbDelta($sql);
+		require_once(ABSPATH . 'wp-admin/includes/upgrade.php');
 
-    self::insert_versions_data();
+		dbDelta($sql);
 
-  }
+		self::insert_versions_data();
 
-  private static function insert_versions_data() {
+	}
 
-    $table_contents_file = mdbhc_dir('static/table-mariadb_versions-data.sql');
+	private static function insert_versions_data()
+	{
 
-    if ( !file_exists($table_contents_file) ) return;
+		$table_contents_file = mdbhc_dir('static/table-mariadb_versions-data.sql');
 
-    global $wpdb;
+		if (!file_exists($table_contents_file)) return;
 
-    $table_name = $wpdb->prefix . 'mariadb_versions';
+		global $wpdb;
 
-    $record = $wpdb->get_var( "SELECT COUNT(*) from $table_name where id = 1" );
+		$table_name = $wpdb->prefix . 'mariadb_versions';
 
-    // print_r($record);exit;
+		$record = $wpdb->get_var("SELECT COUNT(*) from $table_name where id = 1");
 
-    if ( $record ) return;
+		// print_r($record);exit;
 
-    $charset_collate = $wpdb->get_charset_collate();
+		if ($record) return;
 
-    $vars = array(
-      '%%VAR_PREFIX%%' => $wpdb->prefix,
-    );
+		$charset_collate = $wpdb->get_charset_collate();
 
-    $sql = file_get_contents($table_contents_file);
-    $sql = str_replace(array_keys($vars), array_values($vars), $sql);
+		$vars = array(
+			'%%VAR_PREFIX%%' => $wpdb->prefix,
+		);
 
-    require_once(ABSPATH . 'wp-admin/includes/upgrade.php');
+		$sql = file_get_contents($table_contents_file);
+		$sql = str_replace(array_keys($vars), array_values($vars), $sql);
 
-    dbDelta($sql);
-  
-  }
+		require_once(ABSPATH . 'wp-admin/includes/upgrade.php');
+
+		dbDelta($sql);
+
+	}
 
 }
 
