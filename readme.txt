@@ -1,5 +1,5 @@
 === MariaDB Health Checks ===
-Contributors: darkmarsuk, javiercasares, linuxjedi
+Contributors: darkmarsuk, javiercasares, thelinuxjedi
 Tags: mariadb, site health, performance
 Requires at least: 5.2
 Tested up to: 6.2

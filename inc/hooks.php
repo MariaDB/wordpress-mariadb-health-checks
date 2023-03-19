@@ -35,17 +35,7 @@ $wpdb = $tmp;
 
 function mdbhc_save_average_query_execution_time()
 {
-
-	global $wpdb;
-
-	$average = $wpdb->total_query_time / $wpdb->num_queries;
-
-	$table_name = $wpdb->prefix . 'mariadb_execution_time';
-
-	$wpdb->insert($table_name, array(
-		'seconds' => $average,
-		'queries_num' => $wpdb->num_queries,
-	));
+	\MDBHC\ExecutionTime::save_average_query_execution_time();
 
 }
 
