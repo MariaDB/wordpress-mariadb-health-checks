@@ -32,7 +32,7 @@ class Histograms {
 	global $wpdb;
         // TODO: check that we have permissions for mysql privileges tables
         foreach ($wpdb->tables as $value) {
-            $query = "ANALYZE TABLE '" . DB_NAME . "'.'" . $wpdb->prefix . "' PERSISTENT FOR ALL;";
+            $query = "ANALYZE TABLE " . DB_NAME . "." . $wpdb->prefix . $value . " PERSISTENT FOR ALL;";
             // TODO: check errors
             $wpdb->query($query);
         }

@@ -50,15 +50,32 @@
 	}
     if ('warnings' === $active_tab) {
         $histograms = new MDBHC\Histograms();
+        if (isset($_GET['runhistograms'])) {
+                $histograms->run();
+                echo '<p>';
+                esc_html_e('Histograms have been run successfully');
+                echo '</p>';
+        }
+
 	$res = $histograms->check();
 	if ($res == -1) {
-	    echo 'Error checking Histograms, you may not have the correct permissions';
+	    echo '<p>';
+	    esc_html_e('Error checking Histograms, you may not have the correct permissions');
+	    echo '</p>';
 	} else if ($res == 1) {
-            echo 'Histograms have been run!';
-        } else {
-            echo 'Histograms have not been run!';
+	    echo '<p>';
+	    esc_html_e('Histograms have been run!');
+	    echo '</p><p>';
+	    esc_html_e('Last histogram run: ' . $histograms->last());
+	    echo '</p>';
+	} else {
+	    echo '<p>';
+	    esc_html_e('Histograms have not been run!');
+	    echo '<p>';
 	}
-	echo 'Last histogram run: ' . $histograms->last();
+	echo '<p>';
+	echo '<a href="?page=mdbhc&tab=warnings&runhistograms">Run histograms</a>';
+	echo '</p>';
 		echo '<p>';
 		esc_html_e('WARNINGS Blah blah blah', 'mdbhc');
 		echo '</p>';
