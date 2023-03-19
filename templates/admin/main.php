@@ -74,7 +74,7 @@
 	    echo '<p>';
 	}
 	echo '<p>';
-	echo '<a href="?page=mdbhc&tab=warnings&runhistograms">Run histograms</a>';
+	echo '<a href="?page=mdbhc&tab=warnings&runhistograms" class="button button-primary">Run histograms</a>';
 	echo '</p>';
 		echo '<p>';
 		esc_html_e('WARNINGS Blah blah blah', 'mdbhc');
