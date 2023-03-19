@@ -1,5 +1,5 @@
 === MariaDB Health Checks ===
-Contributors: javiercasares, LinuxJedi, put_you_WP_org_username_here
+Contributors: darkmarsuk, javiercasares, linuxjedi
 Tags: mariadb, site health, performance
 Requires at least: 5.2
 Tested up to: 6.2

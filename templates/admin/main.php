@@ -24,8 +24,8 @@ $executionTimeAjax = new MDBHC\AdminScreen();
 		echo '<p>';
 		esc_html_e('Blah blah blah', 'mdbhc');
 		echo '</p>';
-		echo '<div><canvas id="mdbhc-chart"></canvas></div>';
 		*/
+		echo '<div><canvas id="mdbhc-chart"></canvas></div>';
 		mdbhc__template( 'templates/admin/main-general' );
 	}
 	if ( 'alarms' === $active_tab ) {
