@@ -9,8 +9,14 @@ class Histograms
 	{
 	}
 
-	public function check()
-	{
+	public function hasHistograms() {
+		global $wpdb;
+		$query = "select cast(version() as int) > 11 or ( cast(version() as int) >= 10 and REGEXP_REPLACE(version(), '^[[:digit:]]+\.([[:digit:]]+)(.*)', '\\\\1') >= 4) as version_check;";
+		$ret = $wpdb->getOriginal()->get_var($query);
+		return $ret;
+	}
+
+	public function check() {
 		global $wpdb;
 		$query = "select count(*) from mysql.table_stats where db_name = '" . DB_NAME . "' and table_name LIKE '" . $wpdb->prefix . "%';";
 		$ret = $wpdb->getOriginal()->get_var($query);
