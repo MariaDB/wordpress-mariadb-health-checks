@@ -8,30 +8,33 @@ defined('WPINC') || die;
 
 global $wpdb;
 
-class MDB_DB extends wpdb {
+class MDB_DB extends wpdb
+{
 	public $total_query_time = 0.0;
 
-	public function loadFromParentObj( $parentObj )
+	public function loadFromParentObj($parentObj)
 	{
 		$objValues = get_object_vars($parentObj); // return array of object values
-		foreach($objValues AS $key=>$value)
-		{
+		foreach ($objValues as $key => $value) {
 			$this->$key = $value;
 		}
 	}
-	public function query( $query ) {
+
+	public function query($query)
+	{
 		$this->timer_start();
-		$result = parent::query( $query );
+		$result = parent::query($query);
 		$this->total_query_time += $this->timer_stop();
 		return $result;
 	}
 }
 
-$tmp = new MDB_DB( DB_USER, DB_PASSWORD, DB_NAME, DB_HOST );
-$tmp->loadFromParentObj( $wpdb );
+$tmp = new MDB_DB(DB_USER, DB_PASSWORD, DB_NAME, DB_HOST);
+$tmp->loadFromParentObj($wpdb);
 $wpdb = $tmp;
 
-function mdbhc_save_average_query_execution_time() {
+function mdbhc_save_average_query_execution_time()
+{
 
 	global $wpdb;
 
@@ -42,8 +45,9 @@ function mdbhc_save_average_query_execution_time() {
 	$wpdb->insert($table_name, array(
 		'seconds' => $average,
 		'queries_num' => $wpdb->num_queries,
-  ));
+	));
 
 }
+
 add_action('admin_footer', 'mdbhc_save_average_query_execution_time');
 add_action('wp_print_footer_scripts', 'mdbhc_save_average_query_execution_time');
