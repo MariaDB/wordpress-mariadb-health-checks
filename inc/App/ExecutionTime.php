@@ -39,4 +39,11 @@ class ExecutionTime {
 
 		return $results;
 	}
+
+	public function get_raw()
+	{
+		global $wpdb;
+		$query     = "select timestampdiff(HOUR, ts, now()) as 'hours-ago', avg(seconds) as 'avg-seconds', avg(queries_num) as 'queries-num' from " . $wpdb->prefix . "mariadb_execution_time where date(ts) >= now() - interval 7 day group by timestampdiff(HOUR, ts, now()) order by ts;";
+		return $wpdb->get_results( $query, ARRAY_A );
+	}
 }
