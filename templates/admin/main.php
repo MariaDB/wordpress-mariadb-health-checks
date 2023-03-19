@@ -1,3 +1,4 @@
+<h2>MariaDB Health Checks</h2>
 <!-- <pre> -->
 <?php
 //require_once 'inc/App/Histograms.php'
