@@ -16,22 +16,23 @@
 
 defined('WPINC') || die;
 
-define( 'MDBHC_URL', plugin_dir_url( __FILE__ ) );
-define( 'MDBHC_DIR', plugin_dir_path( __FILE__ ) );
+define('MDBHC_URL', plugin_dir_url(__FILE__));
+define('MDBHC_DIR', plugin_dir_path(__FILE__));
 
 require_once 'inc/bootstrap.php';
 
-register_activation_hook( __FILE__, 'mdbhc_activation' );
+register_activation_hook(__FILE__, 'mdbhc_activation');
 
-function wpauto_plugin_init() {
-	load_plugin_textdomain( 'mdbhc', false, dirname( plugin_basename( __FILE__ ) ) . '/languages' );
+function wpauto_plugin_init()
+{
+	load_plugin_textdomain('mdbhc', false, dirname(plugin_basename(__FILE__)) . '/languages');
 }
 
-function mdbhc_activation() {
+function mdbhc_activation()
+{
 
-  (new \MDBHC\PluginActivation())::index();
+	(new \MDBHC\PluginActivation())::index();
 
 }
 
 new \MDBHC\AdminScreen();
-
