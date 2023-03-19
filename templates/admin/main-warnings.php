@@ -1,6 +1,7 @@
-<h3>MariaDB Warnings</h3>
+<h3><?php _e( 'MariaDB Warnings', 'mdbhc' ); ?></h3>
 <p>Blah blah blah</p>
 <?php
+
 echo '<p>DB Execution Time Graph</p>';
 $executionTime = new MDBHC\ExecutionTime();
 

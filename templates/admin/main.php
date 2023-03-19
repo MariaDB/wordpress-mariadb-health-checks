@@ -1,4 +1,4 @@
-<h2>MariaDB Health Checks</h2>
+<h2><?php _e( 'MariaDB Health Checks', 'mdbhc' ); ?></h2>
 <div>
 	<canvas id="mdbhc-chart"></canvas>
 </div>
