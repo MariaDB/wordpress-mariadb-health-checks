@@ -80,7 +80,7 @@ function maria_db_version_test() {
 		'status'      => 'good',
 		'label'       => 'MariaDB Version Test',
 		'badge'       => array(
-			'label' =>  __( 'Performance' ),
+			'label' =>  __( 'Security' ),
 			'color' => 'blue',
 		),
 		'description' => $supported_text,
@@ -90,6 +90,7 @@ function maria_db_version_test() {
 
 	if($dbInformation['isEndOfLive']) {
 		$result['status'] = 'critical';
+		$result['badge']['color'] = 'red';
 		$result['description'] = 'Your version is past end of life. Please update your MariaDB database to a newer version.';
 	}
 
