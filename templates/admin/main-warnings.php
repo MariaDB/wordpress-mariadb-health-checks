@@ -74,7 +74,7 @@ print_r($executionTime->get());
 			esc_html_e('Histograms have not been run!');
 			echo '<p>';
 		}
-		echo '<p><a onClick="showMessage()">Read more about MariaDB Histograms</a>.</p>';
+		echo '<p><a href="" onClick="showMessage()">Read more about MariaDB Histograms</a>.</p>';
 		if ($res != -1) {
 			echo '<p>';
 			echo '<a href="?page=mdbhc&tab=warnings&runhistograms" class="button button-primary">Run histograms</a>';
