@@ -1,9 +1,9 @@
 <h2><?php _e( 'MariaDB Health Checks', 'mdbhc' ); ?></h2>
 <!-- <pre> -->
 <?php
-echo '<p>DB Execution Time Graph</p>';
-$executionTime     = new MDBHC\ExecutionTime();
-$executionTimeAjax = new MDBHC\AdminScreen();
+	echo '<p>DB Execution Time Graph</p>';
+	$executionTime     = new MDBHC\ExecutionTime();
+	$executionTimeAjax = new MDBHC\AdminScreen();
 ?>
 <div class="wrap">
 	<?php settings_errors(); ?>
@@ -19,12 +19,9 @@ $executionTimeAjax = new MDBHC\AdminScreen();
 		   class="nav-tab <?php echo 'events' === $active_tab ? 'nav-tab-active' : ''; ?>"><?php esc_html_e( 'Events', 'mdbhc' ); ?></a>
 	</h2>
 	<?php
-	if ( 'general' === $active_tab ) {
-		/*
-		echo '<p>';
-		esc_html_e('Blah blah blah', 'mdbhc');
-		echo '</p>';
-		*/
+	mdbhc__template('templates/admin/notices');
+
+	if ('general' === $active_tab) {
 		echo '<div><canvas id="mdbhc-chart"></canvas></div>';
 		mdbhc__template( 'templates/admin/main-general' );
 	}
