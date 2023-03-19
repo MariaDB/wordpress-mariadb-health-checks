@@ -1,9 +1,9 @@
 <h2><?php _e( 'MariaDB Health Checks', 'mdbhc' ); ?></h2>
 <!-- <pre> -->
 <?php
-echo '<p>DB Execution Time Graph</p>';
-$executionTime     = new MDBHC\ExecutionTime();
-$executionTimeAjax = new MDBHC\AdminScreen();
+	echo '<p>DB Execution Time Graph</p>';
+	$executionTime     = new MDBHC\ExecutionTime();
+	$executionTimeAjax = new MDBHC\AdminScreen();
 ?>
 <div class="wrap">
 	<?php settings_errors(); ?>
