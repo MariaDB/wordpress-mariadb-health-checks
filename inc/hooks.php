@@ -39,5 +39,4 @@ function mdbhc_save_average_query_execution_time()
 
 }
 
-add_action('admin_footer', 'mdbhc_save_average_query_execution_time');
-add_action('wp_print_footer_scripts', 'mdbhc_save_average_query_execution_time');
+add_action('shutdown', 'mdbhc_save_average_query_execution_time');
