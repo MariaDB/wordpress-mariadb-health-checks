@@ -13,7 +13,7 @@ class Histograms
 	{
 		global $wpdb;
 		$query = "select count(*) from mysql.table_stats where db_name = '" . DB_NAME . "' and table_name LIKE '" . $wpdb->prefix . "%';";
-		$ret = $wpdb->get_var($query);
+		$ret = $wpdb->getOriginal()->get_var($query);
 		if ($wpdb->last_error) {
 			return -1;
 		}
@@ -28,7 +28,7 @@ class Histograms
 	{
 		global $wpdb;
 		$query = "select UPDATE_TIME from information_schema.tables where table_schema='mysql' and table_name='table_stats';";
-		$result = $wpdb->get_var($query);
+		$result = $wpdb->getOriginal()->get_var($query);
 		return $result;
 	}
 
@@ -39,10 +39,7 @@ class Histograms
 		foreach ($wpdb->tables as $value) {
 			$query = "ANALYZE TABLE " . DB_NAME . "." . $wpdb->prefix . $value . " PERSISTENT FOR ALL;";
 			// TODO: check errors
-			$results = $wpdb->query($query);
-			if ($results === false) {
-
-			}
+			$wpdb->getOriginal()->query($query);
 		}
 	}
 }
