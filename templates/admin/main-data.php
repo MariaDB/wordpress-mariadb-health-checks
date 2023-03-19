@@ -1,6 +1,6 @@
 <h3><?php _e( 'MariaDB Data', 'mdbhc' ); ?></h3>
 
-<h4><?php _e( 'Histogram Graph', 'mdbhc' ); ?></h4>
+<h4><?php _e( 'Execution Time Graph', 'mdbhc' ); ?></h4>
 <?php
 	$histograms    = new MDBHC\Histograms();
 	$hasHistograms = $histograms->hasHistograms();
@@ -17,12 +17,15 @@
 ?>
 <div><canvas id="mdbhc-chart"></canvas></div>
 
-<h4><?php _e( 'Histogram Data', 'mdbhc' ); ?></h4>
+<h4><?php _e( 'Execution Time Data', 'mdbhc' ); ?></h4>
 
 <?php
-	echo '<p>DB Execution Time Graph</p>';
 	$executionTime = new MDBHC\ExecutionTime();
 	$executionTimeAjax = new MDBHC\AdminScreen();
-
-	print_r($executionTime->get());
+  echo '<table class="wp-list-table widefat"><tr><th>Date / Time</th><th>Average Exection Time (μS)</th><th>Average Queries</th></tr>';
+  $execTime = $executionTime->get_raw();
+  foreach ($execTime as $value) {
+		echo '<tr><td>' . date("Y-m-d H:00", strtotime('-' . $value['hours-ago'] . ' hour')) . '</td><td>' . round($value['avg-seconds'] * 1000000) . '</td><td>' . round($value['queries-num']) . '</td></tr>';
+  }
+	echo '</table>';
 ?>

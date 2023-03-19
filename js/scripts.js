@@ -9,9 +9,14 @@ jQuery(document).ready(function ($) {
 			let labels = [];
 			let data = [];
 
-			response.forEach((res) => {
-				data.push(res["microseconds"]);
-				labels.push(res["date"]);
+			response.forEach((res, i) => {
+				const resPrevDate = response[i - 1]?.date;
+				if (resPrevDate !== res.date && resPrevDate !== undefined) {
+					labels.push(res.date);
+				} else {
+					labels.push("");
+				}
+				data.push(res.microseconds);
 			});
 
 			new Chart(ctx, {
@@ -20,7 +25,7 @@ jQuery(document).ready(function ($) {
 					labels: labels,
 					datasets: [
 						{
-							label: "Execution time in Seconds for the last xx hours",
+							label: "Average execution time in μs during the last 7 days",
 							data: data,
 							borderWidth: 1,
 						},
@@ -31,14 +36,14 @@ jQuery(document).ready(function ($) {
 						y: {
 							beginAtZero: true,
 						},
-						x: {
-							ticks: {
-								callback: function (val, index) {
-									//return index % 2 === 0 ? this.getLabelForValue(val) : "";
-									return this.getLabelForValue(val);
-								},
-							},
-						},
+						// x: {
+						// 	ticks: {
+						// 		callback: function (val, index) {
+						// 			//return index % 2 === 0 ? this.getLabelForValue(val) : "";
+						// 			return this.getLabelForValue(val);
+						// 		},
+						// 	},
+						// },
 					},
 				},
 			});
