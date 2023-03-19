@@ -6,6 +6,27 @@ if (window.confirm('Histograms assist the MariaDB optimizer in making better dec
 };
 }
 </script>
+<?php
+$histograms    = new MDBHC\Histograms();
+$hasHistograms = $histograms->hasHistograms();
+
+if ($hasHistograms != 0) {
+	if (isset($_GET['runhistograms'])) {
+		$histograms->run();
+		echo '<div class="notice notice-success is-dismissible"><p>';
+		esc_html_e('Histograms have been run successfully');
+		echo '</p></div>';
+	}
+	if ($histograms->isReRunNeeded()) {
+		echo '<div class="notice notice-warning is-dismissible"><p>';
+		esc_html_e('Last histogram run: ' . $histograms->last());
+		echo '</p><p>';
+		esc_html_e('Rerun is needed.');
+		echo '</p></div>';
+	}
+}
+
+?>
 <h3><?php _e( 'MariaDB Warnings', 'mdbhc' ); ?></h3>
 <p>Blah blah blah</p>
 <?php
@@ -34,28 +55,16 @@ print_r($executionTime->get());
 // printr( get_class_methods($wpdb->queries[0]['trace']) , '$wpdb->queries');
 
 // printr($query_times_all, '$query_times_all');
-	$histograms = new MDBHC\Histograms();
-	if ($histograms->hasHistograms() == 0) {
+
+	if ($hasHistograms == 0) {
 		echo '<p>';
 		esc_html_e('Unfortunately your MariaDB version is too old to support optimizer histograms.');
+		echo '</p>';
 	} else {
-		if (isset($_GET['runhistograms'])) {
-				$histograms->run();
-				echo '<p>';
-				esc_html_e('Histograms have been run successfully');
-				echo '</p>';
-		}
-
 		$res = $histograms->check();
 		if ($res == -1) {
 			echo '<p>';
 			esc_html_e('Error checking Histograms, you may not have the correct permissions');
-			echo '</p>';
-		} else if ($res == 1 && $histograms->isReRunNeeded()) {
-			echo '<p>';
-			esc_html_e('Last histogram run: ' . $histograms->last());
-			echo '</p><p>';
-			esc_html_e('Rerun is needed.');
 			echo '</p>';
 		} else if ($res == 1) {
 			echo '<p>';
@@ -66,7 +75,7 @@ print_r($executionTime->get());
 			esc_html_e('Histograms have not been run!');
 			echo '<p>';
 		}
-		echo ' <a href="" onClick="showMessage()">Read more about MariaDB Histograms</a>.</p>';
+		echo '<p><a onClick="showMessage()">Read more about MariaDB Histograms</a>.</p>';
 		if ($res != -1) {
 			echo '<p>';
 			echo '<a href="?page=mdbhc&tab=warnings&runhistograms" class="button button-primary">Run histograms</a>';
