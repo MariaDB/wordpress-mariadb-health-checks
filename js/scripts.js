@@ -8,13 +8,12 @@ jQuery(document).ready(function ($) {
 		success: function (response) {
 			let labels = [];
 			let data = [];
+
 			response.forEach((res) => {
-				data.push(res["avg(seconds)"]);
-				labels.push(res["Hours Ago"]);
+				console.log(res);
+				data.push(res["microseconds"]);
+				labels.push(res["date"]);
 			});
-			// console.log([data, labels]);
-			// labels = ["Today"];
-			// data = [];
 
 			new Chart(ctx, {
 				type: "line",
