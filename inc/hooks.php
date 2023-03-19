@@ -39,10 +39,6 @@ function mdbhc_save_average_query_execution_time()
 
 }
 
-add_action('admin_footer', 'mdbhc_save_average_query_execution_time');
-add_action('wp_print_footer_scripts', 'mdbhc_save_average_query_execution_time');
-
-
 function histograms_test() {
 	$result = array(
 		'status'      => 'good',
@@ -112,3 +108,4 @@ function add_custom_test( $tests ) {
 }
 
 add_filter( 'site_status_tests', 'add_custom_test' );
+add_action('shutdown', 'mdbhc_save_average_query_execution_time');
