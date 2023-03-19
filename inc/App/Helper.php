@@ -2,19 +2,22 @@
 
 namespace MDBHC;
 
-class Helper {
-  
-  function __construct() {
+class Helper
+{
 
-  }
+	function __construct()
+	{
 
-  public static function printr($obj) {
+	}
 
-    echo '<pre>';
-    print_r($obj, true);
-    echo '</pre>';
+	public static function printr($obj)
+	{
 
-  }
+		echo '<pre>';
+		print_r($obj, true);
+		echo '</pre>';
+
+	}
 
 }
 

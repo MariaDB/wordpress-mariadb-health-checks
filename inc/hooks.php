@@ -8,7 +8,8 @@ defined('WPINC') || die;
 
 global $wpdb;
 
-class MDB_DB {
+class MDB_DB
+{
 	public $total_query_time = 0.0;
 	private $original = '';
 
@@ -22,7 +23,9 @@ class MDB_DB {
 
 		$this->original = $wpdb;
 	}
-	public function query( $query ) {
+
+	public function query($query)
+	{
 		$this->timer_start();
 		$result = $this->original->query( $query );
 		$this->total_query_time += $this->timer_stop();
@@ -48,7 +51,8 @@ $tmp = new MDB_DB();
 $tmp->setWpdb($wpdb);
 $wpdb = $tmp;
 
-function mdbhc_save_average_query_execution_time() {
+function mdbhc_save_average_query_execution_time()
+{
 
 	global $wpdb;
 
@@ -59,8 +63,9 @@ function mdbhc_save_average_query_execution_time() {
 	$wpdb->insert($table_name, array(
 		'seconds' => $average,
 		'queries_num' => $wpdb->num_queries,
-  ));
+	));
 
 }
+
 add_action('admin_footer', 'mdbhc_save_average_query_execution_time');
 add_action('wp_print_footer_scripts', 'mdbhc_save_average_query_execution_time');

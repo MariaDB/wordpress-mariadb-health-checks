@@ -1,115 +1,113 @@
-#, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: MariaDB Health Checks\n"
 "POT-Creation-Date: 2023-03-19 10:24+0100\n"
-"PO-Revision-Date: 2023-03-18 17:49+0100\n"
+"PO-Revision-Date: 2023-03-19 10:27+0100\n"
 "Last-Translator: \n"
 "Language-Team: \n"
+"Language: es_ES\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Poedit 3.2.2\n"
 "X-Poedit-Basepath: ..\n"
 "X-Poedit-Flags-xgettext: --add-comments=translators:\n"
 "X-Poedit-WPHeader: mariadb-health-checks.php\n"
 "X-Poedit-SourceCharset: UTF-8\n"
-"X-Poedit-KeywordsList: __;_e;_n:1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;esc_attr__;"
-"esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c;"
-"_n_noop:1,2;_nx_noop:3c,1,2;__ngettext_noop:1,2\n"
+"X-Poedit-KeywordsList: __;_e;_n:1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;esc_attr__;esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c;_n_noop:1,2;_nx_noop:3c,1,2;__ngettext_noop:1,2\n"
 "X-Poedit-SearchPath-0: .\n"
 "X-Poedit-SearchPathExcluded-0: *.min.js\n"
 "X-Poedit-SearchPathExcluded-1: vendor\n"
 
 #: inc/App/AdminScreen.php:60
 msgid "MariaDB Health Check"
-msgstr ""
+msgstr "Comprobación de estado de MariaDB"
 
 #: templates/admin/main-alarms.php:1
 msgid "MariaDB Alarms"
-msgstr ""
+msgstr "Alarmas MariaDB"
 
 #: templates/admin/main-alarms.php:9 templates/admin/main-alarms.php:43
 msgid "Value"
-msgstr ""
+msgstr "Valor"
 
 #. translators: %s: The value you want
 #: templates/admin/main-alarms.php:15
 #, php-format
 msgid "Your value is %s."
-msgstr ""
+msgstr "Tu valor es %s."
 
 #. translators: 1: Name of a city 2: ZIP code
 #: templates/admin/main-alarms.php:23
 #, php-format
 msgid "Your city is %1$s, and your zip code is %2$s."
-msgstr ""
+msgstr "Tu ciudad es %1$s y tu código postal es %2$s."
 
 #: templates/admin/main-alarms.php:33
 #, php-format
 msgid "%s value"
 msgid_plural "%s values"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%s valor"
+msgstr[1] "%s valores"
 
 #: templates/admin/main-events.php:1
 msgid "MariaDB Events"
-msgstr ""
+msgstr "Eventos MariaDB"
 
 #: templates/admin/main-general.php:1
 msgid "MariaDB Database Information"
-msgstr ""
+msgstr "Información de la base de datos MariaDB"
 
 #: templates/admin/main-warnings.php:1
 msgid "MariaDB Warnings"
-msgstr ""
+msgstr "Advertencias de MariaDB"
 
 #: templates/admin/main-warnings.php:33
 msgid "Histograms have been run successfully"
-msgstr ""
+msgstr "Los histogramas se han ejecutado correctamente"
 
 #: templates/admin/main-warnings.php:40
 msgid "Error checking Histograms, you may not have the correct permissions"
-msgstr ""
+msgstr "Error al comprobar histogramas, es posible que no tengas los permisos correctos"
 
 #: templates/admin/main-warnings.php:44
 msgid "Histograms have been run!"
-msgstr ""
+msgstr "¡Se han ejecutado histogramas!"
 
 #: templates/admin/main-warnings.php:46
 msgid "Last histogram run: "
-msgstr ""
+msgstr "Última ejecución del histograma: "
 
 #: templates/admin/main-warnings.php:50
 msgid "Histograms have not been run!"
-msgstr ""
+msgstr "¡No se han ejecutado histogramas!"
 
 #: templates/admin/main-warnings.php:57
 msgid "WARNINGS Blah blah blah"
-msgstr ""
+msgstr "ADVERTENCIAS Blah blah blah"
 
 #. Plugin Name of the plugin/theme
 #. Description of the plugin/theme
 #: templates/admin/main.php:1
 msgid "MariaDB Health Checks"
-msgstr ""
+msgstr "Comprobación de estados de MariaDB"
 
 #: templates/admin/main.php:9
 msgid "General"
-msgstr ""
+msgstr "General"
 
 #: templates/admin/main.php:10
 msgid "Alarms"
-msgstr ""
+msgstr "Alarmas"
 
 #: templates/admin/main.php:11
 msgid "Warnings"
-msgstr ""
+msgstr "Advertencias"
 
 #: templates/admin/main.php:12
 msgid "Events"
-msgstr ""
+msgstr "Eventos"
 
 #. Plugin URI of the plugin/theme
 msgid "http://github.com/ahmu83/mariadb-health-checks/"
