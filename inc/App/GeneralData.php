@@ -120,85 +120,290 @@ class GeneralData {
                     $generaldata['date_format'] = wp_kses( $variable->Value, 'strip' );
                 }
             }
-    /*        
-            
-            
-            
-            
-            
-            
-            
-            datetime_format
-            
-            error_count
-            
-            expire_logs_days
-            
-            have_compress
-            have_crypt
-            have_dynamic_loading
-            have_geometry
-            have_openssl
-            have_profiling
-            have_query_cache
-            have_rtree_keys
-            have_ssl
-            have_symlink
-            
-            histogram_size
-            histogram_type
-            
-            hostname
-
+            // date/time format
+            if( 'datetime_format' == $variable->Variable_name ) {
+                if( isset( $variable->Value ) ) {
+                    $generaldata['datetime_format'] = wp_kses( $variable->Value, 'strip' );
+                }
+            }
+            // error count
+            if( 'error_count' == $variable->Variable_name ) {
+                if( isset( $variable->Value ) ) {
+                    $generaldata['error_count'] = wp_kses( $variable->Value, 'strip' );
+                }
+            }
+            // expire log days
+            if( 'expire_logs_days' == $variable->Variable_name ) {
+                if( isset( $variable->Value ) ) {
+                    $generaldata['expire_logs_days'] = wp_kses( $variable->Value, 'strip' );
+                }
+            }
+            // have_compress
+            if( 'have_compress' == $variable->Variable_name ) {
+                if( isset( $variable->Value ) ) {
+                    $generaldata['have_compress'] = wp_kses( $variable->Value, 'strip' );
+                }
+            }
+            // have_crypt
+            if( 'have_crypt' == $variable->Variable_name ) {
+                if( isset( $variable->Value ) ) {
+                    $generaldata['have_crypt'] = wp_kses( $variable->Value, 'strip' );
+                }
+            }
+            // have_dynamic_loading
+            if( 'have_dynamic_loading' == $variable->Variable_name ) {
+                if( isset( $variable->Value ) ) {
+                    $generaldata['have_dynamic_loading'] = wp_kses( $variable->Value, 'strip' );
+                }
+            }
+            // have_geometry
+            if( 'have_geometry' == $variable->Variable_name ) {
+                if( isset( $variable->Value ) ) {
+                    $generaldata['have_geometry'] = wp_kses( $variable->Value, 'strip' );
+                }
+            }
+            // have_openssl
+            if( 'have_openssl' == $variable->Variable_name ) {
+                if( isset( $variable->Value ) ) {
+                    $generaldata['have_openssl'] = wp_kses( $variable->Value, 'strip' );
+                }
+            }
+            // have_profiling
+            if( 'have_profiling' == $variable->Variable_name ) {
+                if( isset( $variable->Value ) ) {
+                    $generaldata['have_profiling'] = wp_kses( $variable->Value, 'strip' );
+                }
+            }
+            // have_query_cache
+            if( 'have_query_cache' == $variable->Variable_name ) {
+                if( isset( $variable->Value ) ) {
+                    $generaldata['have_query_cache'] = wp_kses( $variable->Value, 'strip' );
+                }
+            }
+            // have_rtree_keys
+            if( 'have_rtree_keys' == $variable->Variable_name ) {
+                if( isset( $variable->Value ) ) {
+                    $generaldata['have_rtree_keys'] = wp_kses( $variable->Value, 'strip' );
+                }
+            }
+            // have_ssl
+            if( 'have_ssl' == $variable->Variable_name ) {
+                if( isset( $variable->Value ) ) {
+                    $generaldata['have_ssl'] = wp_kses( $variable->Value, 'strip' );
+                }
+            }
+            // have_symlink
+            if( 'have_symlink' == $variable->Variable_name ) {
+                if( isset( $variable->Value ) ) {
+                    $generaldata['have_symlink'] = wp_kses( $variable->Value, 'strip' );
+                }
+            }
+            // histogram_size
+            if( 'histogram_size' == $variable->Variable_name ) {
+                if( isset( $variable->Value ) ) {
+                    $generaldata['histogram_size'] = wp_kses( $variable->Value, 'strip' );
+                }
+            }
+            // histogram_type
+            if( 'histogram_type' == $variable->Variable_name ) {
+                if( isset( $variable->Value ) ) {
+                    $generaldata['histogram_type'] = wp_kses( $variable->Value, 'strip' );
+                }
+            }
+            // hostname
+            if( 'hostname' == $variable->Variable_name ) {
+                if( isset( $variable->Value ) ) {
+                    $generaldata['hostname'] = wp_kses( $variable->Value, 'strip' );
+                }
+            }
             // InnoDB version
             if( 'innodb_version' == $variable->Variable_name ) {
                 if( isset( $variable->Value ) ) {
                     $generaldata['innodb_version'] = wp_kses( $variable->Value, 'strip' );
                 }
             }
+            // lc_messages
+            if( 'lc_messages' == $variable->Variable_name ) {
+                if( isset( $variable->Value ) ) {
+                    $generaldata['lc_messages'] = wp_kses( $variable->Value, 'strip' );
+                }
+            }
+            // lc_time_names
+            if( 'lc_time_names' == $variable->Variable_name ) {
+                if( isset( $variable->Value ) ) {
+                    $generaldata['lc_time_names'] = wp_kses( $variable->Value, 'strip' );
+                }
+            }
+            // license
+            if( 'license' == $variable->Variable_name ) {
+                if( isset( $variable->Value ) ) {
+                    $generaldata['license'] = wp_kses( $variable->Value, 'strip' );
+                }
+            }
 
-            lc_messages
-            lc_time_names
-            
-            license
-            
-            log_error
-            
-            max_connections
-            max_connect_errors
-            max_error_count
-            max_user_connections
-            
-            port
-            protocol_version
-            read_only
-            require_secure_transport
-            server_id
-            slow_query_log
-            slow_query_log_file
-            
-            sql_mode
-            storage_engine
-            
-            time_format
-            time_zone
-            timestamp
-            
-            tls_version
-            
-            version
-            version_comment
-            version_compile_machine
-            version_compile_os
-            version_malloc_library
-            version_source_revision
-            version_ssl_library
-            
-            wait_timeout
-            
-            warning_count
-            
-    */
+            // max_connections
+            if( 'max_connections' == $variable->Variable_name ) {
+                if( isset( $variable->Value ) ) {
+                    $generaldata['max_connections'] = wp_kses( $variable->Value, 'strip' );
+                }
+            }
+            // max_connect_errors
+            if( 'max_connect_errors' == $variable->Variable_name ) {
+                if( isset( $variable->Value ) ) {
+                    $generaldata['max_connect_errors'] = wp_kses( $variable->Value, 'strip' );
+                }
+            }
+            // max_user_connections
+            if( 'max_user_connections' == $variable->Variable_name ) {
+                if( isset( $variable->Value ) ) {
+                    $generaldata['max_user_connections'] = wp_kses( $variable->Value, 'strip' );
+                }
+            }
+            // max_error_count
+            if( 'max_error_count' == $variable->Variable_name ) {
+                if( isset( $variable->Value ) ) {
+                    $generaldata['max_error_count'] = wp_kses( $variable->Value, 'strip' );
+                }
+            }
+            // port
+            if( 'port' == $variable->Variable_name ) {
+                if( isset( $variable->Value ) ) {
+                    $generaldata['port'] = wp_kses( $variable->Value, 'strip' );
+                }
+            }
+            // protocol_version
+            if( 'protocol_version' == $variable->Variable_name ) {
+                if( isset( $variable->Value ) ) {
+                    $generaldata['protocol_version'] = wp_kses( $variable->Value, 'strip' );
+                }
+            }
+            // read_only
+            if( 'read_only' == $variable->Variable_name ) {
+                if( isset( $variable->Value ) ) {
+                    $generaldata['read_only'] = wp_kses( $variable->Value, 'strip' );
+                }
+            }
+            // require_secure_transport
+            if( 'require_secure_transport' == $variable->Variable_name ) {
+                if( isset( $variable->Value ) ) {
+                    $generaldata['require_secure_transport'] = wp_kses( $variable->Value, 'strip' );
+                }
+            }
+            // server_id
+            if( 'server_id' == $variable->Variable_name ) {
+                if( isset( $variable->Value ) ) {
+                    $generaldata['server_id'] = wp_kses( $variable->Value, 'strip' );
+                }
+            }
+            // log_error
+            if( 'log_error' == $variable->Variable_name ) {
+                if( isset( $variable->Value ) ) {
+                    $generaldata['log_error'] = wp_kses( $variable->Value, 'strip' );
+                }
+            }
+            // log_error
+            if( 'slow_query_log' == $variable->Variable_name ) {
+                if( isset( $variable->Value ) ) {
+                    $generaldata['slow_query_log'] = wp_kses( $variable->Value, 'strip' );
+                }
+            }
+            // log_error
+            if( 'slow_query_log_file' == $variable->Variable_name ) {
+                if( isset( $variable->Value ) ) {
+                    $generaldata['slow_query_log_file'] = wp_kses( $variable->Value, 'strip' );
+                }
+            }
+            // sql_mode
+            if( 'sql_mode' == $variable->Variable_name ) {
+                if( isset( $variable->Value ) ) {
+                    $generaldata['sql_mode'] = wp_kses( $variable->Value, 'strip' );
+                }
+            }
+            // storage_engine
+            if( 'storage_engine' == $variable->Variable_name ) {
+                if( isset( $variable->Value ) ) {
+                    $generaldata['storage_engine'] = wp_kses( $variable->Value, 'strip' );
+                }
+            }
+            // time_format
+            if( 'time_format' == $variable->Variable_name ) {
+                if( isset( $variable->Value ) ) {
+                    $generaldata['time_format'] = wp_kses( $variable->Value, 'strip' );
+                }
+            }
+            // time_zone
+            if( 'time_zone' == $variable->Variable_name ) {
+                if( isset( $variable->Value ) ) {
+                    $generaldata['time_zone'] = wp_kses( $variable->Value, 'strip' );
+                }
+            }
+            // timestamp
+            if( 'timestamp' == $variable->Variable_name ) {
+                if( isset( $variable->Value ) ) {
+                    $generaldata['timestamp'] = wp_kses( $variable->Value, 'strip' );
+                }
+            }
+            // tls_version
+            if( 'tls_version' == $variable->Variable_name ) {
+                if( isset( $variable->Value ) ) {
+                    $generaldata['tls_version'] = wp_kses( $variable->Value, 'strip' );
+                }
+            }
+            // version
+            if( 'version' == $variable->Variable_name ) {
+                if( isset( $variable->Value ) ) {
+                    $generaldata['version'] = wp_kses( $variable->Value, 'strip' );
+                }
+            }
+            // version_comment
+            if( 'version_comment' == $variable->Variable_name ) {
+                if( isset( $variable->Value ) ) {
+                    $generaldata['version_comment'] = wp_kses( $variable->Value, 'strip' );
+                }
+            }
+            // version_compile_machine
+            if( 'version_compile_machine' == $variable->Variable_name ) {
+                if( isset( $variable->Value ) ) {
+                    $generaldata['version_compile_machine'] = wp_kses( $variable->Value, 'strip' );
+                }
+            }
+            // version_compile_os
+            if( 'version_compile_os' == $variable->Variable_name ) {
+                if( isset( $variable->Value ) ) {
+                    $generaldata['version_compile_os'] = wp_kses( $variable->Value, 'strip' );
+                }
+            }
+            // version_malloc_library
+            if( 'version_malloc_library' == $variable->Variable_name ) {
+                if( isset( $variable->Value ) ) {
+                    $generaldata['version_malloc_library'] = wp_kses( $variable->Value, 'strip' );
+                }
+            }
+            // version_source_revision
+            if( 'version_source_revision' == $variable->Variable_name ) {
+                if( isset( $variable->Value ) ) {
+                    $generaldata['version_source_revision'] = wp_kses( $variable->Value, 'strip' );
+                }
+            }
+            // version_ssl_library
+            if( 'version_ssl_library' == $variable->Variable_name ) {
+                if( isset( $variable->Value ) ) {
+                    $generaldata['version_ssl_library'] = wp_kses( $variable->Value, 'strip' );
+                }
+            }
+            // wait_timeout
+            if( 'wait_timeout' == $variable->Variable_name ) {
+                if( isset( $variable->Value ) ) {
+                    $generaldata['wait_timeout'] = wp_kses( $variable->Value, 'strip' );
+                }
+            }
+            // warning_count
+            if( 'warning_count' == $variable->Variable_name ) {
+                if( isset( $variable->Value ) ) {
+                    $generaldata['warning_count'] = wp_kses( $variable->Value, 'strip' );
+                }
+            }
+
         }
         return $generaldata;
 
