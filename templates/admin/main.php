@@ -19,8 +19,9 @@ $executionTimeAjax = new MDBHC\AdminScreen();
 		   class="nav-tab <?php echo 'events' === $active_tab ? 'nav-tab-active' : ''; ?>"><?php esc_html_e( 'Events', 'mdbhc' ); ?></a>
 	</h2>
 	<?php
-	if ( 'general' === $active_tab ) {
-		/*
+	mdbhc__template('templates/admin/notices');
+
+	if ('general' === $active_tab) {
 		echo '<p>';
 		esc_html_e('Blah blah blah', 'mdbhc');
 		echo '</p>';
