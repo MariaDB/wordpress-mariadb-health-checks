@@ -2,8 +2,6 @@
 <!-- <pre> -->
 <?php
 echo '<p>DB Execution Time Graph</p>';
-$executionTime = new MDBHC\ExecutionTime();
-$executionTimeAjax = new MDBHC\AdminScreen();
 ?>
 <div class="wrap">
 	<?php settings_errors(); ?>
@@ -20,10 +18,10 @@ $executionTimeAjax = new MDBHC\AdminScreen();
 		esc_html_e('Blah blah blah', 'mdbhc');
 		echo '</p>';
 		echo '<div><canvas id="mdbhc-chart"></canvas></div>';
-        mdbhc__template('templates/admin/main-general');
+		mdbhc__template('templates/admin/main-general');
 	}
 	if ('alarms' === $active_tab) {
-        mdbhc__template('templates/admin/main-alarms');
+		mdbhc__template('templates/admin/main-alarms');
 	}
 	if ('warnings' === $active_tab) {
 		$histograms = new MDBHC\Histograms();
@@ -56,10 +54,10 @@ $executionTimeAjax = new MDBHC\AdminScreen();
 		echo '<p>';
 		esc_html_e('WARNINGS Blah blah blah', 'mdbhc');
 		echo '</p>';
-        mdbhc__template('templates/admin/main-warnings');
+		mdbhc__template('templates/admin/main-warnings');
 	}
 	if ('events' === $active_tab) {
-        mdbhc__template('templates/admin/main-events');
+		mdbhc__template('templates/admin/main-events');
 	}
 	?>
 </div>
