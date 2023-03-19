@@ -71,6 +71,29 @@ function histograms_test() {
 	return $result;
 }
 
+function maria_db_version_test() {
+	$result = array(
+		'status'      => 'good',
+		'label'       => 'Maria DB Version Test',
+		'badge'       => array(
+			'label' =>  __( 'Performance' ),
+			'color' => 'blue',
+		),
+		'description' => 'The version of your MariaDB is fully supported until now.',
+		'actions'     => '',
+		'test'        => 'maria_db_version_test',
+	);
+
+	$dbInformation = getAllDbInformation();
+
+	if($dbInformation['isEndOfLive']) {
+		$result['status'] = 'critical';
+		$result['description'] = 'Your version is end of live. Please update your MariaDB database to a newer version.';
+	}
+
+	return $result;
+}
+
 function add_custom_test( $tests ) {
 	$histograms = new MDBHC\Histograms();
 	if($histograms->hasHistograms() != 0) {
@@ -79,6 +102,11 @@ function add_custom_test( $tests ) {
 			'test' => 'histograms_test'
 		];
 	}
+
+	$tests['direct']['maria_db_version_test'] = [
+		'label' => 'Maria DB Version Test',
+		'test' => 'maria_db_version_test'
+	];
 
 	return $tests;
 }
