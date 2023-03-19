@@ -2,6 +2,8 @@
 <!-- <pre> -->
 <?php
 echo '<p>DB Execution Time Graph</p>';
+
+mdbhc__template('templates/admin/notices');
 $executionTime = new MDBHC\ExecutionTime();
 $executionTimeAjax = new MDBHC\AdminScreen();
 ?>

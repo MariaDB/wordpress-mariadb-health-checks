@@ -16,13 +16,8 @@ if ($hasHistograms != 0) {
 		echo '<div class="notice notice-success is-dismissible"><p>';
 		esc_html_e('Histograms have been run successfully');
 		echo '</p></div>';
-	}
-	if ($histograms->isReRunNeeded()) {
-		echo '<div class="notice notice-warning is-dismissible"><p>';
-		esc_html_e('Last histogram run: ' . $histograms->last());
-		echo '</p><p>';
-		esc_html_e('Rerun is needed.');
-		echo '</p></div>';
+
+		unset($_GET['runhistograms']);
 	}
 }
 
