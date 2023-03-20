@@ -19,7 +19,6 @@ jQuery(document).ready(function ($) {
 					}
 					execTime.push(Math.round(res.microseconds));
 					averageQueries.push(res["queries-num"]);
-					console.log(res["queries-num"]);
 				});
 
 				new Chart(ctx, {
