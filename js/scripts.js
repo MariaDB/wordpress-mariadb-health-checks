@@ -10,7 +10,7 @@ jQuery(document).ready(function ($) {
 				const execTime = [];
 				const averageQueries = [];
 
-				response.forEach((res, i) => {
+				response.data.forEach((res, i) => {
 					const resPrevDate = response[i - 1]?.date;
 					if (resPrevDate !== res.date && resPrevDate !== undefined) {
 						labels.push(res.date);
@@ -21,24 +21,36 @@ jQuery(document).ready(function ($) {
 					averageQueries.push(res["queries-num"]);
 				});
 
+				datasets: [
+					{
+						label: "Average execution time in μS",
+						data: execTime,
+						borderWidth: 1,
+						yAxisID: "y",
+					},
+					{
+						label: "Queries",
+						data: averageQueries,
+						borderWidth: 1,
+						yAxisID: "y1",
+					},
+				]
+
+				if (response.config.high_contrast) {
+					Chart.defaults.backgroundColor = '#FFFFFF';
+					Chart.defaults.borderColor = '#000000';
+					Chart.defaults.color = '#000000';
+					dataset[0].borderWidth = 3;
+					dataset[0].borderColor = '#000000';
+					dataset[1].borderWidth = 3;
+					dataset[1].borderColor = '#000000';
+				}
+
 				new Chart(ctx, {
 					type: "line",
 					data: {
 						labels: labels,
-						datasets: [
-							{
-								label: "Average execution time in μS",
-								data: execTime,
-								borderWidth: 1,
-								yAxisID: "y",
-							},
-							{
-								label: "Queries",
-								data: averageQueries,
-								borderWidth: 1,
-								yAxisID: "y1",
-							},
-						],
+						datasets: datasets,
 					},
 					options: {
 						scales: {

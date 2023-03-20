@@ -21,7 +21,12 @@ class AdminScreen
 	{
 		check_ajax_referer('mdbhc_executiontime', 'nonce', true);
 		$executionTime = new ExecutionTime();
-		wp_send_json($executionTime->get());
+		wp_send_json([
+			"data" => $executionTime->get(),
+			"config" => [
+				'high_contrast' => Accessibility::getActivateStatus(),
+			]
+		]);
 	}
 
 
