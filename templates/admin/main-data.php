@@ -1,4 +1,7 @@
 <h3><?php _e( 'MariaDB Data', 'mdbhc' ); ?></h3>
+<p><?php _e( 'Here you have the information of the MariaDB histograms.', 'mdbhc' ); ?></p>
+<p><?php _e( 'In the graph you can see, in blue, the average execution time per hour of the queries of your site. In red, you can see the number of queries that have been executed.', 'mdbhc' ); ?></p>
+<p><?php _e( 'At the bottom you have the graph data in table format for a better reading.', 'mdbhc' ); ?></p>
 
 <h4><?php _e( 'Execution Time Graph', 'mdbhc' ); ?></h4>
 <?php
@@ -8,9 +11,8 @@
 		if (isset($_GET['runhistograms'])) {
 			$histograms->run();
 			echo '<div class="notice notice-success is-dismissible"><p>';
-			esc_html_e('Histograms have been run successfully');
+			_e('Histograms have been run successfully', 'mdbhc');
 			echo '</p></div>';
-
 			unset($_GET['runhistograms']);
 		}
 	}
@@ -22,7 +24,7 @@
 <?php
 	$executionTime = new MDBHC\ExecutionTime();
 	$executionTimeAjax = new MDBHC\AdminScreen();
-  echo '<table class="wp-list-table widefat striped table-view-list"><thead><tr><th>Date / Time</th><th>Average Exection Time (μS)</th><th>Average Queries</th></tr></thead>';
+  echo '<table class="wp-list-table widefat striped table-view-list"><thead><tr><th>'. __('Date / Time', 'mdbhc') . "</th><th>". __('Average Exection Time (μs)', 'mdbhc'). '</th><th>' . __('Average Queries', 'mdbhc'). '</th></tr></thead>';
 	echo '<tbody id="the-list">';
   $execTime = $executionTime->get_raw();
   foreach ($execTime as $value) {
