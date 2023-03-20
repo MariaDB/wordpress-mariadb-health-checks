@@ -21,7 +21,7 @@ jQuery(document).ready(function ($) {
 					averageQueries.push(res["queries-num"]);
 				});
 
-				datasets: [
+				var datasets = [
 					{
 						label: "Average execution time in μS",
 						data: execTime,
@@ -33,17 +33,21 @@ jQuery(document).ready(function ($) {
 						data: averageQueries,
 						borderWidth: 1,
 						yAxisID: "y1",
-					},
-				]
+					}
+				];
+
+				var redColor  = "#FF7390";
+				var blueColor = "#4DAAED";
 
 				if (response.config.high_contrast) {
+					redColor = "#FF0000";
 					Chart.defaults.backgroundColor = '#FFFFFF';
 					Chart.defaults.borderColor = '#000000';
 					Chart.defaults.color = '#000000';
-					dataset[0].borderWidth = 3;
-					dataset[0].borderColor = '#000000';
-					dataset[1].borderWidth = 3;
-					dataset[1].borderColor = '#000000';
+					datasets[0].borderWidth = 3;
+					datasets[0].borderColor = blueColor;
+					datasets[1].borderWidth = 3;
+					datasets[1].borderColor = redColor;
 				}
 
 				new Chart(ctx, {
@@ -59,7 +63,7 @@ jQuery(document).ready(function ($) {
 								title: {
 									display: true,
 									text: "Execution time",
-									color: "#4DAAED",
+									color: blueColor,
 									font: {
 										size: 20,
 										style: "normal",
@@ -75,7 +79,7 @@ jQuery(document).ready(function ($) {
 								title: {
 									display: true,
 									text: "Queries",
-									color: "#FF7390",
+									color: redColor,
 									font: {
 										size: 20,
 										style: "normal",
