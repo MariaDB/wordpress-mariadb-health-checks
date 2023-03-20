@@ -1,5 +1,5 @@
 <h3><?php _e( 'MariaDB Data', 'mdbhc' ); ?></h3>
-<p><?php _e( 'Here you have the information of the MariaDB histograms.', 'mdbhc' ); ?></p>
+<p><?php _e( 'Here you have the information of the MariaDB queries', 'mdbhc' ); ?></p>
 <p><?php _e( 'In the graph you can see, in blue, the average execution time per hour of the queries of your site. In red, you can see the number of queries that have been executed.', 'mdbhc' ); ?></p>
 <p><?php _e( 'At the bottom you have the graph data in table format for a better reading.', 'mdbhc' ); ?></p>
 
