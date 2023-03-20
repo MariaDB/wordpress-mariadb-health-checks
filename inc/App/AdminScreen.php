@@ -28,6 +28,8 @@ class AdminScreen
 
 	public function admin_enqueues()
 	{
+
+		wp_enqueue_style('mdbhc-styles', mdbhc_url('/css/styles.css'), array(), false, 'all');
 		wp_enqueue_script('mdbhc--chartjs', mdbhc_url('js/chart.4.2.1.min.js'), array(), false, true);
 		wp_enqueue_script('mdbhc--scripts', mdbhc_url('js/scripts.js'), ['jquery'], false, true);
 		wp_add_inline_script('mdbhc--scripts', 'const mdbhc = ' . json_encode([
