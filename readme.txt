@@ -26,6 +26,11 @@ Visit the plugin section in your WordPress, search for [MariaDB Health Checks]; 
 
 Extract the contents of the ZIP and upload the contents to the `/wp-content/plugins/mariadb-health-checks/` directory. Once uploaded, it will appear in your plugin list.
 
+== Contributors ==
+
+* [Plugin contributors at GitHub](https://github.com/itsdarkmars/hackathon/graphs/contributors)
+
+
 == Changelog ==
 
 = 1.0.0 =
