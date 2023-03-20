@@ -3,23 +3,24 @@
 <p><?php _e( 'In the graph you can see, in blue, the average execution time per hour of the queries of your site. In red, you can see the number of queries that have been executed.', 'mdbhc' ); ?></p>
 <p><?php _e( 'At the bottom you have the graph data in table format for a better reading.', 'mdbhc' ); ?></p>
 
-<h4><?php _e( 'Execution Time Graph', 'mdbhc' ); ?></h4>
+<h4><?php _e('Query performance graph', 'mdbhc'); ?></h4>
 <?php
-	$histograms    = new MDBHC\Histograms();
-	$hasHistograms = $histograms->hasHistograms();
-	if( $hasHistograms != 0 ) {
-		if (isset($_GET['runhistograms'])) {
-			$histograms->run();
-			echo '<div class="notice notice-success is-dismissible"><p>';
-			_e('Histograms have been run successfully', 'mdbhc');
-			echo '</p></div>';
-			unset($_GET['runhistograms']);
-		}
+$histograms    = new MDBHC\Histograms();
+$hasHistograms = $histograms->hasHistograms();
+if ($hasHistograms != 0) {
+	if (isset($_GET['runhistograms'])) {
+		$histograms->run();
+		echo '<div class="notice notice-success is-dismissible"><p>';
+		esc_html_e('Histograms have been run successfully');
+		echo '</p></div>';
+
+		unset($_GET['runhistograms']);
 	}
+}
 ?>
 <div><canvas id="mdbhc-chart"></canvas></div>
 
-<h4><?php _e( 'Execution Time Data', 'mdbhc' ); ?></h4>
+<h4><?php _e('Query performance table', 'mdbhc'); ?></h4>
 
 <?php
 	$executionTime = new MDBHC\ExecutionTime();

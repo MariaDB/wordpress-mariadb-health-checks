@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: MariaDB Health Checks\n"
-"POT-Creation-Date: 2023-03-19 10:24+0100\n"
+"POT-Creation-Date: 2023-03-20 10:42+0100\n"
 "PO-Revision-Date: 2023-03-18 17:49+0100\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -22,8 +22,16 @@ msgstr ""
 "X-Poedit-SearchPathExcluded-0: *.min.js\n"
 "X-Poedit-SearchPathExcluded-1: vendor\n"
 
-#: inc/App/AdminScreen.php:60
+#: inc/App/AdminScreen.php:71
 msgid "MariaDB Health Check"
+msgstr ""
+
+#: inc/hooks.php:47
+msgid "Performance"
+msgstr ""
+
+#: inc/hooks.php:83
+msgid "Security"
 msgstr ""
 
 #: templates/admin/main-alarms.php:1
@@ -53,6 +61,51 @@ msgid_plural "%s values"
 msgstr[0] ""
 msgstr[1] ""
 
+#: templates/admin/main-data.php:1
+msgid "MariaDB Data"
+msgstr ""
+
+#: templates/admin/main-data.php:2
+msgid "Here you have the information of the MariaDB histograms."
+msgstr ""
+
+#: templates/admin/main-data.php:3
+msgid ""
+"In the graph you can see, in blue, the average execution time per hour of "
+"the queries of your site. In red, you can see the number of queries that "
+"have been executed."
+msgstr ""
+
+#: templates/admin/main-data.php:4
+msgid ""
+"At the bottom you have the graph data in table format for a better reading."
+msgstr ""
+
+#: templates/admin/main-data.php:6
+msgid "Execution Time Graph"
+msgstr ""
+
+#: templates/admin/main-data.php:14 templates/admin/main-tools.php:9
+#: templates/admin/main-warnings.php:9
+msgid "Histograms have been run successfully"
+msgstr ""
+
+#: templates/admin/main-data.php:22
+msgid "Execution Time Data"
+msgstr ""
+
+#: templates/admin/main-data.php:27
+msgid "Date / Time"
+msgstr ""
+
+#: templates/admin/main-data.php:27
+msgid "Average Exection Time (μs)"
+msgstr ""
+
+#: templates/admin/main-data.php:27
+msgid "Average Queries"
+msgstr ""
+
 #: templates/admin/main-events.php:1
 msgid "MariaDB Events"
 msgstr ""
@@ -61,32 +114,848 @@ msgstr ""
 msgid "MariaDB Database Information"
 msgstr ""
 
-#: templates/admin/main-warnings.php:1
-msgid "MariaDB Warnings"
+#. translators: %1$s: The database version you want.
+#: templates/admin/main-general.php:16 templates/admin/widget.php:12
+#, php-format
+msgid "You are currently using version %1$s of your database %2$s server."
 msgstr ""
 
-#: templates/admin/main-warnings.php:33
-msgid "Histograms have been run successfully"
+#: templates/admin/main-general.php:24 templates/admin/widget.php:18
+msgid ""
+"Your version is past end of life. Please update your MariaDB database to a "
+"newer version."
 msgstr ""
 
-#: templates/admin/main-warnings.php:40
+#: templates/admin/main-general.php:26 templates/admin/main-general.php:42
+#: templates/admin/widget.php:20 templates/admin/widget.php:33
+#, php-format
+msgid ""
+"See <a href=\"%1$s\" target=\"_blank\">MariaDB version list</a> to get "
+"more details about the different versions."
+msgstr ""
+
+#: templates/admin/main-general.php:30 templates/admin/widget.php:24
+#, php-format
+msgid ""
+"Please, <a href=\"%1$s\" target=\"_blank\">download an updated version of "
+"MariaDB</a>."
+msgstr ""
+
+#: templates/admin/main-general.php:38 templates/admin/widget.php:29
+#, php-format
+msgid "The version of your MariaDB is fully supported until %1$s."
+msgstr ""
+
+#: templates/admin/main-general.php:48 templates/admin/main-general.php:61
+msgid "General information"
+msgstr ""
+
+#: templates/admin/main-general.php:49 templates/admin/main-general.php:364
+msgid "Logs"
+msgstr ""
+
+#: templates/admin/main-general.php:50 templates/admin/main-general.php:414
+msgid "Locale"
+msgstr ""
+
+#: templates/admin/main-general.php:51 templates/admin/main-general.php:509
+msgid "Connections"
+msgstr ""
+
+#: templates/admin/main-general.php:52 templates/admin/main-general.php:571
+msgid "Histogram"
+msgstr ""
+
+#: templates/admin/main-general.php:53 templates/admin/main-general.php:609
+msgid "Character Set"
+msgstr ""
+
+#: templates/admin/main-general.php:54 templates/admin/main-general.php:707
+msgid "Character Collation"
+msgstr ""
+
+#: templates/admin/main-general.php:55 templates/admin/main-general.php:757
+msgid "Options available"
+msgstr ""
+
+#: templates/admin/main-general.php:56 templates/admin/main-general.php:891
+msgid "InnoDB"
+msgstr ""
+
+#: templates/admin/main-general.php:69
+msgid ""
+"Server version number. It may also include a suffix with configuration or "
+"build information. -debug indicates debugging support was enabled on the "
+"server, and -log indicates at least one of the binary log, general log or "
+"slow query log are enabled, for example 10.0.1-MariaDB-mariadb1precise-"
+"log. From MariaDB 10.2.1, this variable can be set at startup in order to "
+"fake the server version."
+msgstr ""
+
+#. translators: Server version number
+#: templates/admin/main-general.php:71
+msgid "MariaDB version"
+msgstr ""
+
+#: templates/admin/main-general.php:81
+msgid ""
+"Operating system that MariaDB was built on, for example debian-linux-gnu. "
+msgstr ""
+
+#. translators: Operating system that MariaDB was built on
+#: templates/admin/main-general.php:83
+msgid "OS"
+msgstr ""
+
+#: templates/admin/main-general.php:93
+msgid ""
+"The machine type or architecture MariaDB was built on, for example i686."
+msgstr ""
+
+#. translators: The machine type or architecture MariaDB was built on
+#: templates/admin/main-general.php:95
+msgid "Compilation Machine"
+msgstr ""
+
+#: templates/admin/main-general.php:105
+msgid ""
+"Source control revision id for MariaDB source code, enabling one to see "
+"exactly which version of the source was used for a build."
+msgstr ""
+
+#. translators: Source control revision id for MariaDB source code
+#: templates/admin/main-general.php:107
+msgid "Source version"
+msgstr ""
+
+#: templates/admin/main-general.php:117
+msgid "Version of the used malloc library."
+msgstr ""
+
+#. translators: Version of the used malloc library.
+#: templates/admin/main-general.php:119
+msgid "malloc version"
+msgstr ""
+
+#: templates/admin/main-general.php:129
+msgid ""
+"The version of the TLS library that is being used. Note that the version "
+"returned by this system variable does not always necessarily correspond to "
+"the exact version of the OpenSSL package installed on the system. OpenSSL "
+"shared libraries tend to contain interfaces for multiple versions at once "
+"to allow for backward compatibility. Therefore, if the OpenSSL package "
+"installed on the system is newer than the OpenSSL version that the MariaDB "
+"server binary was built with, then the MariaDB server binary might use one "
+"of the interfaces for an older version."
+msgstr ""
+
+#. translators: The version of the TLS library that is being used.
+#: templates/admin/main-general.php:131
+msgid "SSL version"
+msgstr ""
+
+#: templates/admin/main-general.php:141
+msgid ""
+"By default, the MariaDB server listens for TCP/IP connections on all "
+"addresses. You can specify an alternative when the server starts using "
+"this option; either a host name, an IPv4 or an IPv6 address, '::' or "
+"'*' (all addresses). In some systems, such as Debian and Ubuntu, the "
+"bind_address is set to 127.0.0.1, which binds the server to listen on "
+"localhost only. bind_address has always been available as a mysqld option; "
+"from MariaDB 10.3.3 its also available as a system variable. Before "
+"MariaDB 10.6.0 '::' implied listening additionally on IPv4 addresses like "
+"'*'. From 10.6.0 onwards it refers to IPv6 stictly."
+msgstr ""
+
+#. translators: By default, the MariaDB server listens for TCP/IP connections on all addresses.
+#: templates/admin/main-general.php:143
+msgid "Bind Address"
+msgstr ""
+
+#: templates/admin/main-general.php:153
+msgid ""
+"Port to listen for TCP/IP connections. If set to 0, will default to, in "
+"order of preference, my.cnf, the MYSQL_TCP_PORT environment variable, /etc/"
+"services, built-in default (3306)."
+msgstr ""
+
+#. translators: Port to listen for TCP/IP connections.
+#: templates/admin/main-general.php:155
+msgid "Port"
+msgstr ""
+
+#: templates/admin/main-general.php:165
+msgid "When the server starts, this variable is set to the server host name."
+msgstr ""
+
+#. translators: When the server starts, this variable is set to the server host name.
+#: templates/admin/main-general.php:167
+msgid "Hostname"
+msgstr ""
+
+#: templates/admin/main-general.php:177
+msgid ""
+"This system variable is used with MariaDB replication to identify unique "
+"primary and replica servers in a topology. This system variable is also "
+"used with the binary log to determine which server a specific transaction "
+"originated on."
+msgstr ""
+
+#. translators: This system variable is used with MariaDB replication to identify unique primary and replica servers in a topology.
+#: templates/admin/main-general.php:179
+msgid "Server ID"
+msgstr ""
+
+#: templates/admin/main-general.php:189
+msgid "The version of the client/server protocol used by the MariaDB server."
+msgstr ""
+
+#. translators: The version of the client/server protocol used by the MariaDB server.
+#: templates/admin/main-general.php:191
+msgid "Protocol version"
+msgstr ""
+
+#: templates/admin/main-general.php:201
+msgid ""
+"This system variable accepts a comma-separated list (with no whitespaces) "
+"of TLS protocol versions. A TLS protocol version will only be enabled if "
+"it is present in this list. All other TLS protocol versions will not be "
+"permitted."
+msgstr ""
+
+#. translators: This system variable accepts a comma-separated list (with no whitespaces) of TLS protocol versions.
+#: templates/admin/main-general.php:203
+msgid "TLS version"
+msgstr ""
+
+#: templates/admin/main-general.php:213
+msgid "Sets the SQL Mode. Multiple modes can be set, separated by a comma. "
+msgstr ""
+
+#. translators: Sets the SQL Mode.
+#: templates/admin/main-general.php:215
+msgid "SQL Mode"
+msgstr ""
+
+#: templates/admin/main-general.php:225
+msgid ""
+"The default storage engine. The default storage engine must be enabled at "
+"server startup or the server won't start."
+msgstr ""
+
+#. translators: The default storage engine.
+#: templates/admin/main-general.php:227
+msgid "Storage Engine"
+msgstr ""
+
+#: templates/admin/main-general.php:237
+msgid ""
+"When this option is enabled, connections attempted using insecure "
+"transport will be rejected. Secure transports are SSL/TLS, Unix sockets or "
+"named pipes. Note that per-account requirements take precedence."
+msgstr ""
+
+#. translators: Secure transports are SSL/TLS, Unix sockets or named pipes.
+#: templates/admin/main-general.php:239
+msgid "Require secure transport"
+msgstr ""
+
+#: templates/admin/main-general.php:249
+msgid ""
+"When set to 1 (0 is default), no updates are permitted except from users "
+"with the SUPER privilege or, from MariaDB 10.5.2, the READ ONLY ADMIN "
+"privilege, or replica servers updating from a primary. The read_only "
+"variable is useful for replica servers to ensure no updates are "
+"accidentally made outside of what are performed on the primary."
+msgstr ""
+
+#. translators: The read_only variable is useful for replica servers to ensure no updates are accidentally made outside of what are performed on the primary.
+#: templates/admin/main-general.php:251
+msgid "Read only"
+msgstr ""
+
+#: templates/admin/main-general.php:261
+msgid ""
+"Time in seconds that the server waits for a connect packet before "
+"returning a 'Bad handshake'. Increasing may help if clients regularly "
+"encounter 'Lost connection to MySQL server at 'X', system error: "
+"error_number' type-errors."
+msgstr ""
+
+#. translators: Time in seconds that the server waits for a connect packet before returning a Bad handshake.
+#: templates/admin/main-general.php:263
+msgid "Connection timeout"
+msgstr ""
+
+#: templates/admin/main-general.php:274
+msgid ""
+"Time in seconds that the server waits for a connection to become active "
+"before closing it. The session value is initialized when a thread starts "
+"up from either the global value, if the connection is non-interactive, or "
+"from the interactive_timeout value, if the connection is interactive."
+msgstr ""
+
+#. translators: Time in seconds that the server waits for a connection to become active before closing it.
+#: templates/admin/main-general.php:276
+msgid "Waiting timeout"
+msgstr ""
+
+#: templates/admin/main-general.php:286
+msgid ""
+"Read-only variable indicating the number of warnings, errors and notes "
+"resulting from the most recent statement that generated messages. See SHOW "
+"WARNINGS for more. Note warnings will only be recorded if sql_notes is "
+"true (the default)."
+msgstr ""
+
+#. translators: Read-only variable indicating the number of warnings, errors and notes resulting from the most recent statement that generated messages.
+#: templates/admin/main-general.php:288
+msgid "Waiting count"
+msgstr ""
+
+#: templates/admin/main-general.php:298
+msgid "Server license, for example GPL."
+msgstr ""
+
+#. translators: Server license
+#: templates/admin/main-general.php:300
+msgid "License"
+msgstr ""
+
+#: templates/admin/main-general.php:310
+msgid ""
+"If set to 1, the default, all queries are committed immediately. The LOCK "
+"IN SHARE MODE and FOR UPDATE clauses therefore have no effect. If set to "
+"0, they are only committed upon a COMMIT statement, or rolled back with a "
+"ROLLBACK statement. If autocommit is set to 0, and then changed to 1, all "
+"open transactions are immediately committed."
+msgstr ""
+
+#. translators: If set to 1, the default, all queries are committed immediately.
+#: templates/admin/main-general.php:312
+msgid "Auto Commit"
+msgstr ""
+
+#: templates/admin/main-general.php:322
+msgid ""
+"If set to AUTO or 1, the default, MariaDB allows concurrent INSERTs and "
+"SELECTs for MyISAM tables with no free blocks in the data (deleted rows in "
+"the middle). If set to NEVER or 0, concurrent inserts are disabled. If set "
+"to ALWAYS or 2, concurrent inserts are permitted for all MyISAM tables, "
+"even those with holes, in which case new rows are added at the end of a "
+"table if the table is being used by another thread."
+msgstr ""
+
+#. translators: MariaDB allows concurrent INSERTs and SELECTs for MyISAM tables with no free blocks in the data (deleted rows in the middle).
+#: templates/admin/main-general.php:324
+msgid "Concurrent Insert"
+msgstr ""
+
+#: templates/admin/main-general.php:334
+msgid ""
+"Read-only variable denoting the number of errors from the most recent "
+"statement in the current session that generated errors."
+msgstr ""
+
+#. translators: Read-only variable denoting the number of errors from the most recent statement in the current session that generated errors.
+#: templates/admin/main-general.php:336
+msgid "Error count"
+msgstr ""
+
+#: templates/admin/main-general.php:346
+msgid ""
+"Number of days after which the binary log can be automatically removed. By "
+"default 0, or no automatic removal. When using replication, should always "
+"be set higher than the maximum lag by any replica."
+msgstr ""
+
+#. translators: Number of days after which the binary log can be automatically removed.
+#: templates/admin/main-general.php:348
+msgid "Expire log days"
+msgstr ""
+
+#: templates/admin/main-general.php:358
+msgid "There is no General information to show."
+msgstr ""
+
+#: templates/admin/main-general.php:372
+msgid ""
+"Specifies the name of the error log. MariaDB always writes its error log, "
+"but the destination is configurable."
+msgstr ""
+
+#. translators: Specifies the name of the error log.
+#: templates/admin/main-general.php:374
+msgid "Error"
+msgstr ""
+
+#: templates/admin/main-general.php:384
+msgid ""
+"If set to 0, the default unless the --slow-query-log option is used, the "
+"slow query log is disabled, while if set to 1 (both global and session "
+"variables), the slow query log is enabled. From MariaDB 10.11.0, an alias "
+"for log_slow_query."
+msgstr ""
+
+#. translators: If set to 0, the default unless the --slow-query-log option is used, the slow query log is disabled, while if set to 1 (both global and session variables), the slow query log is enabled.
+#: templates/admin/main-general.php:386
+msgid "Slow queries"
+msgstr ""
+
+#: templates/admin/main-general.php:396
+msgid ""
+"Name of the slow query log file. From MariaDB 10.11, an alias for "
+"log_slow_query_file."
+msgstr ""
+
+#. translators: Name of the slow query log file.
+#: templates/admin/main-general.php:398
+msgid "Slow queries file"
+msgstr ""
+
+#: templates/admin/main-general.php:408
+msgid "There is no Logs information to show."
+msgstr ""
+
+#: templates/admin/main-general.php:422 templates/admin/main-general.php:433
+#: templates/admin/main-general.php:444
+msgid "Unused."
+msgstr ""
+
+#: templates/admin/main-general.php:423
+msgid "Date format"
+msgstr ""
+
+#: templates/admin/main-general.php:434
+msgid "Time format"
+msgstr ""
+
+#: templates/admin/main-general.php:445
+msgid "Date/Time format"
+msgstr ""
+
+#: templates/admin/main-general.php:455
+msgid ""
+"Sets the time for the client. This will affect the result returned by the "
+"NOW() function, not the SYSDATE() function, unless the server is started "
+"with the --sysdate-is-now option, in which case SYSDATE becomes an alias "
+"of NOW, and will also be affected. Also used to get the original timestamp "
+"when restoring rows from the binary log."
+msgstr ""
+
+#. translators: Sets the time for the client.
+#: templates/admin/main-general.php:457
+msgid "Timestamp"
+msgstr ""
+
+#: templates/admin/main-general.php:467
+msgid ""
+"The global value determines the default time zone for sessions that "
+"connect. The session value determines the session's active time zone. When "
+"it is set to SYSTEM, the session's time zone is determined by the "
+"system_time_zone system variable. "
+msgstr ""
+
+#. translators: The global value determines the default time zone for sessions that connect.
+#: templates/admin/main-general.php:469
+msgid "TimeZone"
+msgstr ""
+
+#: templates/admin/main-general.php:479
+msgid ""
+"This system variable can be specified as a locale name. The language of "
+"the associated locale will be used for error messages. See Server Locales "
+"for a list of supported locales and their associated languages."
+msgstr ""
+
+#. translators: This system variable can be specified as a locale name.
+#: templates/admin/main-general.php:481
+msgid "Locale messages"
+msgstr ""
+
+#: templates/admin/main-general.php:491
+msgid ""
+"The locale that determines the language used for the date and time "
+"functions DAYNAME(), MONTHNAME() and DATE_FORMAT(). Locale names are "
+"language and region subtags, for example 'en_ZA' (English - South Africa) "
+"or 'es_US: Spanish - United States'. The default is always 'en-US' "
+"regardless of the system's locale setting."
+msgstr ""
+
+#. translators: The locale that determines the language used for the date and time functions.
+#: templates/admin/main-general.php:493
+msgid "Locale time names"
+msgstr ""
+
+#: templates/admin/main-general.php:503
+msgid "There is no Locale information to show."
+msgstr ""
+
+#: templates/admin/main-general.php:517
+msgid "The maximum number of simultaneous client connections."
+msgstr ""
+
+#. translators: The maximum number of simultaneous client connections.
+#: templates/admin/main-general.php:519
+msgid "Max Connections"
+msgstr ""
+
+#: templates/admin/main-general.php:529
+msgid ""
+"Maximum simultaneous connections permitted for each user account. When set "
+"to 0, there is no per user limit. Setting it to -1 stops users without the "
+"SUPER privilege or, from MariaDB 10.5.2, the CONNECTION ADMIN privilege, "
+"from connecting to the server. The session variable is always read-only "
+"and only privileged users can modify user limits."
+msgstr ""
+
+#. translators: Maximum simultaneous connections permitted for each user account.
+#: templates/admin/main-general.php:531
+msgid "Max Users Connections"
+msgstr ""
+
+#: templates/admin/main-general.php:541
+msgid ""
+"Limit to the number of successive failed connects from a host before the "
+"host is blocked from making further connections. The count for a host is "
+"reset to zero if they successfully connect."
+msgstr ""
+
+#. translators: Limit to the number of successive failed connects from a host before the host is blocked from making further connections.
+#: templates/admin/main-general.php:543
+msgid "Max Connect errors"
+msgstr ""
+
+#: templates/admin/main-general.php:553
+msgid ""
+"Specifies the maximum number of messages stored for display by SHOW ERRORS "
+"and SHOW WARNINGS statements."
+msgstr ""
+
+#. translators: Specifies the maximum number of messages stored for display by SHOW ERRORS and SHOW WARNINGS statements.
+#: templates/admin/main-general.php:555
+msgid "Max error count"
+msgstr ""
+
+#: templates/admin/main-general.php:565
+msgid "There is no Connections information to show."
+msgstr ""
+
+#: templates/admin/main-general.php:579
+msgid ""
+"Number of bytes used for a histogram, or, from MariaDB 10.7 when "
+"histogram_type is set to JSON_HB, number of buckets. If set to 0, no "
+"histograms are created by ANALYZE. "
+msgstr ""
+
+#. translators: Number of bytes used for a histogram.
+#: templates/admin/main-general.php:581
+msgid "Size"
+msgstr ""
+
+#: templates/admin/main-general.php:591
+msgid "Specifies the type of histograms created by ANALYZE. "
+msgstr ""
+
+#. translators: Specifies the type of histograms created by ANALYZE.
+#: templates/admin/main-general.php:593
+msgid "Type"
+msgstr ""
+
+#: templates/admin/main-general.php:603
+msgid "There is no Histogram information to show."
+msgstr ""
+
+#: templates/admin/main-general.php:617
+msgid ""
+"Determines the character set for queries arriving from the client. It can "
+"be set per session by the client, although the server can be configured to "
+"ignore client requests with the --skip-character-set-client-handshake "
+"option. If the client does not request a character set, or requests a "
+"character set that the server does not support, the global value will be "
+"used."
+msgstr ""
+
+#. translators: Determines the character set for queries arriving from the client.
+#: templates/admin/main-general.php:619
+msgid "Client"
+msgstr ""
+
+#: templates/admin/main-general.php:629
+msgid ""
+"Character set used for number to string conversion, as well as for "
+"literals that don't have a character set introducer."
+msgstr ""
+
+#. translators: Character set used for number to string conversion, as well as for literals that don't have a character set introducer.
+#. translators: Collation used for the connection character set.
+#: templates/admin/main-general.php:631 templates/admin/main-general.php:717
+msgid "Connection"
+msgstr ""
+
+#: templates/admin/main-general.php:641
+msgid ""
+"Character set used by the default database, and set by the server whenever "
+"the default database is changed. If there's no default database, "
+"character_set_database contains the same value as character_set_server."
+msgstr ""
+
+#. translators: Character set used by the default database, and set by the server whenever the default database is changed.
+#. translators: Collation used for the default database.
+#: templates/admin/main-general.php:643 templates/admin/main-general.php:729
+msgid "Database"
+msgstr ""
+
+#: templates/admin/main-general.php:653
+msgid ""
+"The character set for the filesystem. Used for converting file names "
+"specified as a string literal from character_set_client to "
+"character_set_filesystem before opening the file."
+msgstr ""
+
+#. translators: The character set for the filesystem.
+#: templates/admin/main-general.php:655
+msgid "Filesystem"
+msgstr ""
+
+#: templates/admin/main-general.php:665
+msgid ""
+"Character set used for results and error messages returned to the client."
+msgstr ""
+
+#. translators: Character set used for results and error messages returned to the client.
+#: templates/admin/main-general.php:667
+msgid "Reults"
+msgstr ""
+
+#: templates/admin/main-general.php:677 templates/admin/main-general.php:689
+msgid ""
+"Character set used by the server to store identifiers, always set to utf8, "
+"or its synonym utf8mb3 starting with MariaDB 10.6."
+msgstr ""
+
+#. translators: Character set used by the server to store identifiers
+#. translators: Default collation used by the server.
+#: templates/admin/main-general.php:679 templates/admin/main-general.php:741
+msgid "Server"
+msgstr ""
+
+#. translators: Character set used by the server to store identifiers
+#: templates/admin/main-general.php:691
+msgid "System"
+msgstr ""
+
+#: templates/admin/main-general.php:701
+msgid "There is no Character Set information to show."
+msgstr ""
+
+#: templates/admin/main-general.php:715
+msgid "Collation used for the connection character set."
+msgstr ""
+
+#: templates/admin/main-general.php:727
+msgid ""
+"Collation used for the default database. Set by the server if the default "
+"database changes, if there is no default database the value from the "
+"collation_server variable is used."
+msgstr ""
+
+#: templates/admin/main-general.php:739
+msgid ""
+"Default collation used by the server. This is set to the default collation "
+"for a given character set automatically when character_set_server is "
+"changed, but it can also be set manually."
+msgstr ""
+
+#: templates/admin/main-general.php:751
+msgid "There is no Character Collation information to show."
+msgstr ""
+
+#: templates/admin/main-general.php:765
+msgid ""
+"If the zlib compression library is accessible to the server, this will be "
+"set to YES, otherwise it will be NO."
+msgstr ""
+
+#. translators: If the zlib compression library is accessible to the server.
+#: templates/admin/main-general.php:767
+msgid "Compress"
+msgstr ""
+
+#: templates/admin/main-general.php:777
+msgid ""
+"If the crypt() system call is available this variable will be set to YES, "
+"otherwise it will be set to NO."
+msgstr ""
+
+#. translators: If the crypt() system call is available
+#: templates/admin/main-general.php:779
+msgid "Crypt"
+msgstr ""
+
+#: templates/admin/main-general.php:789
+msgid ""
+"If the server supports dynamic loading of plugins, will be set to YES, "
+"otherwise will be set to NO."
+msgstr ""
+
+#. translators: If the server supports dynamic loading of plugins
+#: templates/admin/main-general.php:791
+msgid "Dynamic Loading"
+msgstr ""
+
+#: templates/admin/main-general.php:801
+msgid ""
+"If the server supports spatial data types, will be set to YES, otherwise "
+"will be set to NO. "
+msgstr ""
+
+#. translators: If the server supports spatial data types
+#: templates/admin/main-general.php:803
+msgid "Geometry"
+msgstr ""
+
+#: templates/admin/main-general.php:813
+msgid ""
+"This variable shows whether the server is linked with OpenSSL rather than "
+"MariaDB's bundled TLS library, which might be wolfSSL or yaSSL."
+msgstr ""
+
+#. translators: This variable shows whether the server is linked with OpenSSL
+#: templates/admin/main-general.php:815
+msgid "OpenSSL"
+msgstr ""
+
+#: templates/admin/main-general.php:825
+msgid ""
+"If statement profiling is available, will be set to YES, otherwise will be "
+"set to NO."
+msgstr ""
+
+#. translators: If statement profiling is available.
+#: templates/admin/main-general.php:827
+msgid "Profiling"
+msgstr ""
+
+#: templates/admin/main-general.php:837
+msgid ""
+"If the server supports the query cache, will be set to YES, otherwise will "
+"be set to NO."
+msgstr ""
+
+#. translators: *** Please, some context here ***
+#: templates/admin/main-general.php:839
+msgid "Query Cache"
+msgstr ""
+
+#: templates/admin/main-general.php:849
+msgid ""
+"If RTREE indexes (used for spatial indexes) are available, will be set to "
+"YES, otherwise will be set to NO."
+msgstr ""
+
+#. translators: If RTREE indexes (used for spatial indexes) are available.
+#: templates/admin/main-general.php:851
+msgid "RTREE indexes"
+msgstr ""
+
+#: templates/admin/main-general.php:861
+msgid ""
+"This variable shows whether the server supports using TLS to secure "
+"connections."
+msgstr ""
+
+#. translators: This variable shows whether the server supports using TLS to secure connections.
+#: templates/admin/main-general.php:863
+msgid "SSL"
+msgstr ""
+
+#: templates/admin/main-general.php:873
+msgid ""
+"This system variable can be used to determine whether the server supports "
+"symbolic links (note that it has no meaning on Windows)."
+msgstr ""
+
+#. translators: This system variable can be used to determine whether the server supports symbolic links.
+#: templates/admin/main-general.php:875
+msgid "Symlink"
+msgstr ""
+
+#: templates/admin/main-general.php:885
+msgid "There is no Options information to show."
+msgstr ""
+
+#: templates/admin/main-general.php:899
+msgid ""
+"InnoDB version number. From MariaDB 10.3.7, as the InnoDB implementation "
+"in MariaDB has diverged from MySQL, the MariaDB version is instead "
+"reported."
+msgstr ""
+
+#. translators: InnoDB version number.
+#: templates/admin/main-general.php:901
+msgid "Version"
+msgstr ""
+
+#: templates/admin/main-general.php:911
+msgid "There is no InnoDB information to show."
+msgstr ""
+
+#: templates/admin/main-tools.php:1
+msgid "MariaDB Tools"
+msgstr ""
+
+#: templates/admin/main-tools.php:18
+msgid "MariaDB Histograms"
+msgstr ""
+
+#: templates/admin/main-tools.php:22 templates/admin/main-warnings.php:30
+msgid ""
+"Unfortunately your MariaDB version is too old to support optimizer "
+"histograms."
+msgstr ""
+
+#: templates/admin/main-tools.php:28 templates/admin/main-warnings.php:36
 msgid "Error checking Histograms, you may not have the correct permissions"
 msgstr ""
 
-#: templates/admin/main-warnings.php:44
-msgid "Histograms have been run!"
+#: templates/admin/main-tools.php:31
+msgid ""
+"To work with histograms you will need permissions to the \"mysql.*\" "
+"tables in your database with your actual user."
 msgstr ""
 
-#: templates/admin/main-warnings.php:46
-msgid "Last histogram run: "
+#: templates/admin/main-tools.php:36
+#, php-format
+msgid "Last histogram run: %1$s."
 msgstr ""
 
-#: templates/admin/main-warnings.php:50
+#: templates/admin/main-tools.php:42 templates/admin/main-warnings.php:44
+#: templates/admin/notices.php:6
 msgid "Histograms have not been run!"
 msgstr ""
 
-#: templates/admin/main-warnings.php:57
-msgid "WARNINGS Blah blah blah"
+#: templates/admin/main-tools.php:46
+msgid ""
+"Histograms assist the MariaDB optimizer in making better decisions on how "
+"to execute a query to rerieve data. For WordPress this can mean up to a "
+"30x performance improvement."
+msgstr ""
+
+#: templates/admin/main-tools.php:49
+msgid "Read more about MariaDB Histograms"
+msgstr ""
+
+#: templates/admin/main-tools.php:53
+msgid "Run histograms"
+msgstr ""
+
+#: templates/admin/main-warnings.php:16
+msgid "MariaDB Warnings"
+msgstr ""
+
+#: templates/admin/main-warnings.php:40 templates/admin/notices.php:12
+msgid "Last histogram run: "
 msgstr ""
 
 #. Plugin Name of the plugin/theme
@@ -95,20 +964,24 @@ msgstr ""
 msgid "MariaDB Health Checks"
 msgstr ""
 
-#: templates/admin/main.php:9
+#: templates/admin/main.php:7
 msgid "General"
 msgstr ""
 
-#: templates/admin/main.php:10
-msgid "Alarms"
+#: templates/admin/main.php:8
+msgid "Data"
 msgstr ""
 
-#: templates/admin/main.php:11
-msgid "Warnings"
+#: templates/admin/main.php:9
+msgid "Tools"
 msgstr ""
 
-#: templates/admin/main.php:12
-msgid "Events"
+#: templates/admin/notices.php:14
+msgid "Rerun is needed."
+msgstr ""
+
+#: templates/admin/widget.php:37
+msgid "Go to MariaDB Health Checks tool"
 msgstr ""
 
 #. Plugin URI of the plugin/theme
@@ -116,9 +989,9 @@ msgid "http://github.com/ahmu83/mariadb-health-checks/"
 msgstr ""
 
 #. Author of the plugin/theme
-msgid "Ahmad Karim"
+msgid "Cloudfest Hackathon 2023 Team"
 msgstr ""
 
 #. Author URI of the plugin/theme
-msgid "https://github.com/ahmu83"
+msgid "https://github.com/itsdarkmars/hackathon"
 msgstr ""

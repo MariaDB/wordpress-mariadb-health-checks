@@ -6,8 +6,9 @@ jQuery(document).ready(function ($) {
 			data: { action: "mdbhc_executiontime", nonce: mdbhc.nonce },
 			url: mdbhc.ajaxUrl,
 			success: function (response) {
-				let labels = [];
-				let data = [];
+				const labels = [];
+				const execTime = [];
+				const averageQueries = [];
 
 				response.data.forEach((res, i) => {
 					const resPrevDate = response[i - 1]?.date;
@@ -16,40 +17,83 @@ jQuery(document).ready(function ($) {
 					} else {
 						labels.push("");
 					}
-					data.push(res.microseconds);
+					execTime.push(Math.round(res.microseconds));
+					averageQueries.push(res["queries-num"]);
 				});
 
-				dataset = {
-					label: "Average execution time in μs during the last 7 days",
-					data: data,
-					borderWidth: 1,
-				}
+				datasets: [
+					{
+						label: "Average execution time in μS",
+						data: execTime,
+						borderWidth: 1,
+						yAxisID: "y",
+					},
+					{
+						label: "Queries",
+						data: averageQueries,
+						borderWidth: 1,
+						yAxisID: "y1",
+					},
+				]
 
 				if (response.config.high_contrast) {
 					Chart.defaults.backgroundColor = '#FFFFFF';
 					Chart.defaults.borderColor = '#000000';
 					Chart.defaults.color = '#000000';
-					dataset.borderWidth = 3;
-					dataset.borderColor = '#000000';
+					dataset[0].borderWidth = 3;
+					dataset[0].borderColor = '#000000';
+					dataset[1].borderWidth = 3;
+					dataset[1].borderColor = '#000000';
 				}
 
 				new Chart(ctx, {
 					type: "line",
 					data: {
 						labels: labels,
-						datasets: [
-							dataset,
-						],
+						datasets: datasets,
 					},
 					options: {
 						scales: {
 							y: {
 								beginAtZero: true,
+								title: {
+									display: true,
+									text: "Execution time",
+									color: "#4DAAED",
+									font: {
+										size: 20,
+										style: "normal",
+										lineHeight: 2,
+									},
+								},
+								type: "linear",
+								display: true,
+								position: "left",
+							},
+							y1: {
+								beginAtZero: true,
+								title: {
+									display: true,
+									text: "Queries",
+									color: "#FF7390",
+									font: {
+										size: 20,
+										style: "normal",
+										lineHeight: 2,
+									},
+								},
+								type: "linear",
+								display: true,
+								position: "right",
+
+								// grid line settings
+								grid: {
+									drawOnChartArea: false, // only want the grid lines for one axis to show up
+								},
 							},
 							x: {
 								ticks: {
 									callback: function (val, index) {
-										//return index % 2 === 0 ? this.getLabelForValue(val) : "";
 										if (this.getLabelForValue(val) != '') {
 											return this.getLabelForValue(val);
 										}
@@ -57,6 +101,12 @@ jQuery(document).ready(function ($) {
 								},
 							},
 						},
+						responsive: true,
+						interaction: {
+							mode: "index",
+							intersect: false,
+						},
+						stacked: false,
 					},
 				});
 			},
