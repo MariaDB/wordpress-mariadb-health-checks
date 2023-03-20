@@ -9,7 +9,7 @@ jQuery(document).ready(function ($) {
 				let labels = [];
 				let data = [];
 
-				response.forEach((res, i) => {
+				response.data.forEach((res, i) => {
 					const resPrevDate = response[i - 1]?.date;
 					if (resPrevDate !== res.date && resPrevDate !== undefined) {
 						labels.push(res.date);
@@ -19,16 +19,26 @@ jQuery(document).ready(function ($) {
 					data.push(res.microseconds);
 				});
 
+				dataset = {
+					label: "Average execution time in μs during the last 7 days",
+					data: data,
+					borderWidth: 1,
+				}
+
+				if (response.config.high_contrast) {
+					Chart.defaults.backgroundColor = '#FFFFFF';
+					Chart.defaults.borderColor = '#000000';
+					Chart.defaults.color = '#000000';
+					dataset.borderWidth = 3;
+					dataset.borderColor = '#000000';
+				}
+
 				new Chart(ctx, {
 					type: "line",
 					data: {
 						labels: labels,
 						datasets: [
-							{
-								label: "Average execution time in μs during the last 7 days",
-								data: data,
-								borderWidth: 1,
-							},
+							dataset,
 						],
 					},
 					options: {

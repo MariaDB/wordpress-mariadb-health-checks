@@ -21,6 +21,7 @@ class PluginActivation
 
 		self::create_versions_table();
 		self::create_execution_table();
+		self::create_config_table();
 
 	}
 
@@ -106,6 +107,63 @@ class PluginActivation
 
 		dbDelta($sql);
 
+	}
+
+	private static function create_config_table()
+	{
+
+		$table_contents_file = mdbhc_dir('static/table-mariadb_config-structure.sql');
+
+		if (!file_exists($table_contents_file)) return;
+
+		global $wpdb;
+
+		$charset_collate = $wpdb->get_charset_collate();
+
+		$vars = array(
+			'%%VAR_PREFIX%%' => $wpdb->prefix,
+			'%%VAR_CHARACTER%%' => $charset_collate,
+		);
+
+		$sql = file_get_contents($table_contents_file);
+		$sql = str_replace(array_keys($vars), array_values($vars), $sql);
+
+		require_once(ABSPATH . 'wp-admin/includes/upgrade.php');
+
+		dbDelta($sql);
+
+		self::insert_config_data();
+
+	}
+
+	private static function insert_config_data()
+	{
+		$table_contents_file = mdbhc_dir('static/table-mariadb_config-data.sql');
+
+		if (!file_exists($table_contents_file)) return;
+
+		global $wpdb;
+
+		$table_name = $wpdb->prefix . 'mariadb_config';
+
+		$record = $wpdb->get_var("SELECT COUNT(*) from $table_name where id = 1");
+
+		// print_r($record);exit;
+
+		if ($record) return;
+
+		$charset_collate = $wpdb->get_charset_collate();
+
+		$vars = array(
+			'%%VAR_PREFIX%%' => $wpdb->prefix,
+		);
+
+		$sql = file_get_contents($table_contents_file);
+		$sql = str_replace(array_keys($vars), array_values($vars), $sql);
+
+		require_once(ABSPATH . 'wp-admin/includes/upgrade.php');
+
+		dbDelta($sql);
 	}
 
 }

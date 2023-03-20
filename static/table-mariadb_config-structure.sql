@@ -1,0 +1,5 @@
+CREATE TABLE IF NOT EXISTS `%%VAR_PREFIX%%mariadb_config`(
+  `name` VARCHAR(32) NOT NULL,
+  `data` VARCHAR(128) NOT NULL,
+  PRIMARY KEY (`name`)
+) %%VAR_CHARACTER%%
