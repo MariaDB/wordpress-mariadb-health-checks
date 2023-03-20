@@ -60,14 +60,13 @@ jQuery(document).ready(function ($) {
 								},
 							},
 							x: {
-								// ticks: {
-								// 	callback: function (val, index) {
-								// 		//return index % 2 === 0 ? this.getLabelForValue(val) : "";
-								// 		if (this.getLabelForValue(val) != "") {
-								// 			return this.getLabelForValue(val);
-								// 		}
-								// 	},
-								// },
+								ticks: {
+									callback: function (val, index) {
+										if (this.getLabelForValue(val) != '') {
+											return this.getLabelForValue(val);
+										}
+									},
+								},
 							},
 						},
 						responsive: true,
