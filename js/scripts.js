@@ -44,12 +44,32 @@ jQuery(document).ready(function ($) {
 						scales: {
 							y: {
 								beginAtZero: true,
+								title: {
+									display: true,
+									text: "Execution time",
+									color: "#4DAAED",
+									font: {
+										size: 20,
+										style: "normal",
+										lineHeight: 2,
+									},
+								},
 								type: "linear",
 								display: true,
 								position: "left",
 							},
 							y1: {
 								beginAtZero: true,
+								title: {
+									display: true,
+									text: "Queries",
+									color: "#FF7390",
+									font: {
+										size: 20,
+										style: "normal",
+										lineHeight: 2,
+									},
+								},
 								type: "linear",
 								display: true,
 								position: "right",
