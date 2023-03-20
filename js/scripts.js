@@ -21,7 +21,7 @@ jQuery(document).ready(function ($) {
 					averageQueries.push(res["queries-num"]);
 				});
 
-				datasets: [
+				datasets = [
 					{
 						label: "Average execution time in μS",
 						data: execTime,
@@ -33,8 +33,8 @@ jQuery(document).ready(function ($) {
 						data: averageQueries,
 						borderWidth: 1,
 						yAxisID: "y1",
-					},
-				]
+					}
+				];
 
 				if (response.config.high_contrast) {
 					Chart.defaults.backgroundColor = '#FFFFFF';
