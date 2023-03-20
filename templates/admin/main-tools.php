@@ -12,7 +12,7 @@ if( $hasHistograms != 0 ) {
 	}
 }
 ?>
-<div id="metabox" class="postbox" style="max-width: 400px">
+<div id="metabox" class="postbox" style="max-width: 50%">
 	<div class="inside">
 		<div class="main">
 		<h2><span><?php _e('MariaDB Histograms', 'mdbhc'); ?></span></h2>
@@ -26,6 +26,9 @@ if( $hasHistograms != 0 ) {
 		if ($res == -1) {
 			echo '<p>';
 			_e('Error checking Histograms, you may not have the correct permissions', 'mdbhc');
+			echo '</p>';
+			echo '<p>';
+			_e('To work with histograms you will need permissions to the "mysql.*" tables in your database with your actual user.', 'mdbhc');
 			echo '</p>';
 		} else if ($res == 1) {
 			echo '<p>';
