@@ -24,7 +24,7 @@
 <?php
 	$executionTime = new MDBHC\ExecutionTime();
 	$executionTimeAjax = new MDBHC\AdminScreen();
-  echo '<table class="wp-list-table widefat striped table-view-list"><thead><tr><th>'. __('Date / Time', 'mdbhc') . "</th><th>". __('Average Exection Time (μs)', 'mdbhc'). '</th><th>' . __('Average Queries', 'mdbhc'). '</th></tr></thead>';
+  echo '<table class="wp-list-table widefat striped table-view-list"><thead><tr><th>'. __('Date / Time', 'mdbhc') . "</th><th>". __('Average Exection Time (μs)', 'mdbhc'). '</th><th>' . __('Total Queries', 'mdbhc'). '</th></tr></thead>';
 	echo '<tbody id="the-list">';
   $execTime = $executionTime->get_raw();
   foreach ($execTime as $value) {
