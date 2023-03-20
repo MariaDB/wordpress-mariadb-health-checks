@@ -43,7 +43,7 @@ if( $hasHistograms != 0 ) {
 			echo '<p>';
 		}
 		echo '<p>';
-		_e('Histograms assist the MariaDB optimizer in making better decisions on how to execute a query to rerieve data. For WordPress this can mean up to a 30x performance improvement. Click "OK" to find out more.', 'mdbhc');
+		_e('Histograms assist the MariaDB optimizer in making better decisions on how to execute a query to rerieve data. For WordPress this can mean up to a 30x performance improvement.', 'mdbhc');
 		echo '</p>';
 
 		echo '<p><a href="https://mariadb.org/mariadb-30x-faster/" target="_blank">'. __('Read more about MariaDB Histograms', 'mdbhc') . '</a>.</p>';
