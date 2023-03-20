@@ -79,15 +79,6 @@ jQuery(document).ready(function ($) {
 									drawOnChartArea: false, // only want the grid lines for one axis to show up
 								},
 							},
-							x: {
-								ticks: {
-									callback: function (val, index) {
-										if (this.getLabelForValue(val) != '') {
-											return this.getLabelForValue(val);
-										}
-									},
-								},
-							},
 						},
 						responsive: true,
 						interaction: {
