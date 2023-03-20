@@ -1,17 +1,12 @@
 <?php
 /**
- * @package MariaDB_Health_Checks
- * @version 1.0.0
- */
-
-/**
  * Plugin Name: MariaDB Health Checks
  * Plugin URI: http://github.com/ahmu83/mariadb-health-checks/
  * Description: MariaDB Health Checks
  * Version: 1.0.0
  * Plugin Prefixes: mdbhc, Mdbhc, MDBHC
- * Author: Ahmad Karim
- * Author URI: https://github.com/ahmu83
+ * Author: Cloudfest Hackathon 2023 Team
+ * Author URI: https://github.com/itsdarkmars/hackathon
  */
 
 defined( 'WPINC' ) || die;
