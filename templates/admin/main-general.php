@@ -5,7 +5,7 @@ $mariaDBUrl         = 'https://mariadb.com/kb/en/mariadb-server-release-dates/';
 $mariaDBUrlDownload = 'https://mariadb.org/download/';
 $mdbhc_GeneralData = new MDBHC\GeneralData();
 $mdbhc_gd = $mdbhc_GeneralData->get();
-$active_stab = isset($_GET['stab']) ? strval($_GET['stab']) : 'general';
+$active_stab = isset($_GET['stab']) ? wp_kses(strval($_GET['stab']), 'strip') : 'general';
 $ismariadb = null;
 if ( $dbInformation['isMariaDB'] ) {
 	$ismariadb = '(MariaDB)';
@@ -70,7 +70,7 @@ if ('general' === $active_stab) {
 				/* translators: Server version number */
 				_e( 'MariaDB version', 'mdbhc' );
 			?></td>
-			<td><?php echo $mdbhc_gd['version']; if( isset( $mdbhc_gd['version_comment'] ) ) { echo $mdbhc_gd['version_comment'];  } ?></td>
+			<td><?php echo esc_html($mdbhc_gd['version']); if( isset( $mdbhc_gd['version_comment'] ) ) { echo esc_html($mdbhc_gd['version_comment']);  } ?></td>
 		</tr>
 	<?php
 	}
@@ -82,7 +82,7 @@ if ('general' === $active_stab) {
 				/* translators: Operating system that MariaDB was built on */
 				_e( 'OS', 'mdbhc' );
 			?></td>
-			<td><?php echo $mdbhc_gd['version_compile_os']; ?></td>
+			<td><?php echo esc_html($mdbhc_gd['version_compile_os']); ?></td>
 		</tr>
 	<?php
 	}
@@ -94,7 +94,7 @@ if ('general' === $active_stab) {
 				/* translators: The machine type or architecture MariaDB was built on */
 				_e( 'Compilation Machine', 'mdbhc' );
 			?></td>
-			<td><?php echo $mdbhc_gd['version_compile_machine']; ?></td>
+			<td><?php echo esc_html($mdbhc_gd['version_compile_machine']); ?></td>
 		</tr>
 	<?php
 	}
@@ -106,7 +106,7 @@ if ('general' === $active_stab) {
 				/* translators: Source control revision id for MariaDB source code */
 				_e( 'Source version', 'mdbhc' );
 			?></td>
-			<td><?php echo $mdbhc_gd['version_source_revision']; ?></td>
+			<td><?php echo esc_html($mdbhc_gd['version_source_revision']); ?></td>
 		</tr>
 	<?php
 	}
@@ -118,7 +118,7 @@ if ('general' === $active_stab) {
 				/* translators: Version of the used malloc library. */
 				_e( 'malloc version', 'mdbhc' );
 			?></td>
-			<td><?php echo $mdbhc_gd['version_malloc_library']; ?></td>
+			<td><?php echo esc_html($mdbhc_gd['version_malloc_library']); ?></td>
 		</tr>
 	<?php
 	}
@@ -130,7 +130,7 @@ if ('general' === $active_stab) {
 				/* translators: The version of the TLS library that is being used. */
 				_e( 'SSL version', 'mdbhc' );
 			?></td>
-			<td><?php echo $mdbhc_gd['version_ssl_library']; ?></td>
+			<td><?php echo esc_html($mdbhc_gd['version_ssl_library']); ?></td>
 		</tr>
 	<?php
 	}
@@ -142,7 +142,7 @@ if ('general' === $active_stab) {
 				/* translators: By default, the MariaDB server listens for TCP/IP connections on all addresses. */
 				_e( 'Bind Address', 'mdbhc' );
 			?></td>
-			<td><?php echo $mdbhc_gd['bind_address']; ?></td>
+			<td><?php echo esc_html($mdbhc_gd['bind_address']); ?></td>
 		</tr>
 	<?php
 	}
@@ -154,7 +154,7 @@ if ('general' === $active_stab) {
 				/* translators: Port to listen for TCP/IP connections. */
 				_e( 'Port', 'mdbhc' );
 			?></td>
-			<td><?php echo $mdbhc_gd['port']; ?></td>
+			<td><?php echo esc_html($mdbhc_gd['port']); ?></td>
 		</tr>
 	<?php
 	}
@@ -166,7 +166,7 @@ if ('general' === $active_stab) {
 				/* translators: When the server starts, this variable is set to the server host name. */
 				_e( 'Hostname', 'mdbhc' );
 			?></td>
-			<td><?php echo $mdbhc_gd['hostname']; ?></td>
+			<td><?php echo esc_html($mdbhc_gd['hostname']); ?></td>
 		</tr>
 	<?php
 	}
@@ -178,7 +178,7 @@ if ('general' === $active_stab) {
 				/* translators: This system variable is used with MariaDB replication to identify unique primary and replica servers in a topology. */
 				_e( 'Server ID', 'mdbhc' );
 			?></td>
-			<td><?php echo $mdbhc_gd['server_id']; ?></td>
+			<td><?php echo esc_html($mdbhc_gd['server_id']); ?></td>
 		</tr>
 	<?php
 	}
@@ -190,7 +190,7 @@ if ('general' === $active_stab) {
 				/* translators: The version of the client/server protocol used by the MariaDB server. */
 				_e( 'Protocol version', 'mdbhc' );
 			?></td>
-			<td><?php echo $mdbhc_gd['protocol_version']; ?></td>
+			<td><?php echo esc_html($mdbhc_gd['protocol_version']); ?></td>
 		</tr>
 	<?php
 	}
@@ -202,7 +202,7 @@ if ('general' === $active_stab) {
 				/* translators: This system variable accepts a comma-separated list (with no whitespaces) of TLS protocol versions. */
 				_e( 'TLS version', 'mdbhc' );
 			?></td>
-			<td><?php echo $mdbhc_gd['tls_version']; ?></td>
+			<td><?php echo esc_html($mdbhc_gd['tls_version']); ?></td>
 		</tr>
 	<?php
 	}
@@ -214,7 +214,7 @@ if ('general' === $active_stab) {
 				/* translators: Sets the SQL Mode. */
 				_e( 'SQL Mode', 'mdbhc' );
 			?></td>
-			<td><?php echo $mdbhc_gd['sql_mode']; ?></td>
+			<td><?php echo esc_html($mdbhc_gd['sql_mode']); ?></td>
 		</tr>
 	<?php
 	}
@@ -226,7 +226,7 @@ if ('general' === $active_stab) {
 				/* translators: The default storage engine. */
 				_e( 'Storage Engine', 'mdbhc' );
 			?></td>
-			<td><?php echo $mdbhc_gd['storage_engine']; ?></td>
+			<td><?php echo esc_html($mdbhc_gd['storage_engine']); ?></td>
 		</tr>
 	<?php
 	}
@@ -238,7 +238,7 @@ if ('general' === $active_stab) {
 				/* translators: Secure transports are SSL/TLS, Unix sockets or named pipes. */
 				_e( 'Require secure transport', 'mdbhc' );
 			?></td>
-			<td><?php echo $mdbhc_gd['require_secure_transport']; ?></td>
+			<td><?php echo esc_html($mdbhc_gd['require_secure_transport']); ?></td>
 		</tr>
 	<?php
 	}
@@ -250,7 +250,7 @@ if ('general' === $active_stab) {
 				/* translators: The read_only variable is useful for replica servers to ensure no updates are accidentally made outside of what are performed on the primary. */
 				_e( 'Read only', 'mdbhc' );
 			?></td>
-			<td><?php echo $mdbhc_gd['read_only']; ?></td>
+			<td><?php echo esc_html($mdbhc_gd['read_only']); ?></td>
 		</tr>
 	<?php
 	}
@@ -262,7 +262,7 @@ if ('general' === $active_stab) {
 				/* translators: Time in seconds that the server waits for a connect packet before returning a Bad handshake. */
 				_e( 'Connection timeout', 'mdbhc' );
 			?></td>
-			<td><?php echo $mdbhc_gd['connect_timeout']; ?></td>
+			<td><?php echo esc_html($mdbhc_gd['connect_timeout']); ?></td>
 		</tr>
 	<?php
 	}
@@ -275,7 +275,7 @@ if ('general' === $active_stab) {
 				/* translators: Time in seconds that the server waits for a connection to become active before closing it. */
 				_e( 'Waiting timeout', 'mdbhc' );
 			?></td>
-			<td><?php echo $mdbhc_gd['wait_timeout']; ?></td>
+			<td><?php echo esc_html($mdbhc_gd['wait_timeout']); ?></td>
 		</tr>
 	<?php
 	}
@@ -287,7 +287,7 @@ if ('general' === $active_stab) {
 				/* translators: Read-only variable indicating the number of warnings, errors and notes resulting from the most recent statement that generated messages. */
 				_e( 'Waiting count', 'mdbhc' );
 			?></td>
-			<td><?php echo $mdbhc_gd['warning_count']; ?></td>
+			<td><?php echo esc_html($mdbhc_gd['warning_count']); ?></td>
 		</tr>
 	<?php
 	}
@@ -299,7 +299,7 @@ if ('general' === $active_stab) {
 				/* translators: Server license */
 				_e( 'License', 'mdbhc' );
 			?></td>
-			<td><?php echo $mdbhc_gd['license']; ?></td>
+			<td><?php echo esc_html($mdbhc_gd['license']); ?></td>
 		</tr>
 	<?php
 	}
@@ -311,7 +311,7 @@ if ('general' === $active_stab) {
 				/* translators: If set to 1, the default, all queries are committed immediately. */
 				_e( 'Auto Commit', 'mdbhc' );
 			?></td>
-			<td><?php echo $mdbhc_gd['autocommit']; ?></td>
+			<td><?php echo esc_html($mdbhc_gd['autocommit']); ?></td>
 		</tr>
 	<?php
 	}
@@ -323,7 +323,7 @@ if ('general' === $active_stab) {
 				/* translators: MariaDB allows concurrent INSERTs and SELECTs for MyISAM tables with no free blocks in the data (deleted rows in the middle). */
 				_e( 'Concurrent Insert', 'mdbhc' );
 			?></td>
-			<td><?php echo $mdbhc_gd['concurrent_insert']; ?></td>
+			<td><?php echo esc_html($mdbhc_gd['concurrent_insert']); ?></td>
 		</tr>
 	<?php
 	}
@@ -335,7 +335,7 @@ if ('general' === $active_stab) {
 				/* translators: Read-only variable denoting the number of errors from the most recent statement in the current session that generated errors. */
 				_e( 'Error count', 'mdbhc' );
 			?></td>
-			<td><?php echo $mdbhc_gd['error_count']; ?></td>
+			<td><?php echo esc_html($mdbhc_gd['error_count']); ?></td>
 		</tr>
 	<?php
 	}
@@ -347,7 +347,7 @@ if ('general' === $active_stab) {
 				/* translators: Number of days after which the binary log can be automatically removed. */
 				_e( 'Expire log days', 'mdbhc' );
 			?></td>
-			<td><?php echo $mdbhc_gd['expire_logs_days']; ?></td>
+			<td><?php echo esc_html($mdbhc_gd['expire_logs_days']); ?></td>
 		</tr>
 	<?php
 	}
@@ -373,7 +373,7 @@ if ('logs' === $active_stab) {
 				/* translators: Specifies the name of the error log. */
 				_e( 'Error', 'mdbhc' );
 			?></td>
-			<td><?php echo $mdbhc_gd['log_error']; ?></td>
+			<td><?php echo esc_html($mdbhc_gd['log_error']); ?></td>
 		</tr>
 	<?php
 	}
@@ -385,7 +385,7 @@ if ('logs' === $active_stab) {
 				/* translators: If set to 0, the default unless the --slow-query-log option is used, the slow query log is disabled, while if set to 1 (both global and session variables), the slow query log is enabled. */
 				_e( 'Slow queries', 'mdbhc' );
 			?></td>
-			<td><?php echo $mdbhc_gd['slow_query_log']; ?></td>
+			<td><?php echo esc_html($mdbhc_gd['slow_query_log']); ?></td>
 		</tr>
 	<?php
 	}
@@ -397,7 +397,7 @@ if ('logs' === $active_stab) {
 				/* translators: Name of the slow query log file. */
 				_e( 'Slow queries file', 'mdbhc' );
 			?></td>
-			<td><?php echo $mdbhc_gd['slow_query_log_file']; ?></td>
+			<td><?php echo esc_html($mdbhc_gd['slow_query_log_file']); ?></td>
 		</tr>
 	<?php
 	}
@@ -422,7 +422,7 @@ if ('locale' === $active_stab) {
 			<td><a href="https://mariadb.com/kb/en/server-system-variables/#date_format" target="_blank" title="<?php _e( 'Unused.', 'mdbhc' ); ?>"><small><span class="dashicons dashicons-info"></span></small></a> <?php
 				_e( 'Date format', 'mdbhc' );
 			?></td>
-			<td><?php echo $mdbhc_gd['date_format']; ?></td>
+			<td><?php echo esc_html($mdbhc_gd['date_format']); ?></td>
 		</tr>
 	<?php
 	}
@@ -433,7 +433,7 @@ if ('locale' === $active_stab) {
 			<td><a href="https://mariadb.com/kb/en/server-system-variables/#time_format" target="_blank" title="<?php _e( 'Unused.', 'mdbhc' ); ?>"><small><span class="dashicons dashicons-info"></span></small></a> <?php
 				_e( 'Time format', 'mdbhc' );
 			?></td>
-			<td><?php echo $mdbhc_gd['time_format']; ?></td>
+			<td><?php echo esc_html($mdbhc_gd['time_format']); ?></td>
 		</tr>
 	<?php
 	}
@@ -444,7 +444,7 @@ if ('locale' === $active_stab) {
 			<td><a href="https://mariadb.com/kb/en/server-system-variables/#datetime_format" target="_blank" title="<?php _e( 'Unused.', 'mdbhc' ); ?>"><small><span class="dashicons dashicons-info"></span></small></a> <?php
 				_e( 'Date/Time format', 'mdbhc' );
 			?></td>
-			<td><?php echo $mdbhc_gd['datetime_format']; ?></td>
+			<td><?php echo esc_html($mdbhc_gd['datetime_format']); ?></td>
 		</tr>
 	<?php
 	}
@@ -456,7 +456,7 @@ if ('locale' === $active_stab) {
 				/* translators: Sets the time for the client. */
 				_e( 'Timestamp', 'mdbhc' );
 			?></td>
-			<td><?php echo $mdbhc_gd['timestamp']; ?></td>
+			<td><?php echo esc_html($mdbhc_gd['timestamp']); ?></td>
 		</tr>
 	<?php
 	}
@@ -468,7 +468,7 @@ if ('locale' === $active_stab) {
 				/* translators: The global value determines the default time zone for sessions that connect. */
 				_e( 'TimeZone', 'mdbhc' );
 			?></td>
-			<td><?php echo $mdbhc_gd['time_zone']; ?></td>
+			<td><?php echo esc_html($mdbhc_gd['time_zone']); ?></td>
 		</tr>
 	<?php
 	}
@@ -480,7 +480,7 @@ if ('locale' === $active_stab) {
 				/* translators: This system variable can be specified as a locale name. */
 				_e( 'Locale messages', 'mdbhc' );
 			?></td>
-			<td><?php echo $mdbhc_gd['lc_messages']; ?></td>
+			<td><?php echo esc_html($mdbhc_gd['lc_messages']); ?></td>
 		</tr>
 	<?php
 	}
@@ -492,7 +492,7 @@ if ('locale' === $active_stab) {
 				/* translators: The locale that determines the language used for the date and time functions. */
 				_e( 'Locale time names', 'mdbhc' );
 			?></td>
-			<td><?php echo $mdbhc_gd['lc_time_names']; ?></td>
+			<td><?php echo esc_html($mdbhc_gd['lc_time_names']); ?></td>
 		</tr>
 	<?php
 	}
@@ -518,7 +518,7 @@ if ('conn' === $active_stab) {
 				/* translators: The maximum number of simultaneous client connections. */
 				_e( 'Max Connections', 'mdbhc' );
 			?></td>
-			<td><?php echo $mdbhc_gd['max_connections']; ?></td>
+			<td><?php echo esc_html($mdbhc_gd['max_connections']); ?></td>
 		</tr>
 	<?php
 	}
@@ -530,7 +530,7 @@ if ('conn' === $active_stab) {
 				/* translators: Maximum simultaneous connections permitted for each user account. */
 				_e( 'Max Users Connections', 'mdbhc' );
 			?></td>
-			<td><?php echo $mdbhc_gd['max_user_connections']; ?></td>
+			<td><?php echo esc_html($mdbhc_gd['max_user_connections']); ?></td>
 		</tr>
 	<?php
 	}
@@ -542,7 +542,7 @@ if ('conn' === $active_stab) {
 				/* translators: Limit to the number of successive failed connects from a host before the host is blocked from making further connections. */
 				_e( 'Max Connect errors', 'mdbhc' );
 			?></td>
-			<td><?php echo $mdbhc_gd['max_connect_errors']; ?></td>
+			<td><?php echo esc_html($mdbhc_gd['max_connect_errors']); ?></td>
 		</tr>
 	<?php
 	}
@@ -554,7 +554,7 @@ if ('conn' === $active_stab) {
 				/* translators: Specifies the maximum number of messages stored for display by SHOW ERRORS and SHOW WARNINGS statements. */
 				_e( 'Max error count', 'mdbhc' );
 			?></td>
-			<td><?php echo $mdbhc_gd['max_error_count']; ?></td>
+			<td><?php echo esc_html($mdbhc_gd['max_error_count']); ?></td>
 		</tr>
 	<?php
 	}
@@ -580,7 +580,7 @@ if ('histogram' === $active_stab) {
 				/* translators: Number of bytes used for a histogram. */
 				_e( 'Size', 'mdbhc' );
 			?></td>
-			<td><?php echo $mdbhc_gd['histogram_size']; ?></td>
+			<td><?php echo esc_html($mdbhc_gd['histogram_size']); ?></td>
 		</tr>
 	<?php
 	}
@@ -592,7 +592,7 @@ if ('histogram' === $active_stab) {
 				/* translators: Specifies the type of histograms created by ANALYZE.  */
 				_e( 'Type', 'mdbhc' );
 			?></td>
-			<td><?php echo $mdbhc_gd['histogram_type']; ?></td>
+			<td><?php echo esc_html($mdbhc_gd['histogram_type']); ?></td>
 		</tr>
 	<?php
 	}
@@ -618,7 +618,7 @@ if( isset( $mdbhc_gd['character_set_client'] ) ) {
 				/* translators: Determines the character set for queries arriving from the client. */
 				_e( 'Client', 'mdbhc' );
 			?></td>
-			<td><?php echo $mdbhc_gd['character_set_client']; ?></td>
+			<td><?php echo esc_html($mdbhc_gd['character_set_client']); ?></td>
 		</tr>
 	<?php
 	}
@@ -630,7 +630,7 @@ if( isset( $mdbhc_gd['character_set_client'] ) ) {
 				/* translators: Character set used for number to string conversion, as well as for literals that don't have a character set introducer. */
 				_e( 'Connection', 'mdbhc' );
 			?></td>
-			<td><?php echo $mdbhc_gd['character_set_connection']; ?></td>
+			<td><?php echo esc_html($mdbhc_gd['character_set_connection']); ?></td>
 		</tr>
 	<?php
 	}
@@ -642,7 +642,7 @@ if( isset( $mdbhc_gd['character_set_client'] ) ) {
 				/* translators: Character set used by the default database, and set by the server whenever the default database is changed. */
 				_e( 'Database', 'mdbhc' );
 			?></td>
-			<td><?php echo $mdbhc_gd['character_set_database']; ?></td>
+			<td><?php echo esc_html($mdbhc_gd['character_set_database']); ?></td>
 		</tr>
 	<?php
 	}
@@ -654,7 +654,7 @@ if( isset( $mdbhc_gd['character_set_client'] ) ) {
 				/* translators: The character set for the filesystem. */
 				_e( 'Filesystem', 'mdbhc' );
 			?></td>
-			<td><?php echo $mdbhc_gd['character_set_filesystem']; ?></td>
+			<td><?php echo esc_html($mdbhc_gd['character_set_filesystem']); ?></td>
 		</tr>
 	<?php
 	}
@@ -666,7 +666,7 @@ if( isset( $mdbhc_gd['character_set_client'] ) ) {
 				/* translators: Character set used for results and error messages returned to the client. */
 				_e( 'Reults', 'mdbhc' );
 			?></td>
-			<td><?php echo $mdbhc_gd['character_set_results']; ?></td>
+			<td><?php echo esc_html($mdbhc_gd['character_set_results']); ?></td>
 		</tr>
 	<?php
 	}
@@ -678,7 +678,7 @@ if( isset( $mdbhc_gd['character_set_client'] ) ) {
 				/* translators: Character set used by the server to store identifiers */
 				_e( 'Server', 'mdbhc' );
 			?></td>
-			<td><?php echo $mdbhc_gd['character_set_server']; ?></td>
+			<td><?php echo esc_html($mdbhc_gd['character_set_server']); ?></td>
 		</tr>
 	<?php
 	}
@@ -690,7 +690,7 @@ if( isset( $mdbhc_gd['character_set_client'] ) ) {
 				/* translators: Character set used by the server to store identifiers */
 				_e( 'System', 'mdbhc' );
 			?></td>
-			<td><?php echo $mdbhc_gd['character_set_system']; ?></td>
+			<td><?php echo esc_html($mdbhc_gd['character_set_system']); ?></td>
 		</tr>
 	<?php
 	}
@@ -716,7 +716,7 @@ if ('collation' === $active_stab) {
 				/* translators: Collation used for the connection character set. */
 				_e( 'Connection', 'mdbhc' );
 			?></td>
-			<td><?php echo $mdbhc_gd['collation_connection']; ?></td>
+			<td><?php echo esc_html($mdbhc_gd['collation_connection']); ?></td>
 		</tr>
 	<?php
 	}
@@ -728,7 +728,7 @@ if ('collation' === $active_stab) {
 				/* translators: Collation used for the default database. */
 				_e( 'Database', 'mdbhc' );
 			?></td>
-			<td><?php echo $mdbhc_gd['collation_database']; ?></td>
+			<td><?php echo esc_html($mdbhc_gd['collation_database']); ?></td>
 		</tr>
 	<?php
 	}
@@ -740,7 +740,7 @@ if ('collation' === $active_stab) {
 				/* translators: Default collation used by the server. */
 				_e( 'Server', 'mdbhc' );
 			?></td>
-			<td><?php echo $mdbhc_gd['collation_server']; ?></td>
+			<td><?php echo esc_html($mdbhc_gd['collation_server']); ?></td>
 		</tr>
 	<?php
 	}
@@ -766,7 +766,7 @@ if ('has' === $active_stab) {
 				/* translators: If the zlib compression library is accessible to the server. */
 				_e( 'Compress', 'mdbhc' );
 			?></td>
-			<td><?php echo $mdbhc_gd['have_compress']; ?></td>
+			<td><?php echo esc_html($mdbhc_gd['have_compress']); ?></td>
 		</tr>
 	<?php
 	}
@@ -778,7 +778,7 @@ if ('has' === $active_stab) {
 				/* translators: If the crypt() system call is available */
 				_e( 'Crypt', 'mdbhc' );
 			?></td>
-			<td><?php echo $mdbhc_gd['have_crypt']; ?></td>
+			<td><?php echo esc_html($mdbhc_gd['have_crypt']); ?></td>
 		</tr>
 	<?php
 	}
@@ -790,7 +790,7 @@ if ('has' === $active_stab) {
 				/* translators: If the server supports dynamic loading of plugins */
 				_e( 'Dynamic Loading', 'mdbhc' );
 			?></td>
-			<td><?php echo $mdbhc_gd['have_dynamic_loading']; ?></td>
+			<td><?php echo esc_html($mdbhc_gd['have_dynamic_loading']); ?></td>
 		</tr>
 	<?php
 	}
@@ -802,7 +802,7 @@ if ('has' === $active_stab) {
 				/* translators: If the server supports spatial data types */
 				_e( 'Geometry', 'mdbhc' );
 			?></td>
-			<td><?php echo $mdbhc_gd['have_geometry']; ?></td>
+			<td><?php echo esc_html($mdbhc_gd['have_geometry']); ?></td>
 		</tr>
 	<?php
 	}
@@ -814,7 +814,7 @@ if ('has' === $active_stab) {
 				/* translators: This variable shows whether the server is linked with OpenSSL */
 				_e( 'OpenSSL', 'mdbhc' );
 			?></td>
-			<td><?php echo $mdbhc_gd['have_openssl']; ?></td>
+			<td><?php echo esc_html($mdbhc_gd['have_openssl']); ?></td>
 		</tr>
 	<?php
 	}
@@ -826,7 +826,7 @@ if ('has' === $active_stab) {
 				/* translators: If statement profiling is available. */
 				_e( 'Profiling', 'mdbhc' );
 			?></td>
-			<td><?php echo $mdbhc_gd['have_profiling']; ?></td>
+			<td><?php echo esc_html($mdbhc_gd['have_profiling']); ?></td>
 		</tr>
 	<?php
 	}
@@ -838,7 +838,7 @@ if ('has' === $active_stab) {
 				/* translators: *** Please, some context here *** */
 				_e( 'Query Cache', 'mdbhc' );
 			?></td>
-			<td><?php echo $mdbhc_gd['have_query_cache']; ?></td>
+			<td><?php echo esc_html($mdbhc_gd['have_query_cache']); ?></td>
 		</tr>
 	<?php
 	}
@@ -850,7 +850,7 @@ if ('has' === $active_stab) {
 				/* translators: If RTREE indexes (used for spatial indexes) are available. */
 				_e( 'RTREE indexes', 'mdbhc' );
 			?></td>
-			<td><?php echo $mdbhc_gd['have_rtree_keys']; ?></td>
+			<td><?php echo esc_html($mdbhc_gd['have_rtree_keys']); ?></td>
 		</tr>
 	<?php
 	}
@@ -862,7 +862,7 @@ if ('has' === $active_stab) {
 				/* translators: This variable shows whether the server supports using TLS to secure connections. */
 				_e( 'SSL', 'mdbhc' );
 			?></td>
-			<td><?php echo $mdbhc_gd['have_ssl']; ?></td>
+			<td><?php echo esc_html($mdbhc_gd['have_ssl']); ?></td>
 		</tr>
 	<?php
 	}
@@ -874,7 +874,7 @@ if ('has' === $active_stab) {
 				/* translators: This system variable can be used to determine whether the server supports symbolic links. */
 				_e( 'Symlink', 'mdbhc' );
 			?></td>
-			<td><?php echo $mdbhc_gd['have_symlink']; ?></td>
+			<td><?php echo esc_html($mdbhc_gd['have_symlink']); ?></td>
 		</tr>
 	<?php
 	}
@@ -900,7 +900,7 @@ if ('innodb' === $active_stab) {
 				/* translators: InnoDB version number. */
 				_e( 'Version', 'mdbhc' );
 			?></td>
-			<td><?php echo $mdbhc_gd['innodb_version']; ?></td>
+			<td><?php echo esc_html($mdbhc_gd['innodb_version']); ?></td>
 		</tr>
 	<?php
 	}

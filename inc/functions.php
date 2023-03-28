@@ -54,18 +54,10 @@ function mariadb_health_check_widget_render() {
 
 }
 
-function mdbhc_enable_errors() {
-
-	@ini_set( 'display_errors', 1 );
-	@ini_set( 'display_startup_errors', 1 );
-	@error_reporting( E_ALL );
-
-}
-
 function printr( $obj, $title = '' ) {
 
 	echo '<pre>';
-	echo '<h3>' . $title . '</h3>';
+	echo '<h3>' . esc_html($title) . '</h3>';
 	print_r( $obj );
 	echo '</pre>';
 
