@@ -10,8 +10,6 @@ class GeneralData {
 
     public function __construct() {
 
-        mdbhc_enable_errors();
-
     }
 
     public static function get() {
