@@ -33,9 +33,10 @@ class AdminScreen
 
 	public function admin_enqueues()
 	{
-
 		wp_enqueue_style('mdbhc-styles', mdbhc_url('/css/styles.css'), array(), false, 'all');
 		wp_enqueue_script('mdbhc--chartjs', mdbhc_url('js/chart.4.2.1.min.js'), array(), false, true);
+		wp_enqueue_script('mdbhc--moment', mdbhc_url('js/moment.js'), array(), false, true);
+		wp_enqueue_script('mdbhc--adapter-moment', mdbhc_url('js/chartjs-adapter-moment.js'), array(), false, true);
 		wp_enqueue_script('mdbhc--scripts', mdbhc_url('js/scripts.js'), ['jquery'], false, true);
 		wp_add_inline_script('mdbhc--scripts', 'const mdbhc = ' . json_encode([
 			'dir' => plugin_dir_path(__DIR__),

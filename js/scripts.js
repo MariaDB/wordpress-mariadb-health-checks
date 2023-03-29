@@ -11,14 +11,11 @@ jQuery(document).ready(function ($) {
 				const averageQueries = [];
 
 				response.data.forEach((res, i) => {
-					const resPrevDate = response[i - 1]?.date;
-					if (resPrevDate !== res.date && resPrevDate !== undefined) {
-						labels.push(res.date);
-					} else {
-						labels.push("");
-					}
-					execTime.push(Math.round(res.microseconds));
-					averageQueries.push(res["queries-num"]);
+					labels.push(res.date * 1000);
+					var time_vals = {x: res.date * 1000, y: Math.round(res.microseconds)};
+					var query_vals = {x: res.date * 1000, y: res["queries-num"]};
+					execTime.push(time_vals);
+					averageQueries.push(query_vals);
 				});
 
 				var datasets = [
@@ -96,12 +93,9 @@ jQuery(document).ready(function ($) {
 								},
 							},
 							x: {
-								ticks: {
-									callback: function (val, index) {
-										if (this.getLabelForValue(val) != "") {
-											return this.getLabelForValue(val);
-										}
-									},
+								type: 'time',
+								time: {
+									unit: 'hour',
 								},
 							},
 						},

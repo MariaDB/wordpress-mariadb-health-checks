@@ -32,4 +32,5 @@ if ($hasHistograms != 0) {
 		echo '<tr class="inactive"><td>' . date("Y-m-d H:00", strtotime('-' . $value['hours-ago'] . ' hour')) . '</td><td>' . round($value['avg-seconds'] * 1000000) . '</td><td>' . round($value['queries-num']) . '</td></tr>';
   }
 	echo '</tbody></table>';
+	$executionTime->cleanup_data();
 ?>
