@@ -985,7 +985,7 @@ msgid "Go to MariaDB Health Checks tool"
 msgstr ""
 
 #. Plugin URI of the plugin/theme
-msgid "http://github.com/ahmu83/mariadb-health-checks/"
+msgid "http://github.com/MariaDB/wordpress-mariadb-health-checks"
 msgstr ""
 
 #. Author of the plugin/theme
@@ -993,5 +993,5 @@ msgid "Cloudfest Hackathon 2023 Team"
 msgstr ""
 
 #. Author URI of the plugin/theme
-msgid "https://github.com/itsdarkmars/hackathon"
+msgid "https://github.com/MariaDB/wordpress-mariadb-health-checks"
 msgstr ""

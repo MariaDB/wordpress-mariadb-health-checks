@@ -28,7 +28,7 @@ Extract the contents of the ZIP and upload the contents to the `/wp-content/plug
 
 == Contributors ==
 
-* [Plugin contributors at GitHub](https://github.com/itsdarkmars/hackathon/graphs/contributors)
+* [Plugin contributors at GitHub](https://github.com/MariaDB/wordpress-mariadb-health-checks/graphs/contributors)
 
 
 == Changelog ==
