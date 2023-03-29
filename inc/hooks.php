@@ -114,5 +114,16 @@ function add_custom_test( $tests ) {
 	return $tests;
 }
 
+function cleanup_execution_time()
+{
+	$executionTime = new MDBHC\ExecutionTime();
+	$executionTime->cleanup_data();
+}
+
 add_filter( 'site_status_tests', 'add_custom_test' );
 add_action('shutdown', 'mdbhc_save_average_query_execution_time');
+add_action('cleanup_execution_hook', 'cleanup_execution_time');
+
+if ( ! wp_next_scheduled( 'cleanup_execution_hook' ) ) {
+	wp_schedule_event( time(), 'daily', 'cleanup_execution_hook' );
+}
