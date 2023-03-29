@@ -7,6 +7,7 @@
  * Plugin Prefixes: mdbhc, Mdbhc, MDBHC
  * Author: Cloudfest Hackathon 2023 Team
  * Author URI: https://github.com/MariaDB/wordpress-mariadb-health-checks
+ * GitHub Plugin URI: https://github.com/MariaDB/wordpress-mariadb-health-checks
  */
 
 defined( 'WPINC' ) || die;
