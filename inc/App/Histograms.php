@@ -19,8 +19,10 @@ class Histograms {
 
 	public function check() {
 		global $wpdb;
+		$supp = $wpdb->suppress_errors(true);
 		$query = "show create table mysql.table_stats;";
 		$ret = $wpdb->get_var($query);
+		$wpdb->suppress_errors($supp);
 		if (!$ret) {
 			return -1;
 		}
@@ -39,12 +41,15 @@ class Histograms {
 		$query = "select UPDATE_TIME from information_schema.tables where table_schema='mysql' and table_name='table_stats';";
 		$result = $wpdb->get_var($query);
 		if (is_null($result)) {
-			$result = 0;
+			$result = "Unknown";
 		}
 		return $result;
 	}
 
 	public function isReRunNeeded() {
+		if ($this->last() == "Unknown") {
+			return true;
+		}
 		$lastRun = new DateTime($this->last());
 		$now = new DateTime();
 
