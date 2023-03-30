@@ -1,7 +1,7 @@
 <?php
 /**
  * @package MariaDB_Health_Checks
- * @version 1.0.0
+ * @version 1.0.1
  */
 
 namespace MDBHC;

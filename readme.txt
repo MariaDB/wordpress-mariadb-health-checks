@@ -4,7 +4,7 @@ Tags: mariadb, site health, performance
 Requires at least: 5.2
 Tested up to: 6.2
 Requires PHP: 7.2
-Stable tag: 1.0.0
+Stable tag: 1.0.1
 License: GPLv2
 
 MariaDB Health Checks helps you debug your MariaDB database with advanced information from your database.
@@ -32,6 +32,14 @@ Extract the contents of the ZIP and upload the contents to the `/wp-content/plug
 
 
 == Changelog ==
+
+= 1.0.1 =
+
+* Graph data cleanup moved to cron
+* Suppressed DB error that doesn't need to go to log (as we catch and use it anyway)
+* Fix project URLs
+* Add GitHub Plugin URL
+* Fix issues found by WordPress review team
 
 = 1.0.0 =
 
