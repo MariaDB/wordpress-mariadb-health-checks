@@ -5,7 +5,7 @@ $mariaDBUrl         = 'https://mariadb.com/kb/en/mariadb-server-release-dates/';
 $mariaDBUrlDownload = 'https://mariadb.org/download/';
 $mdbhc_GeneralData = new MDBHC\GeneralData();
 $mdbhc_gd = $mdbhc_GeneralData->get();
-$active_stab = isset($_GET['stab']) ? wp_kses(strval($_GET['stab']), 'strip') : 'general';
+$active_stab = isset($_GET['stab']) ? sanitize_text_field(strval($_GET['stab'])) : 'general';
 $ismariadb = null;
 if ( $dbInformation['isMariaDB'] ) {
 	$ismariadb = '(MariaDB)';

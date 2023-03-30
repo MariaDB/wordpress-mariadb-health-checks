@@ -27,7 +27,8 @@
 	esc_html_e($button_name . ' High Contrast chart');
 	echo '</p>';
 	echo '<p>';
-	echo '<a href="?page=mdbhc&tab=accessibility&' . $get_paramter . '" class="button button-primary">' . $button_name . '</a>';
+	$url = '?page=mdbhc&tab=accessibility&' . $get_paramter;
+	echo '<a href="' . esc_url($url) . '" class="button button-primary">' . sanitize_text_field($button_name) . '</a>';
 	echo '</p>';
 ?>
 		</div>
