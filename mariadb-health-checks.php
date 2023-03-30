@@ -5,6 +5,7 @@
  * Description: MariaDB Health Checks
  * Version: 1.0.1
  * Plugin Prefixes: mdbhc, Mdbhc, MDBHC
+ * Text Domain: mariadb-health-checks
  * Author: Cloudfest Hackathon 2023 Team
  * Author URI: https://github.com/MariaDB/wordpress-mariadb-health-checks
  * GitHub Plugin URI: https://github.com/MariaDB/wordpress-mariadb-health-checks
