@@ -1,0 +1,32 @@
+# Copyright (C) 2023 Cloudfest Hackathon 2023 Team
+# This file is distributed under the same license as the MariaDB Health Checks plugin.
+msgid ""
+msgstr ""
+"Project-Id-Version: MariaDB Health Checks 1.0.0\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/wordpress-mariadb-health-checks\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2023-03-30T10:19:32+00:00\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"X-Generator: WP-CLI 2.4.0\n"
+"X-Domain: wordpress-mariadb-health-checks\n"
+
+#. Plugin Name of the plugin
+#. Description of the plugin
+msgid "MariaDB Health Checks"
+msgstr ""
+
+#. Plugin URI of the plugin
+msgid "http://github.com/MariaDB/wordpress-mariadb-health-checks"
+msgstr ""
+
+#. Author of the plugin
+msgid "Cloudfest Hackathon 2023 Team"
+msgstr ""
+
+#. Author URI of the plugin
+msgid "https://github.com/MariaDB/wordpress-mariadb-health-checks"
+msgstr ""

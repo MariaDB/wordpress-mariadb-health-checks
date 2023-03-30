@@ -1,4 +1,4 @@
-<h3><?php _e( 'Accessibility', 'mdbhc' ); ?></h3>
+<h3><?php _e( 'Accessibility', 'mariadb-health-checks' ); ?></h3>
 <?php
 	if (isset($_GET['activate'])) {
 		MDBHC\Accessibility::activate();

@@ -13,7 +13,7 @@
 		}
 	}
 ?>
-<h3><?php _e( 'MariaDB Warnings', 'mdbhc' ); ?></h3>
+<h3><?php _e( 'MariaDB Warnings', 'mariadb-health-checks' ); ?></h3>
 <?php
 	echo '<p>DB Execution Time Graph</p>';
 	$executionTime = new MDBHC\ExecutionTime();
