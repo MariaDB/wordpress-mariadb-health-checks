@@ -20,7 +20,7 @@ require_once 'inc/bootstrap.php';
 register_activation_hook( __FILE__, 'mdbhc_activation' );
 
 function wpauto_plugin_init() {
-	load_plugin_textdomain( 'mdbhc', false, dirname( plugin_basename( __FILE__ ) ) . '/languages' );
+	load_plugin_textdomain( 'mariadb-health-checks', false, dirname( plugin_basename( __FILE__ ) ) . '/languages' );
 }
 
 function mdbhc_activation() {

@@ -1,9 +1,9 @@
-<h3><?php _e( 'MariaDB Data', 'mdbhc' ); ?></h3>
-<p><?php _e( 'Here you have the information of the MariaDB queries', 'mdbhc' ); ?></p>
-<p><?php _e( 'In the graph you can see, in blue, the average execution time per hour of the queries of your site. In red, you can see the number of queries that have been executed.', 'mdbhc' ); ?></p>
-<p><?php _e( 'At the bottom you have the graph data in table format for a better reading.', 'mdbhc' ); ?></p>
+<h3><?php _e( 'MariaDB Data', 'mariadb-health-checks' ); ?></h3>
+<p><?php _e( 'Here you have the information of the MariaDB queries', 'mariadb-health-checks' ); ?></p>
+<p><?php _e( 'In the graph you can see, in blue, the average execution time per hour of the queries of your site. In red, you can see the number of queries that have been executed.', 'mariadb-health-checks' ); ?></p>
+<p><?php _e( 'At the bottom you have the graph data in table format for a better reading.', 'mariadb-health-checks' ); ?></p>
 
-<h4><?php _e('Query performance graph', 'mdbhc'); ?></h4>
+<h4><?php _e('Query performance graph', 'mariadb-health-checks'); ?></h4>
 <?php
 $histograms    = new MDBHC\Histograms();
 $hasHistograms = $histograms->hasHistograms();
@@ -20,12 +20,12 @@ if ($hasHistograms != 0) {
 ?>
 <div><canvas id="mdbhc-chart"></canvas></div>
 
-<h4><?php _e('Query performance table', 'mdbhc'); ?></h4>
+<h4><?php _e('Query performance table', 'mariadb-health-checks'); ?></h4>
 
 <?php
 	$executionTime = new MDBHC\ExecutionTime();
 	$executionTimeAjax = new MDBHC\AdminScreen();
-  echo '<table class="wp-list-table widefat striped table-view-list"><thead><tr><th>'. __('Date / Time', 'mdbhc') . "</th><th>". __('Average Exection Time (μs)', 'mdbhc'). '</th><th>' . __('Total Queries', 'mdbhc'). '</th></tr></thead>';
+  echo '<table class="wp-list-table widefat striped table-view-list"><thead><tr><th>'. __('Date / Time', 'mariadb-health-checks') . "</th><th>". __('Average Exection Time (μs)', 'mariadb-health-checks'). '</th><th>' . __('Total Queries', 'mariadb-health-checks'). '</th></tr></thead>';
 	echo '<tbody id="the-list">';
   $execTime = $executionTime->get_raw();
   foreach ($execTime as $value) {

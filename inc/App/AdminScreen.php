@@ -74,7 +74,7 @@ class AdminScreen
 
 		wp_add_dashboard_widget(
 			'mariadb_health_check_widget',
-			esc_html__('MariaDB Health Check', 'mdbhc'),
+			esc_html__('MariaDB Health Check', 'mariadb-health-checks'),
 			'mariadb_health_check_widget_render'
 		);
 		/*
