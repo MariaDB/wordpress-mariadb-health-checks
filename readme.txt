@@ -14,7 +14,14 @@ MariaDB Health Checks helps you debug your MariaDB database with advanced inform
 MariaDB Health Checks helps you debug your MariaDB database with advanced information from your database.
 
 - Shows relevant information about the Database, Logs, Locale, Connnections, Character Set and Collation, and Options.
-- Shows a Histogram (7 days by  default) and its data.
+- Shows a graph of the MariaDB average execution time (7 days by default) and its data.
+- Allows enabling of MariaDB optimizer histograms for improved MariaDB performance.
+- Checks that your MariaDB version is still supported.
+
+== Screenshots ==
+
+1. Graph of MariaDB average execution time and number of queries
+2. Graph of MariaDB Health Checks Panel
 
 == Installation ==
 
@@ -29,7 +36,6 @@ Extract the contents of the ZIP and upload the contents to the `/wp-content/plug
 == Contributors ==
 
 * [Plugin contributors at GitHub](https://github.com/MariaDB/wordpress-mariadb-health-checks/graphs/contributors)
-
 
 == Changelog ==
 
