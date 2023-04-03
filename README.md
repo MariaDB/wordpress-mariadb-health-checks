@@ -11,6 +11,6 @@ It is designed to provide information and tools for your MariaDB server behind W
 
 The first version provides information about the end of life status of your MariaDB Server, a graph of average access times for WordPress database queries, and the ability to build histograms for WordPress tables. In addition it adds a couple of checks to the Site Health plugin of WordPress.
 
-![Graph](screenshots/graph.png)
+![Graph](assets/screenshot-2.png)
 
-![Panel](screenshots/panel.png)
+![Panel](assets/screenshot-1.png)
