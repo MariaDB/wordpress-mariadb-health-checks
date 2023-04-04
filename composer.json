@@ -1,5 +1,6 @@
 {
   "name": "ahmadkarim/mariadb-health-checks",
+  "type": "wordpress-plugin",
   "authors": [
     {
       "name": "Ahmad Karim",
