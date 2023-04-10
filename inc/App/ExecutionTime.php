@@ -11,7 +11,11 @@ class ExecutionTime {
 	public static function save_average_query_execution_time() {
 		global $wpdb;
 
-		$average = $wpdb->total_query_time / $wpdb->num_queries;
+		$average = null;
+
+		if( !empty( $wpdb->total_query_time ) && !empty( $wpdb->num_queries ) && $wpdb->num_queries > 0 ) {
+			$average = $wpdb->total_query_time / $wpdb->num_queries;
+		}
 
 		$wpdb->insert(
 			$wpdb->prefix . self::TABLE_NAME,
