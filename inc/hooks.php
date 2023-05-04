@@ -11,6 +11,7 @@ global $wpdb;
 class MDB_DB extends wpdb
 {
 	public $total_query_time = 0.0;
+	private $first_run = true;
 
 	public function loadFromParentObj($parentObj)
 	{
@@ -22,6 +23,13 @@ class MDB_DB extends wpdb
 
 	public function query($query)
 	{
+		// This covers the case where WPDB is used before this plugin is loaded.
+		// It stops the attempt to clean up a query twice.
+		if ($this->first_run) {
+			$this->first_run = false;
+			$this->result = null;
+			parent::flush();
+		}
 		$this->timer_start();
 		$result = parent::query($query);
 		$this->total_query_time += $this->timer_stop();
