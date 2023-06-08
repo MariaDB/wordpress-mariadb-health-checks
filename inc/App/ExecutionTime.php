@@ -13,12 +13,10 @@ class ExecutionTime {
 
 		if( !empty( $wpdb->total_query_time ) && !empty( $wpdb->num_queries ) && $wpdb->num_queries > 0 ) {
 
-			$average = $wpdb->total_query_time / $wpdb->num_queries;
-
 			$wpdb->insert(
 				$wpdb->prefix . self::TABLE_NAME,
 				[
-					'seconds'     => $average,
+					'seconds'     => $wpdb->total_query_time,
 					'queries_num' => $wpdb->num_queries
 				]
 			);
@@ -28,7 +26,7 @@ class ExecutionTime {
 
 	public function get() {
 		global $wpdb;
-		$query     = "select timestampdiff(HOUR, ts, now()) as 'hours-ago', avg(seconds) as 'avg-seconds', sum(queries_num) as 'queries-num' from " . $wpdb->prefix . "mariadb_execution_time where date(ts) >= now() - interval 7 day group by timestampdiff(HOUR, ts, now()) order by ts;";
+		$query     = "select timestampdiff(HOUR, ts, now()) as 'hours-ago', sum(seconds) / sum(queries_num) as 'avg-seconds', sum(queries_num) as 'queries-num', avg(seconds) as 'avg-seconds-per-page', avg(queries_num) as 'avg-queries-per-page' from " . $wpdb->prefix . "mariadb_execution_time where date(ts) >= now() - interval 7 day group by timestampdiff(HOUR, ts, now()) order by ts;";
 		$resultsDb = $wpdb->get_results($query, ARRAY_A);
 		$results   = [];
 		foreach ($resultsDb as $k => $r) {
@@ -37,6 +35,8 @@ class ExecutionTime {
 			$results[$k]['date'] = $date;
 			$results[$k]['microseconds'] = $r['avg-seconds'] * 1000000;
 			$results[$k]['queries-num']  = $r['queries-num'];
+			$results[$k]['queries-per-page']  = $r['avg-queries-per-page'];
+			$results[$k]['time-per-page']  = $r['avg-seconds-per-page'] * 1000;
 		}
 
 		return $results;
@@ -45,7 +45,7 @@ class ExecutionTime {
 	public function get_raw()
 	{
 		global $wpdb;
-		$query     = "select timestampdiff(HOUR, ts, now()) as 'hours-ago', avg(seconds) as 'avg-seconds', sum(queries_num) as 'queries-num' from " . $wpdb->prefix . "mariadb_execution_time where date(ts) >= now() - interval 7 day group by timestampdiff(HOUR, ts, now()) order by ts;";
+		$query     = "select timestampdiff(HOUR, ts, now()) as 'hours-ago', sum(seconds) / sum(queries_num) as 'avg-seconds', sum(queries_num) as 'queries-num', avg(seconds) as 'avg-seconds-per-page', avg(queries_num) as 'avg-queries-per-page' from " . $wpdb->prefix . "mariadb_execution_time where date(ts) >= now() - interval 7 day group by timestampdiff(HOUR, ts, now()) order by ts;";
 		return $wpdb->get_results( $query, ARRAY_A );
 	}
 
