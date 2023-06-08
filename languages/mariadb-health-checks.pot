@@ -2,7 +2,7 @@
 # This file is distributed under the same license as the MariaDB Health Checks plugin.
 msgid ""
 msgstr ""
-"Project-Id-Version: MariaDB Health Checks 1.0.2\n"
+"Project-Id-Version: MariaDB Health Checks 1.0.3\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/wordpress-mariadb-health-checks\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
