@@ -1,6 +1,6 @@
 <h3><?php _e( 'MariaDB Data', 'mariadb-health-checks' ); ?></h3>
 <p><?php _e( 'Here you have the information of the MariaDB queries', 'mariadb-health-checks' ); ?></p>
-<p><?php _e( 'In the graph you can see, in blue, the average execution time per hour of the queries of your site. In red, you can see the number of queries that have been executed.', 'mariadb-health-checks' ); ?></p>
+<p><?php _e( 'In the graph you can see, in blue, the average database time per page load of your site. In red, you can see the number of queries that have been executed per page load.', 'mariadb-health-checks' ); ?></p>
 <p><?php _e( 'At the bottom you have the graph data in table format for a better reading.', 'mariadb-health-checks' ); ?></p>
 
 <h4><?php _e('Query performance graph', 'mariadb-health-checks'); ?></h4>
