@@ -39,6 +39,12 @@ Extract the contents of the ZIP and upload the contents to the `/wp-content/plug
 
 == Changelog ==
 
+= 1.1.0 =
+
+* Make graph data easier to understand
+* Add more useful metrics to the graph
+* Fix version check for MariaDB < 10.2
+
 = 1.0.3 =
 
 * Fix DB error that can happen on install

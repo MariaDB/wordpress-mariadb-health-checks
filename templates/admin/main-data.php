@@ -25,11 +25,11 @@ if ($hasHistograms != 0) {
 <?php
 	$executionTime = new MDBHC\ExecutionTime();
 	$executionTimeAjax = new MDBHC\AdminScreen();
-  echo '<table class="wp-list-table widefat striped table-view-list"><thead><tr><th>'. __('Date / Time', 'mariadb-health-checks') . "</th><th>". __('Average Exection Time (μs)', 'mariadb-health-checks'). '</th><th>' . __('Total Queries', 'mariadb-health-checks'). '</th></tr></thead>';
+  echo '<table class="wp-list-table widefat striped table-view-list"><thead><tr><th>'. __('Date / Time', 'mariadb-health-checks') . '</th><th>' . __('Queries Per Page', 'mariadb-health-checks') . '</th><th>' . __('Average DB Time Per Page (ms)', 'mariadb-health-checks') . "</th><th>". __('Average DB Time Per Query (μs)', 'mariadb-health-checks'). '</th><th>' . __('Total Queries', 'mariadb-health-checks') . '</th></tr></thead>';
 	echo '<tbody id="the-list">';
   $execTime = $executionTime->get_raw();
   foreach ($execTime as $value) {
-		echo '<tr class="inactive"><td>' . date("Y-m-d H:00", strtotime('-' . $value['hours-ago'] . ' hour')) . '</td><td>' . round($value['avg-seconds'] * 1000000) . '</td><td>' . round($value['queries-num']) . '</td></tr>';
+		echo '<tr class="inactive"><td>' . date("Y-m-d H:00", strtotime('-' . $value['hours-ago'] . ' hour')) . '</td><td>' . round($value['avg-queries-per-page']) . '</td><td>' . round($value['avg-seconds-per-page'] * 1000) . '</td><td>' . round($value['avg-seconds'] * 1000000) . '</td><td>' . round($value['queries-num']) . '</td></tr>';
   }
 	echo '</tbody></table>';
 ?>

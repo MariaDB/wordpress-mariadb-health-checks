@@ -9,28 +9,53 @@ jQuery(document).ready(function ($) {
 				const labels = [];
 				const execTime = [];
 				const averageQueries = [];
+				const queriesPerPage = [];
+				const timePerPage = [];
+				var greenColor = "#00FF00";
+				var orangeColor = "#FFA500";
+
 
 				response.data.forEach((res, i) => {
 					labels.push(res.date * 1000);
 					var time_vals = {x: res.date * 1000, y: Math.round(res.microseconds)};
 					var query_vals = {x: res.date * 1000, y: res["queries-num"]};
+					var query_per_page_vals = {x: res.date * 1000, y: Math.round(res["queries-per-page"])};
+					var time_per_page_vals = {x: res.date * 1000, y: Math.round(res['time-per-page'])};
 					execTime.push(time_vals);
 					averageQueries.push(query_vals);
+					queriesPerPage.push(query_per_page_vals);
+					timePerPage.push(time_per_page_vals);
 				});
 
 				var datasets = [
 					{
-						label: "Average execution time in μS",
-						data: execTime,
+						label: "Average DB time per page in ms",
+						data: timePerPage,
 						borderWidth: 1,
 						yAxisID: "y",
 					},
 					{
-						label: "Queries",
+						label: "Average queries per page",
+						data: queriesPerPage,
+						borderWidth: 1,
+						yAxisID: "y1",
+					},
+					{
+						label: "Average DB time per query in μs",
+						data: execTime,
+						borderWidth: 1,
+						yAxisID: "y",
+						hidden: true
+					},
+					{
+						label: "Total hourly queries",
 						data: averageQueries,
 						borderWidth: 1,
 						yAxisID: "y1",
-					}
+						hidden: true
+					},
+
+
 				];
 
 				var redColor  = "#FF7390";
@@ -45,6 +70,10 @@ jQuery(document).ready(function ($) {
 					datasets[0].borderColor = blueColor;
 					datasets[1].borderWidth = 3;
 					datasets[1].borderColor = redColor;
+					datasets[2].borderWidth = 3;
+					datasets[2].borderColor = greenColor;
+					datasets[3].borderWidth = 3;
+					datasets[3].borderColor = orangeColor;
 				}
 
 				new Chart(ctx, {
@@ -59,7 +88,7 @@ jQuery(document).ready(function ($) {
 								beginAtZero: true,
 								title: {
 									display: true,
-									text: "Execution time",
+									text: "DB time",
 									color: blueColor,
 									font: {
 										size: 20,
@@ -75,7 +104,7 @@ jQuery(document).ready(function ($) {
 								beginAtZero: true,
 								title: {
 									display: true,
-									text: "Queries",
+									text: "Query count",
 									color: redColor,
 									font: {
 										size: 20,
