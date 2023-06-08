@@ -72,7 +72,7 @@ function printr( $obj, $title = '' ) {
 function getFullDatabaseVersion() {
 	global $wpdb;
 
-	return $wpdb->get_var( "SELECT VERSION();" );
+	return $wpdb->get_var( "SELECT VARIABLE_VALUE FROM INFORMATION_SCHEMA.GLOBAL_VARIABLES WHERE VARIABLE_NAME = 'VERSION';" );
 }
 
 /**

@@ -70,7 +70,7 @@ if ('general' === $active_stab) {
 				/* translators: Server version number */
 				_e( 'MariaDB version', 'mariadb-health-checks' );
 			?></td>
-			<td><?php echo esc_html($mdbhc_gd['version']); if( isset( $mdbhc_gd['version_comment'] ) ) { echo esc_html($mdbhc_gd['version_comment']);  } ?></td>
+			<td><?php echo esc_html($mdbhc_gd['version']);?> <?php if( isset( $mdbhc_gd['version_comment'] ) ) { echo esc_html($mdbhc_gd['version_comment']);  } ?></td>
 		</tr>
 	<?php
 	}
