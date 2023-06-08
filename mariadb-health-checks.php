@@ -19,6 +19,8 @@ define( 'MDBHC_DIR', plugin_dir_path( __FILE__ ) );
 require_once 'inc/bootstrap.php';
 
 register_activation_hook( __FILE__, 'mdbhc_activation' );
+add_action( 'upgrader_process_complete', 'mdbhc_activation' );
+
 
 function wpauto_plugin_init() {
 	load_plugin_textdomain( 'mariadb-health-checks', false, dirname( plugin_basename( __FILE__ ) ) . '/languages' );

@@ -18,6 +18,7 @@ class PluginActivation
 	{
 
 		self::create_versions_table();
+		self::insert_versions_data();
 		self::create_execution_table();
 		self::create_config_table();
 
@@ -68,10 +69,7 @@ class PluginActivation
 		$sql = str_replace(array_keys($vars), array_values($vars), $sql);
 
 		require_once(ABSPATH . 'wp-admin/includes/upgrade.php');
-
 		dbDelta($sql);
-
-		self::insert_versions_data();
 
 	}
 
@@ -87,10 +85,10 @@ class PluginActivation
 		$table_name = $wpdb->prefix . 'mariadb_versions';
 
 		$record = $wpdb->get_var("SELECT COUNT(*) from $table_name where id = 1");
-
-		// print_r($record);exit;
-
-		if ($record) return;
+		if ($record) {
+			$sql = "TRUNCATE TABLE " . $wpdb->prefix . "mariadb_versions;";
+			$wpdb->query($sql);
+		}
 
 		$charset_collate = $wpdb->get_charset_collate();
 
@@ -144,7 +142,7 @@ class PluginActivation
 
 		$table_name = $wpdb->prefix . 'mariadb_config';
 
-		$record = $wpdb->get_var("SELECT COUNT(*) from $table_name where id = 1");
+		$record = $wpdb->get_var("SELECT COUNT(*) from $table_name");
 
 		// print_r($record);exit;
 
