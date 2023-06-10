@@ -44,6 +44,7 @@ Extract the contents of the ZIP and upload the contents to the `/wp-content/plug
 * Make graph data easier to understand
 * Add more useful metrics to the graph
 * Fix version check for MariaDB < 10.2
+* Drop plugin's tables on uninstall
 
 = 1.0.3 =
 
