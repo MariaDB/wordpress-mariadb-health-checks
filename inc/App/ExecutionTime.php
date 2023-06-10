@@ -11,16 +11,30 @@ class ExecutionTime {
 	public static function save_average_query_execution_time() {
 		global $wpdb;
 
-		if( !empty( $wpdb->total_query_time ) && !empty( $wpdb->num_queries ) && $wpdb->num_queries > 0 ) {
-
-			$wpdb->insert(
-				$wpdb->prefix . self::TABLE_NAME,
-				[
-					'seconds'     => $wpdb->total_query_time,
-					'queries_num' => $wpdb->num_queries
-				]
-			);
-
+		if ( defined( 'SAVEQUERIES' ) && SAVEQUERIES ) {
+			if ( !empty($wpdb->queries) && !empty($wpdb->num_queries) && $wpdb->num_queries > 0) {
+				$query_times = array();
+				foreach ( $wpdb->queries as $key => $value ) {
+					$query_times[] = $value[1];
+				}
+				$wpdb->insert(
+					$wpdb->prefix . self::TABLE_NAME,
+					[
+						'seconds'     => array_sum($query_times),
+						'queries_num' => $wpdb->num_queries
+					]
+				);
+			}
+		} else {
+			if( !empty( $wpdb->total_query_time ) && !empty( $wpdb->num_queries ) && $wpdb->num_queries > 0 ) {
+				$wpdb->insert(
+					$wpdb->prefix . self::TABLE_NAME,
+					[
+						'seconds'     => $wpdb->total_query_time,
+						'queries_num' => $wpdb->num_queries
+					]
+				);
+			}
 		}
 	}
 
