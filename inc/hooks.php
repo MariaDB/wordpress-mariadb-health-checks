@@ -37,9 +37,12 @@ class MDB_DB extends wpdb
 	}
 }
 
-$tmp = new MDB_DB(DB_USER, DB_PASSWORD, DB_NAME, DB_HOST);
-$tmp->loadFromParentObj($wpdb);
-$wpdb = $tmp;
+// If savequeries is set, let's not duplicate effort
+if ( !defined( 'SAVEQUERIES' ) || !SAVEQUERIES ) {
+	$tmp = new MDB_DB(DB_USER, DB_PASSWORD, DB_NAME, DB_HOST);
+	$tmp->loadFromParentObj($wpdb);
+	$wpdb = $tmp;
+}
 
 function mdbhc_save_average_query_execution_time()
 {
