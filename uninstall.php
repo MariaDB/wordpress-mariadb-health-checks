@@ -23,3 +23,23 @@
 if ( ! defined( 'WP_UNINSTALL_PLUGIN' ) ) {
 	exit;
 }
+
+$table_contents_file = plugin_dir_path( __FILE__ ) . 'static/table-uninstall.sql';
+
+if (!file_exists($table_contents_file)) exit;
+
+global $wpdb;
+
+$charset_collate = $wpdb->get_charset_collate();
+
+$vars = array(
+	'%%VAR_PREFIX%%' => $wpdb->prefix,
+	'%%VAR_CHARACTER%%' => $charset_collate,
+);
+
+$sql = file_get_contents($table_contents_file);
+$sql = str_replace(array_keys($vars), array_values($vars), $sql);
+
+require_once(ABSPATH . 'wp-admin/includes/upgrade.php');
+
+$wpdb->query($sql);
