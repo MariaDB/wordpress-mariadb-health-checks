@@ -2,14 +2,14 @@
 # This file is distributed under the same license as the MariaDB Health Checks plugin.
 msgid ""
 msgstr ""
-"Project-Id-Version: MariaDB Health Checks 1.0.3\n"
+"Project-Id-Version: MariaDB Health Checks 1.1.0\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/wordpress-mariadb-health-checks\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2023-03-30T10:40:29+00:00\n"
+"POT-Creation-Date: 2023-06-15T12:26:58+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.7.1\n"
 "X-Domain: mariadb-health-checks\n"
@@ -75,7 +75,7 @@ msgid "Here you have the information of the MariaDB queries"
 msgstr ""
 
 #: templates/admin/main-data.php:3
-msgid "In the graph you can see, in blue, the average execution time per hour of the queries of your site. In red, you can see the number of queries that have been executed."
+msgid "In the graph you can see, in blue, the average database time per page load of your site. In red, you can see the number of queries that have been executed per page load."
 msgstr ""
 
 #: templates/admin/main-data.php:4
@@ -95,7 +95,15 @@ msgid "Date / Time"
 msgstr ""
 
 #: templates/admin/main-data.php:28
-msgid "Average Exection Time (μs)"
+msgid "Queries Per Page"
+msgstr ""
+
+#: templates/admin/main-data.php:28
+msgid "Average DB Time Per Page (ms)"
+msgstr ""
+
+#: templates/admin/main-data.php:28
+msgid "Average DB Time Per Query (μs)"
 msgstr ""
 
 #: templates/admin/main-data.php:28
